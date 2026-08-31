@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Starter · 预备单元 · 互动学习</title>
+<title>Unit 6 · How do you feel? · 互动学习</title>
 <link rel="stylesheet" href="../style.css">
 <style>
 .word-card .word-img {
@@ -73,10 +73,20 @@
 </head>
 <body>
 
+<nav class="breadcrumb">
+  <a href="../../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <a href="../index.html">三年级上册 G3A</a>
+  <span class="sep">/</span>
+  <span>UNIT6</span>
+</nav>
+
 <header class="unit-header">
   <a class="back" href="../index.html">← 返回选单元</a>
-  <h1>Starter · 预备单元</h1>
-  <p class="sub">字母 · 季节 · 数字 · 国家 · ⏱ 5:19</p>
+  <h1>Unit 6 · How do you feel?</h1>
+  <p class="sub">心情 · 感受 · ⏱ 4:46</p>
 </header>
 <!-- name 字段含 "Unit N" 标签,title 是真实内容,避免重复 -->
 
@@ -86,28 +96,28 @@
   <button class="stage-tab" data-stage="play"><span class="icon">🎮</span>游戏</button>
 </nav>
 
-<audio id="unit-audio" src="../assets/audio/starter.mp3" preload="metadata"></audio>
+<audio id="unit-audio" src="../assets/audio/unit_6.mp3" preload="metadata"></audio>
 <audio id="word-audio" src="" preload="auto"></audio>
 
 <!-- 阶段 1: 预习 -->
 <section class="stage active" id="stage-preview">
   <h2>👀 预习:看教材原图猜词</h2>
-  <p class="stage-intro">看图猜词,点 🔊 跟读 / 🎵 原声</p>
+  <p class="stage-intro">Writing a letter to future me</p>
 
   <div class="audio-bar">
     <button class="play-btn" id="play-unit">▶</button>
     <div class="audio-info">
-      <div class="audio-title">📖 教材原声 (整段 5:19)</div>
+      <div class="audio-title">📖 教材原声 (整段 4:46)</div>
       <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
       <div class="audio-time">
         <span id="unit-cur">0:00</span>
-        <span id="unit-dur">5:19</span>
+        <span id="unit-dur">4:46</span>
       </div>
     </div>
   </div>
 
   <div class="section-tabs">
-    <button class="section-btn" data-section="countries" data-audio="sections/countries.mp3"><span class="icon">🔊</span>countries</button><button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="numbers" data-audio="sections/numbers.mp3"><span class="icon">🔊</span>numbers</button><button class="section-btn" data-section="seasons" data-audio="sections/seasons.mp3"><span class="icon">🔊</span>seasons</button><button class="section-btn" data-section="the_alphabet" data-audio="sections/the_alphabet.mp3"><span class="icon">🔊</span>the_alphabet</button>
+    <button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="fun_time" data-audio="sections/fun_time.mp3"><span class="icon">🎮</span>趣味</button><button class="section-btn" data-section="sound" data-audio="sections/sound.mp3"><span class="icon">🔤</span>字母</button><button class="section-btn" data-section="story_time" data-audio="sections/story_time.mp3"><span class="icon">📖</span>故事</button><button class="section-btn" data-section="talking_time" data-audio="sections/talking_time.mp3"><span class="icon">💬</span>对话</button><button class="section-btn" data-section="topic_words" data-audio="sections/topic_words.mp3"><span class="icon">📚</span>单词</button><button class="section-btn" data-section="sound_prac" data-audio="practice/sound.mp3"><span class="icon">🎯</span>字母 (练习)</button><button class="section-btn" data-section="topic_words_prac" data-audio="practice/topic_words.mp3"><span class="icon">🎯</span>单词 (练习)</button>
   </div>
 
   <div style="text-align: center; margin-bottom: 20px;">
@@ -115,77 +125,77 @@
   </div>
 
   <div id="textbook-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; align-items: center; justify-content: center; padding: 20px;" onclick="this.style.display='none'">
-    <img src="../assets/img/starter/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
+    <img src="../assets/img/unit6/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
   </div>
 
   <div class="word-card-grid">
-            <div class="word-card" data-word="alphabet">
-              <img class="word-img" src="../assets/img/starter/alphabet.jpg" alt="alphabet" onerror="this.style.display='none'" />
-              <div class="word">alphabet</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="happy">
+              <img class="word-img" src="../assets/img/unit6/happy.jpg" alt="happy" onerror="this.style.display='none'" />
+              <div class="word">happy</div>
+              <div class="meaning">开心</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="spring">
-              <img class="word-img" src="../assets/img/starter/spring.jpg" alt="spring" onerror="this.style.display='none'" />
-              <div class="word">spring</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="sad">
+              <img class="word-img" src="../assets/img/unit6/sad.jpg" alt="sad" onerror="this.style.display='none'" />
+              <div class="word">sad</div>
+              <div class="meaning">难过</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="summer">
-              <img class="word-img" src="../assets/img/starter/summer.jpg" alt="summer" onerror="this.style.display='none'" />
-              <div class="word">summer</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="good">
+              <img class="word-img" src="../assets/img/unit6/good.jpg" alt="good" onerror="this.style.display='none'" />
+              <div class="word">good</div>
+              <div class="meaning">好</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="autumn">
-              <img class="word-img" src="../assets/img/starter/autumn.jpg" alt="autumn" onerror="this.style.display='none'" />
-              <div class="word">autumn</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="bad">
+              <img class="word-img" src="../assets/img/unit6/bad.jpg" alt="bad" onerror="this.style.display='none'" />
+              <div class="word">bad</div>
+              <div class="meaning">坏</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="winter">
-              <img class="word-img" src="../assets/img/starter/winter.jpg" alt="winter" onerror="this.style.display='none'" />
-              <div class="word">winter</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="excited">
+              <img class="word-img" src="../assets/img/unit6/excited.jpg" alt="excited" onerror="this.style.display='none'" />
+              <div class="word">excited</div>
+              <div class="meaning">兴奋</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="one">
-              <img class="word-img" src="../assets/img/starter/one.jpg" alt="one" onerror="this.style.display='none'" />
-              <div class="word">one</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="scared">
+              <img class="word-img" src="../assets/img/unit6/scared.jpg" alt="scared" onerror="this.style.display='none'" />
+              <div class="word">scared</div>
+              <div class="meaning">害怕</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="two">
-              <img class="word-img" src="../assets/img/starter/two.jpg" alt="two" onerror="this.style.display='none'" />
-              <div class="word">two</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="tired">
+              <img class="word-img" src="../assets/img/unit6/tired.jpg" alt="tired" onerror="this.style.display='none'" />
+              <div class="word">tired</div>
+              <div class="meaning">累</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="three">
-              <img class="word-img" src="../assets/img/starter/three.jpg" alt="three" onerror="this.style.display='none'" />
-              <div class="word">three</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="unhappy">
+              <img class="word-img" src="../assets/img/unit6/unhappy.jpg" alt="unhappy" onerror="this.style.display='none'" />
+              <div class="word">unhappy</div>
+              <div class="meaning">不开心</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
@@ -232,7 +242,7 @@
 </section>
 
 <script>
-const WORDS = [{"word": "alphabet", "meaning": "", "img": "../assets/img/starter/alphabet.jpg", "orig": "../assets/audio/starter/words/alphabet.mp3"}, {"word": "spring", "meaning": "", "img": "../assets/img/starter/spring.jpg", "orig": "../assets/audio/starter/words/spring.mp3"}, {"word": "summer", "meaning": "", "img": "../assets/img/starter/summer.jpg", "orig": "../assets/audio/starter/words/summer.mp3"}, {"word": "autumn", "meaning": "", "img": "../assets/img/starter/autumn.jpg", "orig": "../assets/audio/starter/words/autumn.mp3"}, {"word": "winter", "meaning": "", "img": "../assets/img/starter/winter.jpg", "orig": "../assets/audio/starter/words/winter.mp3"}, {"word": "one", "meaning": "", "img": "../assets/img/starter/one.jpg", "orig": "../assets/audio/starter/words/one.mp3"}, {"word": "two", "meaning": "", "img": "../assets/img/starter/two.jpg", "orig": "../assets/audio/starter/words/two.mp3"}, {"word": "three", "meaning": "", "img": "../assets/img/starter/three.jpg", "orig": "../assets/audio/starter/words/three.mp3"}];
+const WORDS = [{"word": "happy", "meaning": "开心", "img": "../assets/img/unit6/happy.jpg", "orig": "../assets/audio/unit6/words/happy.mp3"}, {"word": "sad", "meaning": "难过", "img": "../assets/img/unit6/sad.jpg", "orig": "../assets/audio/unit6/words/sad.mp3"}, {"word": "good", "meaning": "好", "img": "../assets/img/unit6/good.jpg", "orig": "../assets/audio/unit6/words/good.mp3"}, {"word": "bad", "meaning": "坏", "img": "../assets/img/unit6/bad.jpg", "orig": "../assets/audio/unit6/words/bad.mp3"}, {"word": "excited", "meaning": "兴奋", "img": "../assets/img/unit6/excited.jpg", "orig": "../assets/audio/unit6/words/excited.mp3"}, {"word": "scared", "meaning": "害怕", "img": "../assets/img/unit6/scared.jpg", "orig": "../assets/audio/unit6/words/scared.mp3"}, {"word": "tired", "meaning": "累", "img": "../assets/img/unit6/tired.jpg", "orig": "../assets/audio/unit6/words/tired.mp3"}, {"word": "unhappy", "meaning": "不开心", "img": "../assets/img/unit6/unhappy.jpg", "orig": "../assets/audio/unit6/words/unhappy.mp3"}];
 
 // 复用 unit1 的逻辑
 

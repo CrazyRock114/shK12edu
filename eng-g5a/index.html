@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语 · 五年级上册 · 互动学习</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <span>五年级上册 G5A</span>
+</nav>
+
+<div class="hero">
+  <h1>📚 英语 · 五年级上册</h1>
+  <p class="subtitle">上海教育出版社 · 义务教育教科书（五•四学制） · 选一个 Unit 开始学习</p>
+</div>
+
+<main class="unit-grid" id="unit-grid"></main>
+
+<footer style="text-align: center; padding: 30px 20px; color: var(--text-soft); font-size: 0.85rem;">
+  <p><a href="../index.html" style="color: var(--text-soft); text-decoration: none;">← 返回学习中心</a></p>
+  <p style="margin-top: 8px; opacity: 0.7;">英语 · 五年级上册 G5A · Built for 石头小朋友</p>
+</footer>
+
+<script>
+const UNITS = [
+  {id:"starter", num:"Starter", name:"Starter", desc:"家庭·学校·序数·月份", page:9, dur:"5:51", color:"#ff6b6b"},
+  {id:"unit1",   num:"Unit 1",  name:"Clubs in our school",      desc:"社团·摄影·艺术·园艺",  page:16, dur:"5:35", color:"#4ecdc4"},
+  {id:"unit2",   num:"Unit 2",  name:"Traditional games",        desc:"传统游戏·舞龙·长拳",  page:24, dur:"5:21", color:"#ffe66d"},
+  {id:"unit3",   num:"Unit 3",  name:"Amazing plants",           desc:"植物·根茎叶·花朵",     page:32, dur:"5:51", color:"#a8e6cf"},
+  {id:"unit4",   num:"Unit 4",  name:"Together with animals",    desc:"野生动物园·动物",       page:40, dur:"6:02", color:"#ffd3b6"},
+  {id:"unit5",   num:"Unit 5",  name:"Seeing a doctor",          desc:"看病·医生·华佗",        page:48, dur:"6:16", color:"#ffaaa5"},
+  {id:"unit6",   num:"Unit 6",  name:"Try my best",              desc:"努力·过去·未来",        page:56, dur:"5:33", color:"#ff8b94"},
+  {id:"unit7",   num:"Unit 7",  name:"Great scientists",         desc:"伟大科学家·袁隆平",     page:64, dur:"5:41", color:"#a0c4ff"},
+  {id:"unit8",   num:"Unit 8",  name:"Useful inventions",        desc:"有用发明·轮子",         page:72, dur:"5:35", color:"#bdb2ff"},
+  {id:"unit9",   num:"Unit 9",  name:"Using computers",          desc:"电脑·密码·Simon 答疑",  page:80, dur:"6:01", color:"#ffc6ff"},
+  {id:"unit10",  num:"Unit 10", name:"A greener life",           desc:"环保·减少·再利用",      page:88, dur:"6:14", color:"#caffbf"}
+];
+
+const grid = document.getElementById('unit-grid');
+UNITS.forEach((u, i) => {
+  const a = document.createElement('a');
+  a.className = 'unit-card' + (i === 0 ? ' highlight' : '');
+  a.href = `units/unit.html?u=${u.id}`;
+  a.style.borderTop = `4px solid ${u.color}`;
+  a.innerHTML = `
+    <div class="unit-num">${u.num}</div>
+    <div class="unit-name">${u.name}</div>
+    <div class="unit-meta">${u.desc}</div>
+    <div class="unit-time">⏱ ${u.dur} · 教材 p.${u.page}</div>
+  `;
+  grid.appendChild(a);
+});
+</script>
+</body>
+</html>

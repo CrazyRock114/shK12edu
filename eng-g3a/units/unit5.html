@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unit 9 · Special days in China · 互动学习</title>
+<title>Unit 5 · I can help · 互动学习</title>
 <link rel="stylesheet" href="../style.css">
 <style>
 .word-card .word-img {
@@ -73,10 +73,20 @@
 </head>
 <body>
 
+<nav class="breadcrumb">
+  <a href="../../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <a href="../index.html">三年级上册 G3A</a>
+  <span class="sep">/</span>
+  <span>UNIT5</span>
+</nav>
+
 <header class="unit-header">
   <a class="back" href="../index.html">← 返回选单元</a>
-  <h1>Unit 9 · Special days in China</h1>
-  <p class="sub">节日 · 庆祝 · ⏱ 4:35</p>
+  <h1>Unit 5 · I can help</h1>
+  <p class="sub">帮忙 · 家务 · ⏱ 4:42</p>
 </header>
 <!-- name 字段含 "Unit N" 标签,title 是真实内容,避免重复 -->
 
@@ -86,28 +96,28 @@
   <button class="stage-tab" data-stage="play"><span class="icon">🎮</span>游戏</button>
 </nav>
 
-<audio id="unit-audio" src="../assets/audio/unit_9.mp3" preload="metadata"></audio>
+<audio id="unit-audio" src="../assets/audio/unit_5.mp3" preload="metadata"></audio>
 <audio id="word-audio" src="" preload="auto"></audio>
 
 <!-- 阶段 1: 预习 -->
 <section class="stage active" id="stage-preview">
   <h2>👀 预习:看教材原图猜词</h2>
-  <p class="stage-intro">Making a quiz about computers</p>
+  <p class="stage-intro">Giving health tips</p>
 
   <div class="audio-bar">
     <button class="play-btn" id="play-unit">▶</button>
     <div class="audio-info">
-      <div class="audio-title">📖 教材原声 (整段 4:35)</div>
+      <div class="audio-title">📖 教材原声 (整段 4:42)</div>
       <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
       <div class="audio-time">
         <span id="unit-cur">0:00</span>
-        <span id="unit-dur">4:35</span>
+        <span id="unit-dur">4:42</span>
       </div>
     </div>
   </div>
 
   <div class="section-tabs">
-    <button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="fun_time" data-audio="sections/fun_time.mp3"><span class="icon">🎮</span>趣味</button><button class="section-btn" data-section="reading_time" data-audio="sections/reading_time.mp3"><span class="icon">📖</span>阅读</button><button class="section-btn" data-section="sound" data-audio="sections/sound.mp3"><span class="icon">🔤</span>字母</button><button class="section-btn" data-section="talking_time" data-audio="sections/talking_time.mp3"><span class="icon">💬</span>对话</button><button class="section-btn" data-section="topic_words" data-audio="sections/topic_words.mp3"><span class="icon">📚</span>单词</button><button class="section-btn" data-section="sound_prac" data-audio="practice/sound.mp3"><span class="icon">🎯</span>字母 (练习)</button><button class="section-btn" data-section="talking_time_prac" data-audio="practice/talking_time.mp3"><span class="icon">🎯</span>对话 (练习)</button><button class="section-btn" data-section="topic_words_prac" data-audio="practice/topic_words.mp3"><span class="icon">🎯</span>单词 (练习)</button>
+    <button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="song_time" data-audio="sections/song_time.mp3"><span class="icon">🎵</span>歌曲</button><button class="section-btn" data-section="sound" data-audio="sections/sound.mp3"><span class="icon">🔤</span>字母</button><button class="section-btn" data-section="story_time" data-audio="sections/story_time.mp3"><span class="icon">📖</span>故事</button><button class="section-btn" data-section="talking_time" data-audio="sections/talking_time.mp3"><span class="icon">💬</span>对话</button><button class="section-btn" data-section="topic_words" data-audio="sections/topic_words.mp3"><span class="icon">📚</span>单词</button><button class="section-btn" data-section="song_time_prac" data-audio="practice/song_time.mp3"><span class="icon">🎯</span>歌曲 (练习)</button><button class="section-btn" data-section="sound_prac" data-audio="practice/sound.mp3"><span class="icon">🎯</span>字母 (练习)</button><button class="section-btn" data-section="topic_words_prac" data-audio="practice/topic_words.mp3"><span class="icon">🎯</span>单词 (练习)</button>
   </div>
 
   <div style="text-align: center; margin-bottom: 20px;">
@@ -115,68 +125,68 @@
   </div>
 
   <div id="textbook-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; align-items: center; justify-content: center; padding: 20px;" onclick="this.style.display='none'">
-    <img src="../assets/img/unit9/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
+    <img src="../assets/img/unit5/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
   </div>
 
   <div class="word-card-grid">
-            <div class="word-card" data-word="special days">
-              <img class="word-img" src="../assets/img/unit9/special_days.jpg" alt="special days" onerror="this.style.display='none'" />
-              <div class="word">special days</div>
-              <div class="meaning">特别的日子</div>
+            <div class="word-card" data-word="help">
+              <img class="word-img" src="../assets/img/unit5/help.jpg" alt="help" onerror="this.style.display='none'" />
+              <div class="word">help</div>
+              <div class="meaning">帮忙</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="the Double Ninth Festival">
-              <img class="word-img" src="../assets/img/unit9/the_Double_Ninth_Festival.jpg" alt="the Double Ninth Festival" onerror="this.style.display='none'" />
-              <div class="word">the Double Ninth Festival</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="cook">
+              <img class="word-img" src="../assets/img/unit5/cook.jpg" alt="cook" onerror="this.style.display='none'" />
+              <div class="word">cook</div>
+              <div class="meaning">做饭</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="celebrate">
-              <img class="word-img" src="../assets/img/unit9/celebrate.jpg" alt="celebrate" onerror="this.style.display='none'" />
-              <div class="word">celebrate</div>
-              <div class="meaning">庆祝</div>
+            <div class="word-card" data-word="do the dishes">
+              <img class="word-img" src="../assets/img/unit5/do_the_dishes.jpg" alt="do the dishes" onerror="this.style.display='none'" />
+              <div class="word">do the dishes</div>
+              <div class="meaning">洗碗</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="Chinese New Year">
-              <img class="word-img" src="../assets/img/unit9/Chinese_New_Year.jpg" alt="Chinese New Year" onerror="this.style.display='none'" />
-              <div class="word">Chinese New Year</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="clean the table">
+              <img class="word-img" src="../assets/img/unit5/clean_the_table.jpg" alt="clean the table" onerror="this.style.display='none'" />
+              <div class="word">clean the table</div>
+              <div class="meaning">擦桌子</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="the Spring Festival">
-              <img class="word-img" src="../assets/img/unit9/the_Spring_Festival.jpg" alt="the Spring Festival" onerror="this.style.display='none'" />
-              <div class="word">the Spring Festival</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="walk the dog">
+              <img class="word-img" src="../assets/img/unit5/walk_the_dog.jpg" alt="walk the dog" onerror="this.style.display='none'" />
+              <div class="word">walk the dog</div>
+              <div class="meaning">遛狗</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="the Lantern Festival">
-              <img class="word-img" src="../assets/img/unit9/the_Lantern_Festival.jpg" alt="the Lantern Festival" onerror="this.style.display='none'" />
-              <div class="word">the Lantern Festival</div>
-              <div class="meaning"></div>
+            <div class="word-card" data-word="chore">
+              <img class="word-img" src="../assets/img/unit5/chore.jpg" alt="chore" onerror="this.style.display='none'" />
+              <div class="word">chore</div>
+              <div class="meaning">家务</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="holiday">
-              <img class="word-img" src="../assets/img/unit9/holiday.jpg" alt="holiday" onerror="this.style.display='none'" />
-              <div class="word">holiday</div>
-              <div class="meaning">假期</div>
+            <div class="word-card" data-word="give your seat">
+              <img class="word-img" src="../assets/img/unit5/give_your_seat.jpg" alt="give your seat" onerror="this.style.display='none'" />
+              <div class="word">give your seat</div>
+              <div class="meaning">让座</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
@@ -223,7 +233,7 @@
 </section>
 
 <script>
-const WORDS = [{"word": "special days", "meaning": "特别的日子", "img": "../assets/img/unit9/special_days.jpg", "orig": "../assets/audio/unit9/words/special_days.mp3"}, {"word": "the Double Ninth Festival", "meaning": "", "img": "../assets/img/unit9/the_Double_Ninth_Festival.jpg", "orig": "../assets/audio/unit9/words/the_Double_Ninth_Festival.mp3"}, {"word": "celebrate", "meaning": "庆祝", "img": "../assets/img/unit9/celebrate.jpg", "orig": "../assets/audio/unit9/words/celebrate.mp3"}, {"word": "Chinese New Year", "meaning": "", "img": "../assets/img/unit9/Chinese_New_Year.jpg", "orig": "../assets/audio/unit9/words/Chinese_New_Year.mp3"}, {"word": "the Spring Festival", "meaning": "", "img": "../assets/img/unit9/the_Spring_Festival.jpg", "orig": "../assets/audio/unit9/words/the_Spring_Festival.mp3"}, {"word": "the Lantern Festival", "meaning": "", "img": "../assets/img/unit9/the_Lantern_Festival.jpg", "orig": "../assets/audio/unit9/words/the_Lantern_Festival.mp3"}, {"word": "holiday", "meaning": "假期", "img": "../assets/img/unit9/holiday.jpg", "orig": "../assets/audio/unit9/words/holiday.mp3"}];
+const WORDS = [{"word": "help", "meaning": "帮忙", "img": "../assets/img/unit5/help.jpg", "orig": "../assets/audio/unit5/words/help.mp3"}, {"word": "cook", "meaning": "做饭", "img": "../assets/img/unit5/cook.jpg", "orig": "../assets/audio/unit5/words/cook.mp3"}, {"word": "do the dishes", "meaning": "洗碗", "img": "../assets/img/unit5/do_the_dishes.jpg", "orig": "../assets/audio/unit5/words/do_the_dishes.mp3"}, {"word": "clean the table", "meaning": "擦桌子", "img": "../assets/img/unit5/clean_the_table.jpg", "orig": "../assets/audio/unit5/words/clean_the_table.mp3"}, {"word": "walk the dog", "meaning": "遛狗", "img": "../assets/img/unit5/walk_the_dog.jpg", "orig": "../assets/audio/unit5/words/walk_the_dog.mp3"}, {"word": "chore", "meaning": "家务", "img": "../assets/img/unit5/chore.jpg", "orig": "../assets/audio/unit5/words/chore.mp3"}, {"word": "give your seat", "meaning": "让座", "img": "../assets/img/unit5/give_your_seat.jpg", "orig": "../assets/audio/unit5/words/give_your_seat.mp3"}];
 
 // 复用 unit1 的逻辑
 

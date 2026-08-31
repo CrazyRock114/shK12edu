@@ -3,93 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小学英语三年级上册 · 互动学习</title>
-<link rel="stylesheet" href="style.css">
+<title>学习中心 · K12 互动学习站</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap">
+<style>
+:root {
+  --primary: #4ecdc4;
+  --primary-dark: #2d8a85;
+  --accent: #ffe66d;
+  --bg: #f7f9fc;
+  --white: #ffffff;
+  --text: #1a2332;
+  --text-soft: #6c7a89;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ===== 顶部 Hero ===== */
+.hero {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.hero h1 { font-size: 2.4rem; font-weight: 900; margin-bottom: 10px; }
+.hero p { font-size: 1.05rem; opacity: 0.95; }
+.hero .logo { font-size: 3rem; margin-bottom: 12px; }
+
+/* ===== 主容器 ===== */
+main { max-width: 1200px; margin: 0 auto; padding: 40px 20px 60px; }
+
+/* ===== 学科分组 ===== */
+.subject-block {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.subject-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bg);
+}
+.subject-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  flex-shrink: 0;
+}
+.subject-meta h2 { font-size: 1.5rem; font-weight: 900; }
+.subject-meta p { font-size: 0.88rem; color: var(--text-soft); margin-top: 2px; }
+
+/* ===== 年级卡片网格 ===== */
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+.grade-card {
+  background: linear-gradient(135deg, var(--bg) 0%, white 100%);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.grade-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+.grade-card .grade-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.grade-card .grade-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--text);
+}
+.grade-card .grade-meta {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.grade-card .grade-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.status-live { background: #d4edda; color: #155724; }
+.status-soon { background: #f0f0f0; color: #999; }
+.grade-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(0.5);
+}
+
+/* ===== 占位说明 ===== */
+.placeholder-note {
+  background: #fff8e1;
+  border-left: 4px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #856404;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  border-top: 1px solid #e6eaf0;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.6rem; }
+  .hero p { font-size: 0.92rem; }
+  .subject-block { padding: 18px; }
+  .grade-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+}
+</style>
 </head>
 <body>
+
 <div class="hero">
-  <h1>📚 小学英语 · 三年级上册</h1>
-  <p class="subtitle">上海教育出版社 · 选一个 Unit 开始学习</p>
+  <div class="logo">📚</div>
+  <h1>学习中心</h1>
+  <p>K12 互动学习站 · 按学科、年级探索</p>
 </div>
 
-<main class="unit-grid">
-  <a class="unit-card" href="units/starter.html">
-    <div class="unit-num">Starter</div>
-    <div class="unit-name">预备单元</div>
-    <div class="unit-meta">字母 · 季节 · 数字 · 国家</div>
-    <div class="unit-time">⏱ 5:19</div>
-  </a>
-  <a class="unit-card highlight" href="units/unit1.html">
-    <div class="unit-num">Unit 1</div>
-    <div class="unit-name">A new start</div>
-    <div class="unit-meta">新学期 · 目标 · 同学</div>
-    <div class="unit-time">⏱ 4:31</div>
-  </a>
-  <a class="unit-card" href="units/unit2.html">
-    <div class="unit-num">Unit 2</div>
-    <div class="unit-name">Proud of you</div>
-    <div class="unit-meta">擅长 · 赞美</div>
-    <div class="unit-time">⏱ 4:26</div>
-  </a>
-  <a class="unit-card" href="units/unit3.html">
-    <div class="unit-num">Unit 3</div>
-    <div class="unit-name">Our garden</div>
-    <div class="unit-meta">花园 · 蔬菜</div>
-    <div class="unit-time">⏱ 4:25</div>
-  </a>
-  <a class="unit-card" href="units/unit4.html">
-    <div class="unit-num">Unit 4</div>
-    <div class="unit-name">Water</div>
-    <div class="unit-meta">水 · 循环</div>
-    <div class="unit-time">⏱ 4:34</div>
-  </a>
-  <a class="unit-card" href="units/unit5.html">
-    <div class="unit-num">Unit 5</div>
-    <div class="unit-name">I can help</div>
-    <div class="unit-meta">帮忙 · 家务</div>
-    <div class="unit-time">⏱ 4:42</div>
-  </a>
-  <a class="unit-card" href="units/unit6.html">
-    <div class="unit-num">Unit 6</div>
-    <div class="unit-name">How do you feel?</div>
-    <div class="unit-meta">心情 · 感受</div>
-    <div class="unit-time">⏱ 4:46</div>
-  </a>
-  <a class="unit-card" href="units/unit7.html">
-    <div class="unit-num">Unit 7</div>
-    <div class="unit-name">Jobs</div>
-    <div class="unit-meta">职业 · 梦想</div>
-    <div class="unit-time">⏱ 4:12</div>
-  </a>
-  <a class="unit-card" href="units/unit8.html">
-    <div class="unit-num">Unit 8</div>
-    <div class="unit-name">Finding places</div>
-    <div class="unit-meta">地点 · 方向</div>
-    <div class="unit-time">⏱ 4:24</div>
-  </a>
-  <a class="unit-card" href="units/unit9.html">
-    <div class="unit-num">Unit 9</div>
-    <div class="unit-name">Special days in China</div>
-    <div class="unit-meta">节日 · 庆祝</div>
-    <div class="unit-time">⏱ 4:35</div>
-  </a>
-  <a class="unit-card" href="units/unit10.html">
-    <div class="unit-num">Unit 10</div>
-    <div class="unit-name">Foods around the world</div>
-    <div class="unit-meta">食物 · 国家</div>
-    <div class="unit-time">⏱ 4:56</div>
-  </a>
-  <a class="unit-card words-card" href="units/words_to_use.html">
-    <div class="unit-num">📖</div>
-    <div class="unit-name">Words to use</div>
-    <div class="unit-meta">全册词汇复习</div>
-    <div class="unit-time">⏱ 11:19</div>
-  </a>
+<main>
+  <!-- 学科 1: 英语 -->
+  <section class="subject-block">
+    <div class="subject-header">
+      <div class="subject-icon" style="background: linear-gradient(135deg, #4ecdc4 0%, #2d8a85 100%);">📘</div>
+      <div class="subject-meta">
+        <h2>英语 · English</h2>
+        <p>上海教育出版社 · 配套教材原声 + 互动练习</p>
+      </div>
+    </div>
+    <div class="grade-grid">
+      <a class="grade-card" href="eng-g3a/index.html" style="--primary: #ff6b6b; --primary-dark: #d63447;">
+        <span class="grade-status status-live">已上线</span>
+        <span class="grade-num">G3A · 三年级上</span>
+        <span class="grade-name">A new start</span>
+        <span class="grade-meta">12 单元 · 字母 / 家庭 / 食物 / 节日</span>
+      </a>
+      <a class="grade-card" href="eng-g5a/index.html" style="--primary: #4ecdc4; --primary-dark: #2d8a85;">
+        <span class="grade-status status-live">已上线</span>
+        <span class="grade-num">G5A · 五年级上</span>
+        <span class="grade-name">Clubs · Plants · Inventions</span>
+        <span class="grade-meta">11 单元 · 社团 / 植物 / 科学家 / 环保</span>
+      </a>
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G3B · 三年级下</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G5B · 五年级下</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 学科 2: 数学 -->
+  <section class="subject-block" style="opacity: 0.7;">
+    <div class="subject-header">
+      <div class="subject-icon" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">🔢</div>
+      <div class="subject-meta">
+        <h2>数学 · Mathematics</h2>
+        <p>沪教版 / 人教版 · 公式动画 + 思维训练</p>
+      </div>
+    </div>
+    <div class="grade-grid">
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G3A · 三年级上</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G5A · 五年级上</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 学科 3: 语文 -->
+  <section class="subject-block" style="opacity: 0.7;">
+    <div class="subject-header">
+      <div class="subject-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📖</div>
+      <div class="subject-meta">
+        <h2>语文 · Chinese</h2>
+        <p>部编版 · 字词听写 + 课文朗读</p>
+      </div>
+    </div>
+    <div class="grade-grid">
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G3A · 三年级上</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+      <a class="grade-card disabled">
+        <span class="grade-status status-soon">规划中</span>
+        <span class="grade-num">G5A · 五年级上</span>
+        <span class="grade-name">—</span>
+        <span class="grade-meta">待添加</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="placeholder-note">
+    💡 <b>URL 命名规范</b>: <code>&lt;学科&gt;-&lt;年级&gt;&lt;册&gt;</code> · 例如 <code>eng-g3a</code> = 英语 三年级 上册 · 未来扩展 <code>math-g5a</code> / <code>chi-g3b</code> 等。
+  </div>
 </main>
 
 <footer>
-  <p>🎯 12 单元配套音频 · 教材原图 + 单词/短语切片 · Web Speech + 录音对比</p>
-  <p style="margin-top: 8px; opacity: 0.7;">Built for 石头小朋友 · 2026-08-31</p>
+  <p>📚 学习中心 · Built for 石头小朋友</p>
+  <p style="margin-top: 6px; opacity: 0.6;">v2.0 · 2026-08-31 · 学科导航版</p>
 </footer>
+
 </body>
 </html>

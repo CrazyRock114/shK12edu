@@ -141,6 +141,19 @@ footer {
 }
 .unit-header .back:hover { opacity: 1; }
 
+/* ===== Breadcrumb 面包屑 ===== */
+.breadcrumb {
+  background: var(--white);
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  border-bottom: 1px solid #e6eaf0;
+}
+.breadcrumb a { color: var(--primary-dark); text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+.breadcrumb span:last-child { color: var(--text); font-weight: 600; }
+
 /* ===== 阶段切换 Tab ===== */
 .stage-tabs {
   display: flex;

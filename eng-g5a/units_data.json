@@ -1,0 +1,301 @@
+{
+  "metadata": {
+    "textbook": "义务教育教科书（五•四学制）·英语五年级上册",
+    "publisher": "上海教育出版社",
+    "total_units": 11,
+    "audio_path_template": "assets/audio/{filename}",
+    "audio_format": "mp3"
+  },
+  "units": [
+    {
+      "id": "starter",
+      "name": "Starter",
+      "title": "Starter",
+      "description": "家庭·学校·序数·月份",
+      "big_task": "",
+      "topic_words": [],
+      "pdf_start": 9,
+      "pdf_end": 15,
+      "book_start": 2,
+      "book_end": 8,
+      "audio_file": "starter.mp3",
+      "audio_url": "assets/audio/starter.mp3",
+      "cover_page": 9,
+      "sections": []
+    },
+    {
+      "id": "unit1",
+      "name": "Unit 1",
+      "title": "Clubs in our school",
+      "description": "社团·摄影·艺术·园艺",
+      "big_task": "Making a photo diary of a club",
+      "topic_words": [
+        "art",
+        "gardening",
+        "storytelling",
+        "take photos"
+      ],
+      "pdf_start": 16,
+      "pdf_end": 23,
+      "book_start": 9,
+      "book_end": 0,
+      "audio_file": "unit_1.mp3",
+      "audio_url": "assets/audio/unit_1.mp3",
+      "cover_page": 16,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "story_time"
+      ]
+    },
+    {
+      "id": "unit2",
+      "name": "Unit 2",
+      "title": "Traditional games",
+      "description": "传统游戏·舞龙·长拳",
+      "big_task": "Talking about my favourite traditional game",
+      "topic_words": [
+        "traditional",
+        "Chinese yo-yo",
+        "kite-flying",
+        "dragon dance",
+        "tug of war"
+      ],
+      "pdf_start": 24,
+      "pdf_end": 31,
+      "book_start": 17,
+      "book_end": 0,
+      "audio_file": "unit_2.mp3",
+      "audio_url": "assets/audio/unit_2.mp3",
+      "cover_page": 24,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "story_time"
+      ]
+    },
+    {
+      "id": "unit3",
+      "name": "Unit 3",
+      "title": "Amazing plants",
+      "description": "植物·根茎叶·花朵",
+      "big_task": "Making a plant poster",
+      "topic_words": [
+        "root",
+        "stem",
+        "leaf",
+        "soil",
+        "water lily",
+        "pine cone",
+        "morning glory"
+      ],
+      "pdf_start": 32,
+      "pdf_end": 39,
+      "book_start": 25,
+      "book_end": 0,
+      "audio_file": "unit_3.mp3",
+      "audio_url": "assets/audio/unit_3.mp3",
+      "cover_page": 32,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "reading_time"
+      ]
+    },
+    {
+      "id": "unit4",
+      "name": "Unit 4",
+      "title": "Together with animals",
+      "description": "野生动物园·动物",
+      "big_task": "Writing a diary",
+      "topic_words": [
+        "safari park",
+        "tiger",
+        "lion",
+        "whale",
+        "panda",
+        "giraffe",
+        "hippo",
+        "elephant"
+      ],
+      "pdf_start": 40,
+      "pdf_end": 47,
+      "book_start": 33,
+      "book_end": 0,
+      "audio_file": "unit_4.mp3",
+      "audio_url": "assets/audio/unit_4.mp3",
+      "cover_page": 40,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "reading_time"
+      ]
+    },
+    {
+      "id": "unit5",
+      "name": "Unit 5",
+      "title": "Seeing a doctor",
+      "description": "看病·医生·华佗",
+      "big_task": "Giving health tips",
+      "topic_words": [
+        "doctor",
+        "cough",
+        "runny nose",
+        "nurse",
+        "fever",
+        "medicine"
+      ],
+      "pdf_start": 48,
+      "pdf_end": 55,
+      "book_start": 41,
+      "book_end": 0,
+      "audio_file": "unit_5.mp3",
+      "audio_url": "assets/audio/unit_5.mp3",
+      "cover_page": 48,
+      "sections": [
+        "talking_time",
+        "story_time",
+        "rhyme_time"
+      ]
+    },
+    {
+      "id": "unit6",
+      "name": "Unit 6",
+      "title": "Try my best",
+      "description": "努力·过去·未来",
+      "big_task": "Writing a letter to future me",
+      "topic_words": [
+        "try my best",
+        "will",
+        "succeed",
+        "practice",
+        "better",
+        "give up"
+      ],
+      "pdf_start": 56,
+      "pdf_end": 63,
+      "book_start": 49,
+      "book_end": 0,
+      "audio_file": "unit_6.mp3",
+      "audio_url": "assets/audio/unit_6.mp3",
+      "cover_page": 56,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "story_time"
+      ]
+    },
+    {
+      "id": "unit7",
+      "name": "Unit 7",
+      "title": "Great scientists",
+      "description": "伟大科学家·袁隆平",
+      "big_task": "Making a mini-book of great scientists",
+      "topic_words": [
+        "scientist",
+        "explore",
+        "famous",
+        "discover",
+        "creative",
+        "hard-working",
+        "(be) known as"
+      ],
+      "pdf_start": 64,
+      "pdf_end": 71,
+      "book_start": 57,
+      "book_end": 0,
+      "audio_file": "unit_7.mp3",
+      "audio_url": "assets/audio/unit_7.mp3",
+      "cover_page": 64,
+      "sections": [
+        "talking_time",
+        "reading_time",
+        "rhyme_time"
+      ]
+    },
+    {
+      "id": "unit8",
+      "name": "Unit 8",
+      "title": "Useful inventions",
+      "description": "有用发明·轮子",
+      "big_task": "Making an ad for a useful invention",
+      "topic_words": [
+        "useful",
+        "invention",
+        "problem",
+        "wheel",
+        "printing",
+        "television",
+        "light",
+        "robot"
+      ],
+      "pdf_start": 72,
+      "pdf_end": 79,
+      "book_start": 65,
+      "book_end": 0,
+      "audio_file": "unit_8.mp3",
+      "audio_url": "assets/audio/unit_8.mp3",
+      "cover_page": 72,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "reading_time"
+      ]
+    },
+    {
+      "id": "unit9",
+      "name": "Unit 9",
+      "title": "Using computers",
+      "description": "电脑·密码·Simon 答疑",
+      "big_task": "Making a quiz about computers",
+      "topic_words": [
+        "laptop",
+        "password",
+        "mouse",
+        "click",
+        "keyboard",
+        "email",
+        "delete"
+      ],
+      "pdf_start": 80,
+      "pdf_end": 87,
+      "book_start": 73,
+      "book_end": 0,
+      "audio_file": "unit_9.mp3",
+      "audio_url": "assets/audio/unit_9.mp3",
+      "cover_page": 80,
+      "sections": [
+        "fun_time",
+        "talking_time",
+        "reading_time"
+      ]
+    },
+    {
+      "id": "unit10",
+      "name": "Unit 10",
+      "title": "A greener life",
+      "description": "环保·减少·再利用",
+      "big_task": "Making a booklet on a greener life",
+      "topic_words": [
+        "reduce",
+        "reuse",
+        "recycle",
+        "throw away",
+        "turn off",
+        "pick up"
+      ],
+      "pdf_start": 88,
+      "pdf_end": 95,
+      "book_start": 81,
+      "book_end": 0,
+      "audio_file": "unit_10.mp3",
+      "audio_url": "assets/audio/unit_10.mp3",
+      "cover_page": 88,
+      "sections": [
+        "talking_time",
+        "story_time",
+        "song_time"
+      ]
+    }
+  ]
+}

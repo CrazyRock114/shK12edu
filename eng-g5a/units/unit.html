@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="title">Unit · 互动学习</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.word-card { background: var(--white); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); text-align: center; transition: transform 0.15s; }
+.word-card:hover { transform: translateY(-2px); }
+.word-card .word-img { width: 100%; max-height: 110px; object-fit: contain; margin-bottom: 6px; border-radius: 8px; background: #f8f9fa; }
+.word-card .word-en { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.word-card .word-zh { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 6px; }
+.word-card .audio-row { display: flex; gap: 4px; margin-top: 6px; justify-content: center; }
+.word-card .audio-row button { font-size: 0.7rem; padding: 4px 8px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn-tts { background: #ffe66d; color: var(--text); }
+.btn-orig { background: #4ecdc4; color: white; }
+.section-tabs { display: flex; gap: 0; margin: 0 0 20px 0; background: var(--white); border-radius: 14px; padding: 4px; box-shadow: var(--shadow); overflow: hidden; flex-wrap: wrap; }
+.section-btn { flex: 1; background: transparent; border: none; padding: 10px 8px; font-size: 0.82rem; font-weight: 700; color: var(--text-soft); cursor: pointer; border-radius: 10px; transition: all 0.15s; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 80px; }
+.section-btn .icon { font-size: 1.1rem; }
+.section-btn:hover { background: var(--bg); color: var(--text); }
+.section-btn.active { background: var(--primary); color: white; }
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+.textbook-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+.textbook-modal.active { display: flex; }
+.textbook-modal img { max-width: 100%; max-height: 100%; border-radius: 8px; }
+.story-box { background: var(--white); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); line-height: 1.7; }
+.story-box h3 { color: var(--primary); margin-bottom: 12px; }
+.moral { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; border-radius: 8px; margin-top: 12px; }
+.unit-summary { background: linear-gradient(135deg, var(--primary) 0%, #2d8a85 100%); color: white; border-radius: 14px; padding: 20px; box-shadow: var(--shadow); margin-bottom: 16px; }
+.unit-summary h3 { color: white; }
+.unit-summary p { opacity: 0.95; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="../../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <a href="../index.html">五年级上册 G5A</a>
+  <span class="sep">/</span>
+  <span>UNIT</span>
+</nav>
+
+<header class="unit-header">
+  <a class="back" href="../index.html">← 返回选单元</a>
+  <h1 id="unit-title">Unit</h1>
+  <p class="sub" id="unit-sub">⏱ ...</p>
+</header>
+
+<nav class="stage-tabs">
+  <button class="stage-tab active" data-stage="preview"><span class="icon">👀</span>预习</button>
+  <button class="stage-tab" data-stage="story"><span class="icon">📖</span>故事</button>
+  <button class="stage-tab" data-stage="review"><span class="icon">🔄</span>复习</button>
+  <button class="stage-tab" data-stage="practice"><span class="icon">✍️</span>练习</button>
+</nav>
+
+<audio id="unit-audio" src="" preload="metadata"></audio>
+<audio id="word-audio" src="" preload="auto"></audio>
+
+<!-- 阶段 1: 预习 -->
+<section class="stage active" id="stage-preview">
+  <h2>👀 预习:看教材原图听音频</h2>
+
+  <div class="audio-bar">
+    <button class="play-btn" id="play-unit">▶</button>
+    <div class="audio-info">
+      <div class="audio-title" id="audio-title">📖 教材原声</div>
+      <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
+      <div class="audio-time">
+        <span id="unit-cur">0:00</span>
+        <span id="unit-dur">...</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="section-tabs" id="section-tabs" aria-label="音频分section"></nav>
+
+  <h3 style="margin-top: 24px;">📖 教材原图（<span id="page-range">...</span>）</h3>
+  <div class="word-grid" id="textbook-pages"></div>
+</section>
+
+<!-- 阶段 2: 故事/阅读 -->
+<section class="stage" id="stage-story">
+  <h2>📖 故事 / 阅读</h2>
+  <div class="story-box">
+    <h3 id="story-title">...</h3>
+    <p id="story-content">...</p>
+    <div class="moral"><b>💡 寓意 / 学习要点:</b> <span id="story-moral">...</span></div>
+  </div>
+</section>
+
+<!-- 阶段 3: 复习 -->
+<section class="stage" id="stage-review">
+  <h2>🔄 复习:Topic words 闪卡</h2>
+  <p class="stage-intro">看英文想中文意思，点翻面看答案</p>
+  <div class="word-grid" id="word-grid-learn"></div>
+</section>
+
+<!-- 阶段 4: 练习 -->
+<section class="stage" id="stage-practice">
+  <h2>✍️ 练习:本单元句型</h2>
+  <div class="unit-summary" id="practice-info"></div>
+  <div id="practice-list"></div>
+</section>
+
+<div class="textbook-modal" id="modal" onclick="closeModal()">
+  <img id="modal-img" src="" />
+</div>
+
+<script src="units_data.js"></script>
+<script>
+// 从 query string 取 unit id
+const params = new URLSearchParams(location.search);
+const uid = params.get('u') || 'unit1';
+const UNIT = UNITS_DATA[uid];
+if (!UNIT) { document.body.innerHTML = `<h1 style="padding:40px">未找到单元 ${uid}</h1>`; throw new Error('unit not found'); }
+
+// 渲染标题
+document.title = `${UNIT.num} · ${UNIT.name} · 互动学习`;
+document.getElementById('unit-title').textContent = `${UNIT.num} · ${UNIT.name}`;
+document.getElementById('unit-sub').textContent = `${UNIT.description || ''} · ⏱ ${UNIT.duration}`;
+
+// unit 音频
+document.getElementById('unit-audio').src = `../assets/audio/${UNIT.audio_file}`;
+document.getElementById('audio-title').textContent = `📖 教材原声 (整段 ${UNIT.duration})`;
+
+// section tabs
+const secTabs = document.getElementById('section-tabs');
+const SECTIONS = [
+  {key:'topic_words', icon:'📚', label:'单词', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Topic Words.mp3`},
+  {key:'fun_time',    icon:'🎉', label:'活动', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Fun Time.mp3`},
+  {key:'sound',       icon:'🔤', label:'发音', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Sound.mp3`},
+  {key:'talking',     icon:'💬', label:'对话', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Talking Time.mp3`},
+  {key:'story',       icon:'📖', label:'故事', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Story Time.mp3`},
+  {key:'reading',     icon:'📚', label:'阅读', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Reading Time.mp3`},
+  {key:'rhyme',       icon:'🎵', label:'韵文', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Rhyme Time.mp3`},
+  {key:'song',        icon:'🎤', label:'歌曲', audio:`G5A_配套音频/${UNIT.folder}/${UNIT.name}-Song Time.mp3`},
+];
+SECTIONS.forEach(s => {
+  if (UNIT.sections.includes(s.key)) {
+    const b = document.createElement('button');
+    b.className = 'section-btn';
+    b.dataset.audio = s.audio;
+    b.innerHTML = `<span class="icon">${s.icon}</span>${s.label}`;
+    secTabs.appendChild(b);
+  }
+});
+secTabs.addEventListener('click', e => {
+  const btn = e.target.closest('.section-btn');
+  if (!btn) return;
+  document.querySelectorAll('.section-btn').forEach(x => x.classList.remove('active'));
+  btn.classList.add('active');
+  const w = document.getElementById('word-audio');
+  w.src = '../assets/audio/' + btn.dataset.audio;
+  w.play();
+});
+
+// 教材原图
+const tbPages = document.getElementById('textbook-pages');
+const startP = UNIT.pdf_start, endP = UNIT.pdf_end;
+document.getElementById('page-range').textContent = `PDF p.${startP}-${endP}`;
+for (let p = startP; p <= endP; p++) {
+  const card = document.createElement('div');
+  card.className = 'word-card';
+  card.style.cursor = 'pointer';
+  card.onclick = () => openModal(p);
+  card.innerHTML = `
+    <img class="word-img" src="../assets/img/page${String(p).padStart(3,'0')}.jpg" />
+    <div class="word-en">p.${p}</div>
+    <div class="word-zh">点击放大</div>
+  `;
+  tbPages.appendChild(card);
+}
+
+// 故事
+if (UNIT.story) {
+  document.getElementById('story-title').textContent = UNIT.story.title;
+  document.getElementById('story-content').textContent = UNIT.story.content;
+  document.getElementById('story-moral').textContent = UNIT.story.moral;
+} else {
+  document.getElementById('stage-story').style.display = 'none';
+  document.querySelector('[data-stage="story"]').style.display = 'none';
+}
+
+// Topic words 闪卡
+const learnGrid = document.getElementById('word-grid-learn');
+const TW = UNIT.topic_words.map(w => typeof w === 'string' ? {en: w, zh: ''} : w);
+if (TW.length === 0) {
+  learnGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-soft);">本单元暂无主题词数据</p>';
+} else {
+  TW.forEach(w => {
+    const card = document.createElement('div');
+    card.className = 'word-card';
+    card.innerHTML = `
+      <div class="word-en" style="font-size: 1.4rem; margin: 24px 0;">${w.en}</div>
+      <div class="word-zh" style="font-size: 0.9rem; margin-bottom: 12px;">${w.zh || '—'}</div>
+      <div class="audio-row">
+        <button class="btn-orig" data-act="play" data-word="${w.en}">🔊 听</button>
+        <button class="btn-tts" data-act="tts" data-word="${w.en}">🎤 TTS</button>
+      </div>
+    `;
+    learnGrid.appendChild(card);
+  });
+}
+learnGrid.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const word = btn.dataset.word;
+  if (btn.dataset.act === 'play') {
+    const w = document.getElementById('word-audio');
+    w.src = `../assets/audio/G5A_配套音频/${UNIT.folder}/${UNIT.name}-Topic Words.mp3`;
+    w.play();
+  } else {
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'en-US'; u.rate = 0.85;
+    speechSynthesis.speak(u);
+  }
+});
+
+// 练习
+const pInfo = document.getElementById('practice-info');
+pInfo.innerHTML = `
+  <h3>🎯 Big task: ${UNIT.big_task || '—'}</h3>
+  <p>${UNIT.description || ''}</p>
+  <p style="margin-top: 8px;"><b>主题词:</b> ${UNIT.topic_words.map(w => typeof w==='string'?w:w.en).join(' · ')}</p>
+  <p><b>句型:</b> ${UNIT.talking_pattern || '—'}</p>
+`;
+const pList = document.getElementById('practice-list');
+const pSummary = `<div class="practice-card" style="text-align: center; background: var(--white); border-radius: 14px; padding: 20px; box-shadow: var(--shadow);">
+  <p style="font-size: 1.1rem;">📝 <b>${UNIT.topic_words.length}</b> 个主题词 · 🎯 句型 <b>${UNIT.talking_pattern || '—'}</b></p>
+  <p style="color: var(--text-soft); margin-top: 8px;">练习题将在完整版提供。当前单元展示: <b>${UNIT.name}</b></p>
+  <p style="margin-top: 12px;"><a href="unit1.html" class="btn btn-primary" style="display: inline-block; text-decoration: none;">查看 Unit 1 完整功能 demo →</a></p>
+</div>`;
+pList.innerHTML = pSummary;
+
+// 通用
+document.querySelectorAll('.stage-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('stage-' + tab.dataset.stage).classList.add('active');
+  });
+});
+const unitAudio = document.getElementById('unit-audio');
+const playBtn = document.getElementById('play-unit');
+playBtn.addEventListener('click', () => {
+  if (unitAudio.paused) { unitAudio.play(); playBtn.textContent = '⏸'; }
+  else { unitAudio.pause(); playBtn.textContent = '▶'; }
+});
+unitAudio.addEventListener('timeupdate', () => {
+  document.getElementById('unit-cur').textContent = fmt(unitAudio.currentTime);
+  document.getElementById('unit-progress').style.width = (unitAudio.currentTime / unitAudio.duration * 100) + '%';
+});
+unitAudio.addEventListener('loadedmetadata', () => {
+  document.getElementById('unit-dur').textContent = fmt(unitAudio.duration);
+});
+function fmt(s) { s = Math.floor(s); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+function openModal(p) {
+  document.getElementById('modal-img').src = '../assets/img/page' + String(p).padStart(3,'0') + '.jpg';
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+</script>
+</body>
+</html>

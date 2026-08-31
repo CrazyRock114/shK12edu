@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 · Clubs in our school · 互动学习</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.word-card { background: var(--white); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); text-align: center; transition: transform 0.15s; }
+.word-card:hover { transform: translateY(-2px); }
+.word-card .word-img { width: 100%; max-height: 110px; object-fit: contain; margin-bottom: 6px; border-radius: 8px; background: #f8f9fa; }
+.word-card .word-en { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.word-card .word-zh { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 6px; }
+.word-card .audio-row { display: flex; gap: 4px; margin-top: 6px; justify-content: center; }
+.word-card .audio-row button { font-size: 0.7rem; padding: 4px 8px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn-tts { background: #ffe66d; color: var(--text); }
+.btn-orig { background: #4ecdc4; color: white; }
+.section-tabs { display: flex; gap: 0; margin: 0 0 20px 0; background: var(--white); border-radius: 14px; padding: 4px; box-shadow: var(--shadow); overflow: hidden; }
+.section-btn { flex: 1; background: transparent; border: none; padding: 10px 8px; font-size: 0.82rem; font-weight: 700; color: var(--text-soft); cursor: pointer; border-radius: 10px; transition: all 0.15s; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
+.section-btn .icon { font-size: 1.1rem; }
+.section-btn:hover { background: var(--bg); color: var(--text); }
+.section-btn.active { background: var(--primary); color: white; }
+@media (max-width: 600px) { .section-btn { font-size: 0.7rem; padding: 8px 4px; } .section-btn .icon { font-size: 1rem; } }
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+.practice-card { background: var(--white); border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
+.practice-prompt { font-weight: 700; margin-bottom: 10px; }
+.practice-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.practice-choice { background: var(--bg); border: 2px solid transparent; padding: 10px 12px; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 600; text-align: left; }
+.practice-choice:hover { background: white; border-color: var(--primary); }
+.practice-choice.correct { background: #d4edda; border-color: #28a745; }
+.practice-choice.wrong { background: #f8d7da; border-color: #dc3545; }
+.practice-explanation { margin-top: 10px; padding: 8px 12px; background: #e7f3ff; border-radius: 8px; font-size: 0.85rem; display: none; }
+.practice-card.answered .practice-explanation { display: block; }
+.game-board { background: var(--white); border-radius: 14px; padding: 24px; box-shadow: var(--shadow); text-align: center; }
+.game-prompt { font-size: 1.4rem; font-weight: 700; margin: 16px 0; }
+.game-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+.game-option { background: var(--bg); border: 2px solid transparent; padding: 14px; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: 600; }
+.game-option:hover { background: white; border-color: var(--primary); }
+.game-option.correct { background: #d4edda; border-color: #28a745; }
+.game-option.wrong { background: #f8d7da; border-color: #dc3545; }
+.game-score { margin-top: 16px; font-size: 0.95rem; color: var(--text-soft); }
+.flashcard-stage { background: var(--white); border-radius: 14px; padding: 30px 20px; box-shadow: var(--shadow); text-align: center; min-height: 280px; }
+.flashcard-word { font-size: 2.2rem; font-weight: 700; margin: 12px 0; }
+.flashcard-meaning { font-size: 1.4rem; color: var(--text-soft); margin-bottom: 12px; }
+.flashcard-controls { display: flex; justify-content: center; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+.textbook-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+.textbook-modal.active { display: flex; }
+.textbook-modal img { max-width: 100%; max-height: 100%; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="../../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <a href="../index.html">五年级上册 G5A</a>
+  <span class="sep">/</span>
+  <span>UNIT1</span>
+</nav>
+
+<header class="unit-header">
+  <a class="back" href="../index.html">← 返回选单元</a>
+  <h1>Unit 1 · Clubs in our school</h1>
+  <p class="sub">社团 · 摄影 · 艺术 · 园艺 · ⏱ 5:35</p>
+</header>
+
+<nav class="stage-tabs">
+  <button class="stage-tab active" data-stage="preview"><span class="icon">👀</span>预习</button>
+  <button class="stage-tab" data-stage="learn"><span class="icon">📚</span>学习</button>
+  <button class="stage-tab" data-stage="review"><span class="icon">🔄</span>复习</button>
+  <button class="stage-tab" data-stage="practice"><span class="icon">✍️</span>练习</button>
+  <button class="stage-tab" data-stage="play"><span class="icon">🎮</span>游戏</button>
+</nav>
+
+<audio id="unit-audio" src="../assets/audio/unit_1.mp3" preload="metadata"></audio>
+<audio id="word-audio" src="" preload="auto"></audio>
+
+<!-- 阶段 1: 预习 -->
+<section class="stage active" id="stage-preview">
+  <h2>👀 预习:看教材原图听音频</h2>
+  <p class="stage-intro">Unit 1 主题：加入学校社团。下面是教材原图，点击查看各页</p>
+
+  <div class="audio-bar">
+    <button class="play-btn" id="play-unit">▶</button>
+    <div class="audio-info">
+      <div class="audio-title">📖 教材原声 (整段 5:35)</div>
+      <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
+      <div class="audio-time">
+        <span id="unit-cur">0:00</span>
+        <span id="unit-dur">5:35</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="section-tabs" aria-label="音频分section">
+    <button class="section-btn" data-section="topic_words" data-audio="G5A_配套音频/02 Unit 1/Clubs in our school-Topic Words.mp3"><span class="icon">📚</span>单词</button>
+    <button class="section-btn" data-section="fun_time"    data-audio="G5A_配套音频/02 Unit 1/Clubs in our school-Fun Time.mp3"><span class="icon">🎉</span>活动</button>
+    <button class="section-btn" data-section="sound"       data-audio="G5A_配套音频/02 Unit 1/Clubs in our school-Sound.mp3"><span class="icon">🔤</span>发音</button>
+    <button class="section-btn" data-section="talking"     data-audio="G5A_配套音频/02 Unit 1/Clubs in our school-Talking Time.mp3"><span class="icon">💬</span>对话</button>
+  </nav>
+
+  <h3 style="margin-top: 24px;">📖 教材原图（Unit 1 跨 PDF p.16-23）</h3>
+  <div class="word-grid" id="textbook-pages">
+    <div class="word-card" onclick="openModal(16)"><div class="word-en">p.16 封面</div><div class="word-zh">Big task</div><img class="word-img" src="../assets/img/page016.jpg" /></div>
+    <div class="word-card" onclick="openModal(17)"><div class="word-en">p.17 Topic words</div><div class="word-zh">单词图</div><img class="word-img" src="../assets/img/page017.jpg" /></div>
+    <div class="word-card" onclick="openModal(18)"><div class="word-en">p.18 Fun time</div><div class="word-zh">社团招新</div><img class="word-img" src="../assets/img/page018.jpg" /></div>
+    <div class="word-card" onclick="openModal(19)"><div class="word-en">p.19 Talking time</div><div class="word-zh">对话 1</div><img class="word-img" src="../assets/img/page019.jpg" /></div>
+    <div class="word-card" onclick="openModal(20)"><div class="word-en">p.20</div><div class="word-zh">对话 2</div><img class="word-img" src="../assets/img/page020.jpg" /></div>
+    <div class="word-card" onclick="openModal(21)"><div class="word-en">p.21 Story</div><div class="word-zh">At the Art Club</div><img class="word-img" src="../assets/img/page021.jpg" /></div>
+    <div class="word-card" onclick="openModal(22)"><div class="word-en">p.22</div><div class="word-zh">故事续</div><img class="word-img" src="../assets/img/page022.jpg" /></div>
+    <div class="word-card" onclick="openModal(23)"><div class="word-en">p.23 Project</div><div class="word-zh">照片日记</div><img class="word-img" src="../assets/img/page023.jpg" /></div>
+  </div>
+</section>
+
+<!-- 阶段 2: 学习 -->
+<section class="stage" id="stage-learn">
+  <h2>📚 学习:Topic words 跟读</h2>
+  <p class="stage-intro">点 🔊 听教材原声，再点 🎤 自己跟读（Web Speech API）</p>
+  <div class="word-grid" id="word-grid-learn"></div>
+</section>
+
+<!-- 阶段 3: 复习 -->
+<section class="stage" id="stage-review">
+  <h2>🔄 复习:闪卡</h2>
+  <p class="stage-intro">看英文想中文，点翻面看意思</p>
+  <div class="flashcard-stage" id="flashcard">
+    <div class="flashcard-word" id="fc-word">art</div>
+    <div class="flashcard-meaning" id="fc-meaning" style="display:none">艺术</div>
+    <div style="font-size: 0.9rem; color: var(--text-soft);" id="fc-progress">1 / 4</div>
+  </div>
+  <div class="flashcard-controls">
+    <button class="btn btn-soft" id="fc-prev">← 上一个</button>
+    <button class="btn btn-primary" id="fc-flip">翻面看意思</button>
+    <button class="btn btn-soft" id="fc-sound">🔊 听发音</button>
+    <button class="btn btn-secondary" id="fc-next">下一个 →</button>
+  </div>
+  <div style="margin-top: 16px; text-align: center;">
+    <button class="btn btn-accent" id="fc-shuffle">🔀 乱序复习</button>
+  </div>
+</section>
+
+<!-- 阶段 4: 练习 -->
+<section class="stage" id="stage-practice">
+  <h2>✍️ 练习:本单元句型 I'm going to...</h2>
+  <p class="stage-intro">本单元 Big task: Making a photo diary of a club</p>
+  <div id="practice-list"></div>
+</section>
+
+<!-- 阶段 5: 游戏 -->
+<section class="stage" id="stage-play">
+  <h2>🎮 游戏:听教材原声选词</h2>
+  <p class="stage-intro">点 🔊 听音频片段（topic words 范围），选出正确的单词</p>
+  <div class="game-board">
+    <div class="game-prompt" id="game-prompt">点击下方按钮开始</div>
+    <div class="game-options" id="game-options"></div>
+    <div class="game-score">答对 <span class="num" id="game-correct">0</span> 题 · 答错 <span class="num" id="game-wrong">0</span> 题</div>
+    <div style="margin-top: 16px;">
+      <button class="btn btn-accent" id="game-start">🎮 开始游戏</button>
+    </div>
+  </div>
+</section>
+
+<div class="textbook-modal" id="modal" onclick="closeModal()">
+  <img id="modal-img" src="" />
+</div>
+
+<script>
+// Unit 1 数据
+const UNIT = {
+  num: "Unit 1",
+  name: "Clubs in our school",
+  big_task: "Making a photo diary of a club",
+  topic_words: [
+    {en:"art", zh:"艺术", img:"../assets/img/page017.jpg"},
+    {en:"gardening", zh:"园艺", img:"../assets/img/page017.jpg"},
+    {en:"storytelling", zh:"讲故事", img:"../assets/img/page017.jpg"},
+    {en:"take photos", zh:"拍照", img:"../assets/img/page017.jpg"},
+  ],
+};
+
+// 通用：stages 切换
+document.querySelectorAll('.stage-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('stage-' + tab.dataset.stage).classList.add('active');
+  });
+});
+
+// 通用：unit 音频播放
+const unitAudio = document.getElementById('unit-audio');
+const wordAudio = document.getElementById('word-audio');
+const playBtn = document.getElementById('play-unit');
+const unitCur = document.getElementById('unit-cur');
+const unitDur = document.getElementById('unit-dur');
+const unitProgress = document.getElementById('unit-progress');
+playBtn.addEventListener('click', () => {
+  if (unitAudio.paused) { unitAudio.play(); playBtn.textContent = '⏸'; }
+  else { unitAudio.pause(); playBtn.textContent = '▶'; }
+});
+unitAudio.addEventListener('timeupdate', () => {
+  unitCur.textContent = fmt(unitAudio.currentTime);
+  unitProgress.style.width = (unitAudio.currentTime / unitAudio.duration * 100) + '%';
+});
+unitAudio.addEventListener('loadedmetadata', () => {
+  unitDur.textContent = fmt(unitAudio.duration);
+  playBtn.textContent = '▶';
+});
+function fmt(s) { s = Math.floor(s); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+// section 音频切换
+document.querySelectorAll('.section-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.section-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    wordAudio.src = '../assets/audio/' + b.dataset.audio;
+    wordAudio.play();
+  });
+});
+
+// modal
+function openModal(p) {
+  document.getElementById('modal-img').src = '../assets/img/page' + String(p).padStart(3,'0') + '.jpg';
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+// 学习：word grid
+const learnGrid = document.getElementById('word-grid-learn');
+UNIT.topic_words.forEach(w => {
+  const card = document.createElement('div');
+  card.className = 'word-card';
+  card.innerHTML = `
+    <img class="word-img" src="${w.img}" />
+    <div class="word-en">${w.en}</div>
+    <div class="word-zh">${w.zh}</div>
+    <div class="audio-row">
+      <button class="btn-orig" data-word="${w.en}">🔊 听</button>
+      <button class="btn-tts" data-word="${w.en}">🎤 跟读</button>
+    </div>
+  `;
+  learnGrid.appendChild(card);
+});
+learnGrid.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const word = btn.dataset.word;
+  if (!word) return;
+  if (btn.classList.contains('btn-orig')) {
+    // 用 unit 音频的某段（这里简化：播放 topic words section）
+    wordAudio.src = '../assets/audio/G5A_配套音频/02 Unit 1/Clubs in our school-Topic Words.mp3';
+    wordAudio.play();
+  } else if (btn.classList.contains('btn-tts')) {
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'en-US'; u.rate = 0.85;
+    speechSynthesis.speak(u);
+  }
+});
+
+// 复习：闪卡
+let fcOrder = UNIT.topic_words.map((_, i) => i);
+let fcIdx = 0;
+let fcFlipped = false;
+function renderFlashcard() {
+  const w = UNIT.topic_words[fcOrder[fcIdx]];
+  document.getElementById('fc-word').textContent = w.en;
+  document.getElementById('fc-meaning').textContent = w.zh;
+  document.getElementById('fc-meaning').style.display = fcFlipped ? 'block' : 'none';
+  document.getElementById('fc-progress').textContent = `${fcIdx+1} / ${UNIT.topic_words.length}`;
+}
+document.getElementById('fc-flip').addEventListener('click', () => { fcFlipped = !fcFlipped; renderFlashcard(); });
+document.getElementById('fc-prev').addEventListener('click', () => { fcIdx = (fcIdx - 1 + UNIT.topic_words.length) % UNIT.topic_words.length; fcFlipped = false; renderFlashcard(); });
+document.getElementById('fc-next').addEventListener('click', () => { fcIdx = (fcIdx + 1) % UNIT.topic_words.length; fcFlipped = false; renderFlashcard(); });
+document.getElementById('fc-sound').addEventListener('click', () => {
+  const u = new SpeechSynthesisUtterance(UNIT.topic_words[fcOrder[fcIdx]].en);
+  u.lang = 'en-US'; speechSynthesis.speak(u);
+});
+document.getElementById('fc-shuffle').addEventListener('click', () => {
+  fcOrder = [...fcOrder].sort(() => Math.random() - 0.5);
+  fcIdx = 0; fcFlipped = false; renderFlashcard();
+});
+renderFlashcard();
+
+// 练习：句型 I'm going to...
+const PRACTICES = [
+  {q: '1. "我今年要加入摄影社团" 怎么说？', a: "I'm going to join the Photo Club this year.", choices: ["I'm going to join the Photo Club this year.", "I go to the Photo Club.", "I like the Photo Club."], expl: "✅ be going to = 计划做某事"},
+  {q: '2. "我喜欢拍照" 怎么说？', a: "I love taking photos.", choices: ["I take photo.", "I love taking photos.", "I am photo."], expl: "✅ love + doing (动名词)"},
+  {q: '3. 怎么用英文说"照片能留住甜蜜瞬间"？', a: "Photos can keep the sweet moments in life.", choices: ["Photos can keep the sweet moments in life.", "Photo is sweet.", "Photos are happy."], expl: "✅ keep + 宾语 + 介词短语"},
+  {q: '4. "你能交新朋友" 怎么说？', a: "You can meet new friends.", choices: ["You can meet new friends.", "You have new friend.", "You are new."], expl: "✅ meet friends = 结识朋友"},
+  {q: '5. "竹子是中国四大名贵植物之一" 关键句？', a: "Bamboo is one of the four noble plants in China.", choices: ["Bamboo is one of the four noble plants in China.", "Bamboo is a plant.", "China has bamboo."], expl: "✅ one of the + 复数名词"},
+];
+const pList = document.getElementById('practice-list');
+PRACTICES.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'practice-card';
+  card.innerHTML = `
+    <div class="practice-prompt">${p.q}</div>
+    <div class="practice-choices" data-correct="${p.a}">
+      ${p.choices.map(c => `<button class="practice-choice" data-text="${c}">${c}</button>`).join('')}
+    </div>
+    <div class="practice-explanation">${p.expl}</div>
+  `;
+  pList.appendChild(card);
+});
+pList.addEventListener('click', e => {
+  const btn = e.target.closest('.practice-choice');
+  if (!btn) return;
+  const card = btn.closest('.practice-card');
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  const correct = btn.dataset.text === btn.parentElement.dataset.correct;
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    card.querySelectorAll('.practice-choice').forEach(c => {
+      if (c.dataset.text === btn.parentElement.dataset.correct) c.classList.add('correct');
+    });
+  }
+});
+
+// 游戏：听 audio 选词
+let gameCorrect = 0, gameWrong = 0;
+const gameOpts = document.getElementById('game-options');
+const gamePrompt = document.getElementById('game-prompt');
+const gameStart = document.getElementById('game-start');
+function newGameRound() {
+  const w = UNIT.topic_words[Math.floor(Math.random() * UNIT.topic_words.length)];
+  const distractors = UNIT.topic_words.filter(x => x.en !== w.en).sort(() => Math.random()-0.5).slice(0,3);
+  const opts = [w, ...distractors].sort(() => Math.random()-0.5);
+  gamePrompt.textContent = `🔊 听这个单词：${w.en} 的意思是？`;
+  gameOpts.innerHTML = opts.map(o => `<button class="game-option" data-zh="${o.zh}" data-correct="${o.en}">${o.zh}</button>`).join('');
+  const u = new SpeechSynthesisUtterance(w.en);
+  u.lang = 'en-US'; u.rate = 0.85;
+  speechSynthesis.speak(u);
+  setTimeout(() => speechSynthesis.speak(new SpeechSynthesisUtterance(w.en)), 1500);
+}
+gameOpts.addEventListener('click', e => {
+  const btn = e.target.closest('.game-option');
+  if (!btn) return;
+  const correct = btn.dataset.correct === UNIT.topic_words.find(x => x.zh === btn.dataset.zh).en;
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  if (correct) gameCorrect++; else gameWrong++;
+  document.getElementById('game-correct').textContent = gameCorrect;
+  document.getElementById('game-wrong').textContent = gameWrong;
+  setTimeout(newGameRound, 1200);
+});
+gameStart.addEventListener('click', () => { gameCorrect = 0; gameWrong = 0; newGameRound(); });
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unit 8 · Finding places · 互动学习</title>
+<title>Unit 10 · Foods around the world · 互动学习</title>
 <link rel="stylesheet" href="../style.css">
 <style>
 .word-card .word-img {
@@ -73,10 +73,20 @@
 </head>
 <body>
 
+<nav class="breadcrumb">
+  <a href="../../index.html">📚 学习中心</a>
+  <span class="sep">/</span>
+  <a href="../../index.html#english">英语 English</a>
+  <span class="sep">/</span>
+  <a href="../index.html">三年级上册 G3A</a>
+  <span class="sep">/</span>
+  <span>UNIT10</span>
+</nav>
+
 <header class="unit-header">
   <a class="back" href="../index.html">← 返回选单元</a>
-  <h1>Unit 8 · Finding places</h1>
-  <p class="sub">地点 · 方向 · ⏱ 4:24</p>
+  <h1>Unit 10 · Foods around the world</h1>
+  <p class="sub">食物 · 国家 · ⏱ 4:56</p>
 </header>
 <!-- name 字段含 "Unit N" 标签,title 是真实内容,避免重复 -->
 
@@ -86,28 +96,28 @@
   <button class="stage-tab" data-stage="play"><span class="icon">🎮</span>游戏</button>
 </nav>
 
-<audio id="unit-audio" src="../assets/audio/unit_8.mp3" preload="metadata"></audio>
+<audio id="unit-audio" src="../assets/audio/unit_10.mp3" preload="metadata"></audio>
 <audio id="word-audio" src="" preload="auto"></audio>
 
 <!-- 阶段 1: 预习 -->
 <section class="stage active" id="stage-preview">
   <h2>👀 预习:看教材原图猜词</h2>
-  <p class="stage-intro">Making an ad for a useful invention</p>
+  <p class="stage-intro">Making a booklet on a greener life</p>
 
   <div class="audio-bar">
     <button class="play-btn" id="play-unit">▶</button>
     <div class="audio-info">
-      <div class="audio-title">📖 教材原声 (整段 4:24)</div>
+      <div class="audio-title">📖 教材原声 (整段 4:56)</div>
       <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
       <div class="audio-time">
         <span id="unit-cur">0:00</span>
-        <span id="unit-dur">4:24</span>
+        <span id="unit-dur">4:56</span>
       </div>
     </div>
   </div>
 
   <div class="section-tabs">
-    <button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="fun_time" data-audio="sections/fun_time.mp3"><span class="icon">🎮</span>趣味</button><button class="section-btn" data-section="sound" data-audio="sections/sound.mp3"><span class="icon">🔤</span>字母</button><button class="section-btn" data-section="story_time" data-audio="sections/story_time.mp3"><span class="icon">📖</span>故事</button><button class="section-btn" data-section="talking_time" data-audio="sections/talking_time.mp3"><span class="icon">💬</span>对话</button><button class="section-btn" data-section="topic_words" data-audio="sections/topic_words.mp3"><span class="icon">📚</span>单词</button><button class="section-btn" data-section="sound_prac" data-audio="practice/sound.mp3"><span class="icon">🎯</span>字母 (练习)</button><button class="section-btn" data-section="topic_words_prac" data-audio="practice/topic_words.mp3"><span class="icon">🎯</span>单词 (练习)</button>
+    <button class="section-btn" data-section="chant_time" data-audio="sections/chant_time.mp3"><span class="icon">🎵</span>吟唱</button><button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="sound" data-audio="sections/sound.mp3"><span class="icon">🔤</span>字母</button><button class="section-btn" data-section="story_time" data-audio="sections/story_time.mp3"><span class="icon">📖</span>故事</button><button class="section-btn" data-section="talking_time" data-audio="sections/talking_time.mp3"><span class="icon">💬</span>对话</button><button class="section-btn" data-section="topic_words" data-audio="sections/topic_words.mp3"><span class="icon">📚</span>单词</button><button class="section-btn" data-section="sound_prac" data-audio="practice/sound.mp3"><span class="icon">🎯</span>字母 (练习)</button><button class="section-btn" data-section="topic_words_prac" data-audio="practice/topic_words.mp3"><span class="icon">🎯</span>单词 (练习)</button>
   </div>
 
   <div style="text-align: center; margin-bottom: 20px;">
@@ -115,77 +125,86 @@
   </div>
 
   <div id="textbook-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; align-items: center; justify-content: center; padding: 20px;" onclick="this.style.display='none'">
-    <img src="../assets/img/unit8/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
+    <img src="../assets/img/unit10/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
   </div>
 
   <div class="word-card-grid">
-            <div class="word-card" data-word="library">
-              <img class="word-img" src="../assets/img/unit8/library.jpg" alt="library" onerror="this.style.display='none'" />
-              <div class="word">library</div>
-              <div class="meaning">图书馆</div>
+            <div class="word-card" data-word="food">
+              <img class="word-img" src="../assets/img/unit10/food.jpg" alt="food" onerror="this.style.display='none'" />
+              <div class="word">food</div>
+              <div class="meaning">食物</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="find the way">
-              <img class="word-img" src="../assets/img/unit8/find_the_way.jpg" alt="find the way" onerror="this.style.display='none'" />
-              <div class="word">find the way</div>
-              <div class="meaning">找路</div>
+            <div class="word-card" data-word="noodles">
+              <img class="word-img" src="../assets/img/unit10/noodles.jpg" alt="noodles" onerror="this.style.display='none'" />
+              <div class="word">noodles</div>
+              <div class="meaning">面条</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="get to">
-              <img class="word-img" src="../assets/img/unit8/get_to.jpg" alt="get to" onerror="this.style.display='none'" />
-              <div class="word">get to</div>
-              <div class="meaning">到达</div>
+            <div class="word-card" data-word="pizza">
+              <img class="word-img" src="../assets/img/unit10/pizza.jpg" alt="pizza" onerror="this.style.display='none'" />
+              <div class="word">pizza</div>
+              <div class="meaning">披萨</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="walk along">
-              <img class="word-img" src="../assets/img/unit8/walk_along.jpg" alt="walk along" onerror="this.style.display='none'" />
-              <div class="word">walk along</div>
-              <div class="meaning">沿...走</div>
+            <div class="word-card" data-word="sandwich">
+              <img class="word-img" src="../assets/img/unit10/sandwich.jpg" alt="sandwich" onerror="this.style.display='none'" />
+              <div class="word">sandwich</div>
+              <div class="meaning">三明治</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="road">
-              <img class="word-img" src="../assets/img/unit8/road.jpg" alt="road" onerror="this.style.display='none'" />
-              <div class="word">road</div>
-              <div class="meaning">路</div>
+            <div class="word-card" data-word="hot dog">
+              <img class="word-img" src="../assets/img/unit10/hot_dog.jpg" alt="hot dog" onerror="this.style.display='none'" />
+              <div class="word">hot dog</div>
+              <div class="meaning">热狗</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="left">
-              <img class="word-img" src="../assets/img/unit8/left.jpg" alt="left" onerror="this.style.display='none'" />
-              <div class="word">left</div>
-              <div class="meaning">左</div>
+            <div class="word-card" data-word="fish and chips">
+              <img class="word-img" src="../assets/img/unit10/fish_and_chips.jpg" alt="fish and chips" onerror="this.style.display='none'" />
+              <div class="word">fish and chips</div>
+              <div class="meaning">炸鱼薯条</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="right">
-              <img class="word-img" src="../assets/img/unit8/right.jpg" alt="right" onerror="this.style.display='none'" />
-              <div class="word">right</div>
-              <div class="meaning">右</div>
+            <div class="word-card" data-word="beef">
+              <img class="word-img" src="../assets/img/unit10/beef.jpg" alt="beef" onerror="this.style.display='none'" />
+              <div class="word">beef</div>
+              <div class="meaning">牛肉</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
               </div>
             </div>
-            <div class="word-card" data-word="museum">
-              <img class="word-img" src="../assets/img/unit8/museum.jpg" alt="museum" onerror="this.style.display='none'" />
-              <div class="word">museum</div>
-              <div class="meaning">博物馆</div>
+            <div class="word-card" data-word="bread">
+              <img class="word-img" src="../assets/img/unit10/bread.jpg" alt="bread" onerror="this.style.display='none'" />
+              <div class="word">bread</div>
+              <div class="meaning">面包</div>
+              <div class="audio-row">
+                <button class="btn-tts" data-action="tts">🔊 跟读</button>
+                <button class="btn-orig" data-action="orig">🎵 原声</button>
+              </div>
+            </div>
+            <div class="word-card" data-word="cake">
+              <img class="word-img" src="../assets/img/unit10/cake.jpg" alt="cake" onerror="this.style.display='none'" />
+              <div class="word">cake</div>
+              <div class="meaning">蛋糕</div>
               <div class="audio-row">
                 <button class="btn-tts" data-action="tts">🔊 跟读</button>
                 <button class="btn-orig" data-action="orig">🎵 原声</button>
@@ -203,7 +222,7 @@
     <img id="fc-img" style="max-height: 180px; border-radius: 12px; margin-bottom: 16px;" />
     <div class="flashcard-word" id="fc-word"></div>
     <div class="flashcard-meaning" id="fc-meaning"></div>
-    <div style="font-size: 0.9rem; color: var(--text-soft);" id="fc-progress">1 / 8</div>
+    <div style="font-size: 0.9rem; color: var(--text-soft);" id="fc-progress">1 / 9</div>
   </div>
 
   <div class="flashcard-controls">
@@ -232,7 +251,7 @@
 </section>
 
 <script>
-const WORDS = [{"word": "library", "meaning": "图书馆", "img": "../assets/img/unit8/library.jpg", "orig": "../assets/audio/unit8/words/library.mp3"}, {"word": "find the way", "meaning": "找路", "img": "../assets/img/unit8/find_the_way.jpg", "orig": "../assets/audio/unit8/words/find_the_way.mp3"}, {"word": "get to", "meaning": "到达", "img": "../assets/img/unit8/get_to.jpg", "orig": "../assets/audio/unit8/words/get_to.mp3"}, {"word": "walk along", "meaning": "沿...走", "img": "../assets/img/unit8/walk_along.jpg", "orig": "../assets/audio/unit8/words/walk_along.mp3"}, {"word": "road", "meaning": "路", "img": "../assets/img/unit8/road.jpg", "orig": "../assets/audio/unit8/words/road.mp3"}, {"word": "left", "meaning": "左", "img": "../assets/img/unit8/left.jpg", "orig": "../assets/audio/unit8/words/left.mp3"}, {"word": "right", "meaning": "右", "img": "../assets/img/unit8/right.jpg", "orig": "../assets/audio/unit8/words/right.mp3"}, {"word": "museum", "meaning": "博物馆", "img": "../assets/img/unit8/museum.jpg", "orig": "../assets/audio/unit8/words/museum.mp3"}];
+const WORDS = [{"word": "food", "meaning": "食物", "img": "../assets/img/unit10/food.jpg", "orig": "../assets/audio/unit10/words/food.mp3"}, {"word": "noodles", "meaning": "面条", "img": "../assets/img/unit10/noodles.jpg", "orig": "../assets/audio/unit10/words/noodles.mp3"}, {"word": "pizza", "meaning": "披萨", "img": "../assets/img/unit10/pizza.jpg", "orig": "../assets/audio/unit10/words/pizza.mp3"}, {"word": "sandwich", "meaning": "三明治", "img": "../assets/img/unit10/sandwich.jpg", "orig": "../assets/audio/unit10/words/sandwich.mp3"}, {"word": "hot dog", "meaning": "热狗", "img": "../assets/img/unit10/hot_dog.jpg", "orig": "../assets/audio/unit10/words/hot_dog.mp3"}, {"word": "fish and chips", "meaning": "炸鱼薯条", "img": "../assets/img/unit10/fish_and_chips.jpg", "orig": "../assets/audio/unit10/words/fish_and_chips.mp3"}, {"word": "beef", "meaning": "牛肉", "img": "../assets/img/unit10/beef.jpg", "orig": "../assets/audio/unit10/words/beef.mp3"}, {"word": "bread", "meaning": "面包", "img": "../assets/img/unit10/bread.jpg", "orig": "../assets/audio/unit10/words/bread.mp3"}, {"word": "cake", "meaning": "蛋糕", "img": "../assets/img/unit10/cake.jpg", "orig": "../assets/audio/unit10/words/cake.mp3"}];
 
 // 复用 unit1 的逻辑
 
