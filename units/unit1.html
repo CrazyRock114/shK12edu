@@ -36,6 +36,12 @@
   background: #4ecdc4;
   color: white;
 }
+.section-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; justify-content: center; }
+.section-btn { background: var(--white); border: 2px solid var(--bg); padding: 8px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; color: var(--text); box-shadow: var(--shadow); }
+.section-btn:hover { background: var(--accent); transform: translateY(-2px); }
+.section-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.section-btn .icon { font-size: 1.1rem; }
+
 </style>
 </head>
 <body>

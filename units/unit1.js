@@ -341,3 +341,27 @@ window.addEventListener('beforeunload', () => {
   if (WORD_AUDIO) WORD_AUDIO.pause();
   if (window.speechSynthesis) window.speechSynthesis.cancel();
 });
+
+// ===== Section 按钮(老师提供的主教材 + 练习部分音频) =====
+const SECTION_AUDIO = new Audio();
+SECTION_AUDIO.preload = 'auto';
+let currentSectionBtn = null;
+document.querySelectorAll('.section-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audioPath = btn.dataset.audio;
+    if (currentSectionBtn) currentSectionBtn.classList.remove('active');
+    if (currentSectionBtn === btn) {
+      SECTION_AUDIO.pause();
+      currentSectionBtn = null;
+      return;
+    }
+    btn.classList.add('active');
+    currentSectionBtn = btn;
+    SECTION_AUDIO.src = '../assets/audio/unit1/' + audioPath;
+    SECTION_AUDIO.play().catch(e => console.error('播放失败', e));
+  });
+});
+SECTION_AUDIO.addEventListener('ended', () => {
+  if (currentSectionBtn) currentSectionBtn.classList.remove('active');
+  currentSectionBtn = null;
+});
