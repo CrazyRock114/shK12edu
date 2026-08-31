@@ -257,7 +257,7 @@ const GRADE_FULL = (GRADE === 'G3A') ? '三年级上册' : '五年级上册';
 document.title = `${UNIT.num || uid} · ${UNIT.name} · 互动学习`;
 document.getElementById('unit-title').textContent = `${UNIT.num || uid} · ${UNIT.name}`;
 document.getElementById('unit-sub').textContent =
-  `${UNIT.description || ''}${UNIT.description ? ' · ' : ''}⏱ ${UNIT.duration || '...'}`;
+  `${UNIT.description || ''}${UNIT.description ? ' · ' : ''}⏱ 点击 ▶ 加载音频`;
 document.getElementById('bc-grade').textContent = GRADE_FULL;
 document.getElementById('bc-unit').textContent = UNIT.num || uid;
 
@@ -293,7 +293,7 @@ UNIT.sections.forEach((sec, idx) => {
   const isFallback = sec.is_fallback === true;
   let audioLabel;
   if (isWholeUnit && !isFallback) {
-    audioLabel = `📖 教材原声 (整段 ${UNIT.duration || ''})`;
+    audioLabel = `📖 教材原声 (整段 — 点 ▶ 加载)`;
   } else if (isFallback) {
     audioLabel = `📖 配套音频 (整段替代 — 教材无分段 mp3)`;
   } else {
@@ -341,56 +341,90 @@ UNIT.sections.forEach((sec, idx) => {
   block.innerHTML = h3 + desc + audioBar + textbookHTML + renderSectionMeta(sec) + wordsHTML;
   container.appendChild(block);
 
-  // 初始化此段音频
-  const audio = new Audio('../assets/audio/' + audioPath);
-  audio.preload = 'metadata';
+  // 懒加载 audio: 不立即创建, 点 play 时才创建并 load
   const seek = block.querySelector(`[data-seek="${idx}"]`);
-  sectionAudios[idx] = { audio, btn: block.querySelector('.play-btn'), seek, cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`), section: sec };
+  sectionAudios[idx] = {
+    audio: null,           // 懒加载
+    audioPath: '../assets/audio/' + audioPath,
+    audioLoaded: false,
+    btn: block.querySelector('.play-btn'),
+    seek, cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`), section: sec
+  };
 });
 
-// ===== 音频播放控制 =====
+// ===== 音频播放控制 (懒加载: 点击时创建 Audio) =====
+function ensureAudio(a) {
+  if (a.audio) return Promise.resolve(a.audio);
+  return new Promise((resolve, reject) => {
+    const audio = new Audio(a.audioPath);
+    audio.preload = 'auto';
+    audio.addEventListener('loadedmetadata', () => {
+      a.dur.textContent = fmt(audio.duration);
+      resolve(audio);
+    });
+    audio.addEventListener('error', (e) => {
+      console.error('audio load failed', a.audioPath, e);
+      reject(e);
+    });
+    audio.addEventListener('canplay', () => resolve(audio), { once: true });
+    audio.load();
+  });
+}
+
 Object.entries(sectionAudios).forEach(([idx, a]) => {
-  a.btn.addEventListener('click', () => {
+  a.btn.addEventListener('click', async () => {
     // 暂停其他音频
     Object.entries(sectionAudios).forEach(([i2, a2]) => {
-      if (i2 !== idx && !a2.audio.paused) {
+      if (i2 !== idx && a2.audio && !a2.audio.paused) {
         a2.audio.pause();
         a2.btn.textContent = '▶';
         a2.btn.classList.remove('playing');
       }
     });
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    if (a.audio.paused) {
-      a.audio.play().catch(e => console.error('播放失败', e));
-      a.btn.textContent = '⏸';
-      a.btn.classList.add('playing');
-    } else {
-      a.audio.pause();
+    try {
+      if (!a.audio) {
+        a.audio = await ensureAudio(a);
+        // 绑定事件 (只一次)
+        a.audio.addEventListener('timeupdate', () => {
+          if (a.audio.duration && !a.seeking) {
+            const pct = (a.audio.currentTime / a.audio.duration) * 100;
+            a.seek.value = pct;
+            a.seek.style.setProperty('--progress', pct + '%');
+            a.cur.textContent = fmt(a.audio.currentTime);
+          }
+        });
+        a.audio.addEventListener('ended', () => {
+          a.btn.textContent = '▶';
+          a.btn.classList.remove('playing');
+        });
+        a.audioLoaded = true;
+      }
+      if (a.audio.paused) {
+        await a.audio.play();
+        a.btn.textContent = '⏸';
+        a.btn.classList.add('playing');
+      } else {
+        a.audio.pause();
+        a.btn.textContent = '▶';
+        a.btn.classList.remove('playing');
+      }
+    } catch (e) {
+      console.error('播放失败', e);
       a.btn.textContent = '▶';
-      a.btn.classList.remove('playing');
+      alert('音频加载失败: ' + a.audioPath + '\n请检查网络或刷新页面');
     }
   });
-  a.audio.addEventListener('timeupdate', () => {
-    if (a.audio.duration && !a.seeking) {
-      const pct = (a.audio.currentTime / a.audio.duration) * 100;
-      a.seek.value = pct;
-      a.seek.style.setProperty('--progress', pct + '%');
-      a.cur.textContent = fmt(a.audio.currentTime);
-    }
-  });
-  a.audio.addEventListener('loadedmetadata', () => {
-    a.dur.textContent = fmt(a.audio.duration);
-  });
-  a.audio.addEventListener('ended', () => {
-    a.btn.textContent = '▶';
-    a.btn.classList.remove('playing');
-  });
+
   // 可拖动进度条 → seek audio
   a.seek.addEventListener('input', () => {
     a.seeking = true;
-    if (a.audio.duration) {
+    if (a.audio && a.audio.duration) {
       a.audio.currentTime = (a.seek.value / 100) * a.audio.duration;
       a.cur.textContent = fmt(a.audio.currentTime);
+    } else {
+      // audio 还没 load, 显示个 fake progress
+      a.cur.textContent = '0:00';
     }
   });
   a.seek.addEventListener('change', () => { a.seeking = false; });
@@ -495,7 +529,7 @@ function renderSectionMeta(sec) {
   if (sec.talking_pattern || sec.talking_phrases) {
     const pattern = sec.talking_pattern ? `<div style="margin-bottom:6px;">💬 句型: <code style="background:#e6eaf0;padding:2px 8px;border-radius:4px;font-size:0.95rem;">${sec.talking_pattern}</code></div>` : '';
     const phrases = sec.talking_phrases && sec.talking_phrases.length
-      ? `<div style="margin-bottom:6px;">🗝 关键短语: ${sec.talking_phrases.map(p => `<span class="word-chip" style="display:inline-block;padding:2px 8px;margin:2px 3px;background:white;border:1px solid var(--primary);border-radius:6px;font-size:0.82rem;cursor:pointer;" onclick="speak('${p.replace(/'/g, "\\'")}')">${p}</span>`).join('')}</div>` : '';
+      ? `<div style="margin-bottom:6px;">🗝 关键短语: <span style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;">${sec.talking_phrases.map(p => `<span class="phrase-chip" style="display:inline-block;padding:4px 10px;background:white;border:1.5px solid var(--primary);border-radius:14px;font-size:0.85rem;cursor:pointer;color:var(--primary-dark);font-weight:600;" onclick="speak('${p.replace(/'/g, "\\'")}')">${p}</span>`).join('')}</span></div>` : '';
     const scenario = sec.talking_scenario ? `<div style="font-size:0.85rem;color:var(--text-soft);">📍 ${sec.talking_scenario}</div>` : '';
     html += `<div class="section-meta" style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
       💬 <b>${sec.talking_title || '对话'}</b>${pattern}${phrases}${scenario}
@@ -538,7 +572,7 @@ document.querySelectorAll('.stage-tab').forEach(tab => {
     document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById('stage-' + tab.dataset.stage).classList.add('active');
-    Object.values(sectionAudios).forEach(a => { a.audio.pause(); a.btn.textContent = '▶'; a.btn.classList.remove('playing'); });
+    Object.values(sectionAudios).forEach(a => { if (a.audio) a.audio.pause(); a.btn.textContent = '▶'; a.btn.classList.remove('playing'); });
     if (window.speechSynthesis) window.speechSynthesis.cancel();
   });
 });
