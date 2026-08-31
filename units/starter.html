@@ -30,38 +30,45 @@
 }
 .btn-tts { background: #ffe66d; color: var(--text); }
 .btn-orig { background: #4ecdc4; color: white; }
+
+/* ===== Section 切换器 - 紧凑标签式 (跟 unit1 一致) ===== */
 .section-tabs {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-  justify-content: center;
+  gap: 0;
+  margin: 0 0 20px 0;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 4px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 .section-btn {
-  background: var(--white);
-  border: 2px solid var(--bg);
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-soft);
   cursor: pointer;
+  border-radius: 10px;
   transition: all 0.15s;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  color: var(--text);
-  box-shadow: var(--shadow);
+  gap: 2px;
+  min-width: 0;
 }
-.section-btn:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-}
+.section-btn .icon { font-size: 1.1rem; }
+.section-btn:hover { background: var(--bg); color: var(--text); }
 .section-btn.active {
   background: var(--primary);
   color: white;
-  border-color: var(--primary);
 }
-.section-btn .icon { font-size: 1.1rem; }
+@media (max-width: 600px) {
+  .section-btn { font-size: 0.7rem; padding: 8px 4px; }
+  .section-btn .icon { font-size: 1rem; }
+}
 </style>
 </head>
 <body>
@@ -100,7 +107,7 @@
   </div>
 
   <div class="section-tabs">
-    <button class="section-btn" data-section="countries" data-audio="sections/countries.mp3"><span class="icon">🔊</span>countries</button><button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整版</button><button class="section-btn" data-section="numbers" data-audio="sections/numbers.mp3"><span class="icon">🔊</span>numbers</button><button class="section-btn" data-section="seasons" data-audio="sections/seasons.mp3"><span class="icon">🔊</span>seasons</button><button class="section-btn" data-section="the_alphabet" data-audio="sections/the_alphabet.mp3"><span class="icon">🔊</span>the_alphabet</button>
+    <button class="section-btn" data-section="countries" data-audio="sections/countries.mp3"><span class="icon">🔊</span>countries</button><button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="numbers" data-audio="sections/numbers.mp3"><span class="icon">🔊</span>numbers</button><button class="section-btn" data-section="seasons" data-audio="sections/seasons.mp3"><span class="icon">🔊</span>seasons</button><button class="section-btn" data-section="the_alphabet" data-audio="sections/the_alphabet.mp3"><span class="icon">🔊</span>the_alphabet</button>
   </div>
 
   <div style="text-align: center; margin-bottom: 20px;">
