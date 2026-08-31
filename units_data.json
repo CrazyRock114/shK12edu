@@ -1,0 +1,483 @@
+{
+  "metadata": {
+    "textbook": "义务教育教科书（五•四学制）·英语三年级上册",
+    "publisher": "上海教育出版社",
+    "total_units": 12,
+    "audio_path_template": "assets/audio/{filename}",
+    "audio_format": "mp3",
+    "audio_bitrate_kbps": 192,
+    "total_audio_size_mb": 85.4
+  },
+  "units": [
+    {
+      "id": "starter",
+      "name": "Starter",
+      "title": "预备单元",
+      "description": "字母 · 季节 · 数字 · 国家",
+      "duration": "5:19",
+      "duration_sec": 319,
+      "audio_file": "starter.mp3",
+      "audio_url": "assets/audio/starter.mp3",
+      "pdf_start": 9,
+      "pdf_end": 13,
+      "book_start": 2,
+      "book_end": 6,
+      "sections": [
+        "alphabet",
+        "seasons",
+        "numbers",
+        "countries"
+      ],
+      "sections_audio": [
+        "countries",
+        "full",
+        "numbers",
+        "seasons",
+        "the_alphabet"
+      ],
+      "practice_audio": []
+    },
+    {
+      "id": "unit1",
+      "name": "Unit 1",
+      "title": "A new start",
+      "description": "新学期 · 目标 · 同学",
+      "duration": "4:31",
+      "duration_sec": 271,
+      "audio_file": "unit_1.mp3",
+      "audio_url": "assets/audio/unit_1.mp3",
+      "pdf_start": 14,
+      "pdf_end": 21,
+      "book_start": 7,
+      "book_end": 14,
+      "big_task": "Making a goal leaf",
+      "topic_words": [
+        "school",
+        "classmate",
+        "teacher",
+        "play sports",
+        "read",
+        "book",
+        "study",
+        "friend"
+      ],
+      "sound_letter": "b",
+      "sound_example": "book",
+      "key_phrases": [
+        "I want to make new friends.",
+        "I want to speak English well.",
+        "What's your goal?",
+        "I want to study hard."
+      ],
+      "song_title": "A new start",
+      "story_title": "Minmin's goal",
+      "page_url": "units/unit1.html",
+      "mvp_status": "completed",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "song_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "song_time",
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit2",
+      "name": "Unit 2",
+      "title": "Proud of you, proud of myself",
+      "description": "擅长 · 赞美",
+      "duration": "4:26",
+      "duration_sec": 266,
+      "audio_file": "unit_2.mp3",
+      "audio_url": "assets/audio/unit_2.mp3",
+      "pdf_start": 22,
+      "pdf_end": 29,
+      "book_start": 15,
+      "book_end": 22,
+      "big_task": "Talking about yourself and your classmates",
+      "topic_words": [
+        "draw",
+        "tell a story",
+        "dance",
+        "sing",
+        "use the computer",
+        "run",
+        "jump"
+      ],
+      "sound_letter": "d",
+      "sound_example": "dance",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "fun_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "fun_time",
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit3",
+      "name": "Unit 3",
+      "title": "Our garden",
+      "description": "花园 · 蔬菜",
+      "duration": "4:25",
+      "duration_sec": 265,
+      "audio_file": "unit_3.mp3",
+      "audio_url": "assets/audio/unit_3.mp3",
+      "pdf_start": 30,
+      "pdf_end": 37,
+      "book_start": 23,
+      "book_end": 30,
+      "big_task": "Making a school garden report",
+      "topic_words": [
+        "garden",
+        "flower",
+        "vegetable",
+        "plant",
+        "orange tree",
+        "tomato",
+        "carrot"
+      ],
+      "sound_letter": "g",
+      "sound_example": "garden",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "fun_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "fun_time",
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit4",
+      "name": "Unit 4",
+      "title": "Water",
+      "description": "水 · 循环",
+      "duration": "4:34",
+      "duration_sec": 274,
+      "audio_file": "unit_4.mp3",
+      "audio_url": "assets/audio/unit_4.mp3",
+      "pdf_start": 38,
+      "pdf_end": 45,
+      "book_start": 31,
+      "book_end": 38,
+      "big_task": "Making a lab report",
+      "topic_words": [
+        "water",
+        "river",
+        "lake",
+        "sea",
+        "water vapour",
+        "cloud",
+        "rain",
+        "snow",
+        "ice"
+      ],
+      "sound_letter": "s",
+      "sound_example": "sea",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "reading_time",
+        "rhyme_time",
+        "sound",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit5",
+      "name": "Unit 5",
+      "title": "I can help",
+      "description": "帮忙 · 家务",
+      "duration": "4:42",
+      "duration_sec": 282,
+      "audio_file": "unit_5.mp3",
+      "audio_url": "assets/audio/unit_5.mp3",
+      "pdf_start": 46,
+      "pdf_end": 53,
+      "book_start": 39,
+      "book_end": 46,
+      "big_task": "Being a good helper",
+      "topic_words": [
+        "help",
+        "cook",
+        "do the dishes",
+        "clean the table",
+        "walk the dog",
+        "chore",
+        "give your seat"
+      ],
+      "sound_letter": "i",
+      "sound_example": "dish",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "song_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "song_time",
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit6",
+      "name": "Unit 6",
+      "title": "How do you feel?",
+      "description": "心情 · 感受",
+      "duration": "4:46",
+      "duration_sec": 286,
+      "audio_file": "unit_6.mp3",
+      "audio_url": "assets/audio/unit_6.mp3",
+      "pdf_start": 54,
+      "pdf_end": 61,
+      "book_start": 47,
+      "book_end": 54,
+      "big_task": "Writing a letter to Mr Tree",
+      "topic_words": [
+        "happy",
+        "sad",
+        "good",
+        "bad",
+        "excited",
+        "scared",
+        "tired",
+        "unhappy"
+      ],
+      "sound_letter": "a",
+      "sound_example": "happy",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "fun_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit7",
+      "name": "Unit 7",
+      "title": "Jobs",
+      "description": "职业 · 梦想",
+      "duration": "4:12",
+      "duration_sec": 252,
+      "audio_file": "unit_7.mp3",
+      "audio_url": "assets/audio/unit_7.mp3",
+      "pdf_start": 62,
+      "pdf_end": 69,
+      "book_start": 55,
+      "book_end": 62,
+      "big_task": "Doing a group interview",
+      "topic_words": [
+        "driver",
+        "police officer",
+        "engineer",
+        "writer",
+        "doctor",
+        "chef",
+        "astronaut"
+      ],
+      "sound_letter": "t",
+      "sound_example": "teacher",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "reading_time",
+        "song_time",
+        "sound",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "song_time",
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit8",
+      "name": "Unit 8",
+      "title": "Finding places",
+      "description": "地点 · 方向",
+      "duration": "4:24",
+      "duration_sec": 264,
+      "audio_file": "unit_8.mp3",
+      "audio_url": "assets/audio/unit_8.mp3",
+      "pdf_start": 70,
+      "pdf_end": 77,
+      "book_start": 63,
+      "book_end": 70,
+      "big_task": "Finding the places",
+      "topic_words": [
+        "library",
+        "find the way",
+        "get to",
+        "walk along",
+        "road",
+        "left",
+        "right",
+        "museum"
+      ],
+      "sound_letter": "m",
+      "sound_example": "many",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "fun_time",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit9",
+      "name": "Unit 9",
+      "title": "Special days in China",
+      "description": "节日 · 庆祝",
+      "duration": "4:35",
+      "duration_sec": 275,
+      "audio_file": "unit_9.mp3",
+      "audio_url": "assets/audio/unit_9.mp3",
+      "pdf_start": 78,
+      "pdf_end": 85,
+      "book_start": 71,
+      "book_end": 78,
+      "big_task": "Planning New Year activities",
+      "topic_words": [
+        "special days",
+        "the Double Ninth Festival",
+        "celebrate",
+        "Chinese New Year",
+        "the Spring Festival",
+        "the Lantern Festival",
+        "holiday"
+      ],
+      "sound_letter": "e",
+      "sound_example": "festival",
+      "sections_audio": [
+        "big_task",
+        "full",
+        "fun_time",
+        "reading_time",
+        "sound",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "sound",
+        "talking_time",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "unit10",
+      "name": "Unit 10",
+      "title": "Foods around the world",
+      "description": "食物 · 国家",
+      "duration": "4:56",
+      "duration_sec": 296,
+      "audio_file": "unit_10.mp3",
+      "audio_url": "assets/audio/unit_10.mp3",
+      "pdf_start": 86,
+      "pdf_end": 93,
+      "book_start": 79,
+      "book_end": 86,
+      "big_task": "Making a food card",
+      "topic_words": [
+        "food",
+        "noodles",
+        "pizza",
+        "sandwich",
+        "hot dog",
+        "fish and chips",
+        "beef",
+        "bread",
+        "cake"
+      ],
+      "sound_letter": "n",
+      "sound_example": "noodles",
+      "sections_audio": [
+        "big_task",
+        "chant_time",
+        "full",
+        "sound",
+        "story_time",
+        "talking_time",
+        "topic_words"
+      ],
+      "practice_audio": [
+        "sound",
+        "topic_words"
+      ]
+    },
+    {
+      "id": "words_to_use",
+      "name": "Words to use",
+      "title": "全册词汇复习",
+      "description": "11 单元全词汇汇总朗读",
+      "duration": "11:19",
+      "duration_sec": 678,
+      "audio_file": "words_to_use.mp3",
+      "audio_url": "assets/audio/words_to_use.mp3",
+      "pdf_start": 94,
+      "pdf_end": 94,
+      "book_start": 87,
+      "book_end": 87,
+      "is_review": true,
+      "sections_audio": [
+        "full",
+        "unit_1",
+        "unit_10",
+        "unit_2",
+        "unit_3",
+        "unit_4",
+        "unit_5",
+        "unit_6",
+        "unit_7",
+        "unit_8",
+        "unit_9"
+      ],
+      "practice_audio": []
+    }
+  ]
+}

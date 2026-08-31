@@ -1,0 +1,511 @@
+/* ===== 全局 ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #ff6b6b;
+  --primary-light: #ffb3b3;
+  --secondary: #4ecdc4;
+  --accent: #ffe66d;
+  --bg: #fff8e7;
+  --text: #2d3436;
+  --text-soft: #636e72;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --radius: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ===== 首页 Hero ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  color: var(--white);
+  border-radius: 0 0 32px 32px;
+  box-shadow: var(--shadow-lg);
+}
+.hero h1 { font-size: 2.4rem; margin-bottom: 8px; }
+.hero .subtitle { font-size: 1.1rem; opacity: 0.9; }
+
+/* ===== Unit 网格 ===== */
+.unit-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.unit-card {
+  display: block;
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.unit-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.unit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.unit-card:hover::before { transform: scaleX(1); }
+.unit-card.highlight {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
+}
+.unit-card.highlight::before { transform: scaleX(1); }
+.unit-num {
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.unit-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.unit-meta {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+.unit-time {
+  display: inline-block;
+  font-size: 0.85rem;
+  background: var(--bg);
+  color: var(--text-soft);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+.words-card .unit-num { font-size: 1.8rem; }
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* ===== Unit 页面通用 ===== */
+.unit-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  color: var(--white);
+  padding: 32px 20px;
+  border-radius: 0 0 24px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+.unit-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+.unit-header .sub {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.unit-header .back {
+  display: inline-block;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+.unit-header .back:hover { opacity: 1; }
+
+/* ===== 阶段切换 Tab ===== */
+.stage-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.stage-tab {
+  flex: 1;
+  min-width: 80px;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-align: center;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.stage-tab:hover { transform: translateY(-2px); }
+.stage-tab.active {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+.stage-tab .icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+
+/* ===== 阶段容器 ===== */
+.stage {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+.stage.active { display: block; }
+.stage h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.stage-intro {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+/* ===== 通用音频播放器 ===== */
+.audio-bar {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+.play-btn:hover { transform: scale(1.08); }
+.play-btn:active { transform: scale(0.95); }
+.play-btn.playing { background: var(--secondary); }
+.audio-info { flex: 1; }
+.audio-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.audio-progress {
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.audio-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  width: 0%;
+  transition: width 0.2s linear;
+}
+.audio-time {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== 词卡 (Learn) ===== */
+.word-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.word-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  position: relative;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.word-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-light);
+}
+.word-card .emoji { font-size: 2.4rem; display: block; margin-bottom: 6px; }
+.word-card .word { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+.word-card .meaning { font-size: 0.85rem; color: var(--text-soft); }
+.word-card .sound-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.word-card:hover .sound-btn { opacity: 1; }
+
+/* ===== 闪卡游戏 (Review) ===== */
+.flashcard-stage {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flashcard-word {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.flashcard-emoji {
+  font-size: 5rem;
+  margin-bottom: 16px;
+}
+.flashcard-meaning {
+  font-size: 1.2rem;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  display: none;
+}
+.flashcard-stage.revealed .flashcard-meaning { display: block; }
+.flashcard-controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-secondary { background: var(--secondary); color: var(--white); }
+.btn-accent { background: var(--accent); color: var(--text); }
+.btn-soft { background: var(--bg); color: var(--text-soft); }
+
+/* ===== 句型练习 (Practice) ===== */
+.practice-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.practice-prompt {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+.practice-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.practice-choice {
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+.practice-choice:hover { background: var(--primary-light); }
+.practice-choice.correct {
+  background: #51cf66;
+  color: var(--white);
+  border-color: #51cf66;
+}
+.practice-choice.wrong {
+  background: #ff6b6b;
+  color: var(--white);
+  border-color: #ff6b6b;
+}
+.practice-choice:disabled { cursor: not-allowed; }
+.practice-explanation {
+  margin-top: 12px;
+  padding: 12px;
+  background: #e7f5ff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1971c2;
+  display: none;
+}
+.practice-explanation.show { display: block; }
+
+/* ===== 小游戏 (Play) ===== */
+.game-board {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.game-prompt {
+  font-size: 1.15rem;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+.game-listening-icon {
+  font-size: 4rem;
+  display: inline-block;
+  animation: pulse 1.5s ease infinite;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.game-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+.game-option {
+  padding: 24px 16px;
+  background: var(--bg);
+  border: 3px solid transparent;
+  border-radius: 16px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.game-option:hover { background: var(--primary-light); }
+.game-option.correct {
+  background: #51cf66;
+  color: var(--white);
+  border-color: #51cf66;
+  animation: shake 0.5s;
+}
+.game-option.wrong {
+  background: #ff6b6b;
+  color: var(--white);
+  border-color: #ff6b6b;
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+.game-score {
+  font-size: 1rem;
+  color: var(--text-soft);
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.game-score .num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ===== 跟读按钮 ===== */
+.speak-btn {
+  background: var(--accent);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.speak-btn:hover { transform: scale(1.08); }
+.speak-btn.recording { background: #ff6b6b; color: var(--white); animation: pulse 1s infinite; }
+
+/* ===== 移动端 ===== */
+@media (max-width: 600px) {
+  .hero { padding: 40px 16px 20px; }
+  .hero h1 { font-size: 1.6rem; }
+  .unit-grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 12px; }
+  .unit-card { padding: 16px 12px; }
+  .unit-name { font-size: 1.1rem; }
+  .unit-meta { font-size: 0.85rem; }
+  .stage-tabs { padding: 12px; }
+  .stage-tab { padding: 8px 10px; font-size: 0.85rem; }
+  .stage-tab .icon { font-size: 1.2rem; }
+  .flashcard-word { font-size: 2.4rem; }
+  .flashcard-emoji { font-size: 4rem; }
+  .practice-choices { grid-template-columns: 1fr; }
+}

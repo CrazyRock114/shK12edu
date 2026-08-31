@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words to use · 全册词汇复习</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.word-card .word-img { width: 100%; max-height: 80px; object-fit: contain; margin-bottom: 4px; border-radius: 6px; background: #f8f9fa; }
+.unit-section { margin-bottom: 32px; }
+.unit-section h2 { color: var(--primary); margin-bottom: 12px; font-size: 1.3rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; }
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.mini-card { background: var(--white); border-radius: 10px; padding: 8px; text-align: center; box-shadow: var(--shadow); cursor: pointer; transition: all 0.15s; }
+.mini-card:hover { transform: translateY(-2px); border: 2px solid var(--primary-light); }
+.mini-card .w { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+.mini-card .m { font-size: 0.78rem; color: var(--text-soft); }
+.mini-card .audio-row { display: flex; gap: 2px; margin-top: 4px; justify-content: center; }
+.mini-card .audio-row button { font-size: 0.65rem; padding: 2px 4px; border: none; border-radius: 4px; cursor: pointer; }
+.btn-tts-mini { background: #ffe66d; }
+.btn-orig-mini { background: #4ecdc4; color: white; }
+</style>
+</head>
+<body>
+
+<header class="unit-header">
+  <a class="back" href="../index.html">← 返回选单元</a>
+  <h1>📖 Words to use · 全册词汇复习</h1>
+  <p class="sub">Starter + Unit 1-10 共 85 个单词 · ⏱ 11:19</p>
+</header>
+
+<audio id="unit-audio" src="../assets/audio/words_to_use.mp3" preload="metadata"></audio>
+<audio id="word-audio" src="" preload="auto"></audio>
+
+<div class="audio-bar">
+  <button class="play-btn" id="play-unit">▶</button>
+  <div class="audio-info">
+    <div class="audio-title">📖 教材原声 (整段 11:19)</div>
+    <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
+    <div class="audio-time"><span id="unit-cur">0:00</span><span id="unit-dur">11:19</span></div>
+  </div>
+</div>
+
+<div class="stage active" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+  <div class="unit-section">
+    <h2>🌱 Starter 预备单元</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="alphabet" data-unit="starter">
+        <div class="w">alphabet</div>
+        <div class="m">字母表 A-Z</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="spring" data-unit="starter">
+        <div class="w">spring</div>
+        <div class="m">春天</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="summer" data-unit="starter">
+        <div class="w">summer</div>
+        <div class="m">夏天</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="autumn" data-unit="starter">
+        <div class="w">autumn</div>
+        <div class="m">秋天</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="winter" data-unit="starter">
+        <div class="w">winter</div>
+        <div class="m">冬天</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="one" data-unit="starter">
+        <div class="w">one</div>
+        <div class="m">1</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="two" data-unit="starter">
+        <div class="w">two</div>
+        <div class="m">2</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="three" data-unit="starter">
+        <div class="w">three</div>
+        <div class="m">3</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="China" data-unit="starter">
+        <div class="w">China</div>
+        <div class="m">中国</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="Italy" data-unit="starter">
+        <div class="w">Italy</div>
+        <div class="m">意大利</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="UK" data-unit="starter">
+        <div class="w">UK</div>
+        <div class="m">英国</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="USA" data-unit="starter">
+        <div class="w">USA</div>
+        <div class="m">美国</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="France" data-unit="starter">
+        <div class="w">France</div>
+        <div class="m">法国</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="Germany" data-unit="starter">
+        <div class="w">Germany</div>
+        <div class="m">德国</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="New Zealand" data-unit="starter">
+        <div class="w">New Zealand</div>
+        <div class="m">新西兰</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 1 · A new start</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="school" data-unit="unit1">
+        <div class="w">school</div>
+        <div class="m">学校</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="classmate" data-unit="unit1">
+        <div class="w">classmate</div>
+        <div class="m">同学</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="teacher" data-unit="unit1">
+        <div class="w">teacher</div>
+        <div class="m">老师</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="play sports" data-unit="unit1">
+        <div class="w">play sports</div>
+        <div class="m">做运动</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="read" data-unit="unit1">
+        <div class="w">read</div>
+        <div class="m">读</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="book" data-unit="unit1">
+        <div class="w">book</div>
+        <div class="m">书</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="study" data-unit="unit1">
+        <div class="w">study</div>
+        <div class="m">学习</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="friend" data-unit="unit1">
+        <div class="w">friend</div>
+        <div class="m">朋友</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 2 · Proud of you</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="draw" data-unit="unit2">
+        <div class="w">draw</div>
+        <div class="m">画</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="tell a story" data-unit="unit2">
+        <div class="w">tell a story</div>
+        <div class="m">讲故事</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="dance" data-unit="unit2">
+        <div class="w">dance</div>
+        <div class="m">跳舞</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="sing" data-unit="unit2">
+        <div class="w">sing</div>
+        <div class="m">唱</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="use the computer" data-unit="unit2">
+        <div class="w">use the computer</div>
+        <div class="m">用电脑</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="run" data-unit="unit2">
+        <div class="w">run</div>
+        <div class="m">跑</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="jump" data-unit="unit2">
+        <div class="w">jump</div>
+        <div class="m">跳</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 3 · Our garden</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="garden" data-unit="unit3">
+        <div class="w">garden</div>
+        <div class="m">花园</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="flower" data-unit="unit3">
+        <div class="w">flower</div>
+        <div class="m">花</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="vegetable" data-unit="unit3">
+        <div class="w">vegetable</div>
+        <div class="m">蔬菜</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="plant" data-unit="unit3">
+        <div class="w">plant</div>
+        <div class="m">植物</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="orange tree" data-unit="unit3">
+        <div class="w">orange tree</div>
+        <div class="m">橙子树</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="tomato" data-unit="unit3">
+        <div class="w">tomato</div>
+        <div class="m">番茄</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="carrot" data-unit="unit3">
+        <div class="w">carrot</div>
+        <div class="m">胡萝卜</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 4 · Water</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="water" data-unit="unit4">
+        <div class="w">water</div>
+        <div class="m">水</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="river" data-unit="unit4">
+        <div class="w">river</div>
+        <div class="m">河</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="lake" data-unit="unit4">
+        <div class="w">lake</div>
+        <div class="m">湖</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="sea" data-unit="unit4">
+        <div class="w">sea</div>
+        <div class="m">海</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="water vapour" data-unit="unit4">
+        <div class="w">water vapour</div>
+        <div class="m">水蒸气</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="cloud" data-unit="unit4">
+        <div class="w">cloud</div>
+        <div class="m">云</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="rain" data-unit="unit4">
+        <div class="w">rain</div>
+        <div class="m">雨</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="snow" data-unit="unit4">
+        <div class="w">snow</div>
+        <div class="m">雪</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="ice" data-unit="unit4">
+        <div class="w">ice</div>
+        <div class="m">冰</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 5 · I can help</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="help" data-unit="unit5">
+        <div class="w">help</div>
+        <div class="m">帮忙</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="cook" data-unit="unit5">
+        <div class="w">cook</div>
+        <div class="m">做饭</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="do the dishes" data-unit="unit5">
+        <div class="w">do the dishes</div>
+        <div class="m">洗碗</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="clean the table" data-unit="unit5">
+        <div class="w">clean the table</div>
+        <div class="m">擦桌子</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="walk the dog" data-unit="unit5">
+        <div class="w">walk the dog</div>
+        <div class="m">遛狗</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="chore" data-unit="unit5">
+        <div class="w">chore</div>
+        <div class="m">家务</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="give your seat" data-unit="unit5">
+        <div class="w">give your seat</div>
+        <div class="m">让座</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 6 · How do you feel?</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="happy" data-unit="unit6">
+        <div class="w">happy</div>
+        <div class="m">开心</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="sad" data-unit="unit6">
+        <div class="w">sad</div>
+        <div class="m">难过</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="good" data-unit="unit6">
+        <div class="w">good</div>
+        <div class="m">好</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="bad" data-unit="unit6">
+        <div class="w">bad</div>
+        <div class="m">坏</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="excited" data-unit="unit6">
+        <div class="w">excited</div>
+        <div class="m">兴奋</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="scared" data-unit="unit6">
+        <div class="w">scared</div>
+        <div class="m">害怕</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="tired" data-unit="unit6">
+        <div class="w">tired</div>
+        <div class="m">累</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="unhappy" data-unit="unit6">
+        <div class="w">unhappy</div>
+        <div class="m">不开心</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 7 · Jobs</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="driver" data-unit="unit7">
+        <div class="w">driver</div>
+        <div class="m">司机</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="police officer" data-unit="unit7">
+        <div class="w">police officer</div>
+        <div class="m">警察</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="engineer" data-unit="unit7">
+        <div class="w">engineer</div>
+        <div class="m">工程师</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="writer" data-unit="unit7">
+        <div class="w">writer</div>
+        <div class="m">作家</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="doctor" data-unit="unit7">
+        <div class="w">doctor</div>
+        <div class="m">医生</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="chef" data-unit="unit7">
+        <div class="w">chef</div>
+        <div class="m">厨师</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="astronaut" data-unit="unit7">
+        <div class="w">astronaut</div>
+        <div class="m">宇航员</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 8 · Finding places</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="library" data-unit="unit8">
+        <div class="w">library</div>
+        <div class="m">图书馆</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="find the way" data-unit="unit8">
+        <div class="w">find the way</div>
+        <div class="m">找路</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="get to" data-unit="unit8">
+        <div class="w">get to</div>
+        <div class="m">到达</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="walk along" data-unit="unit8">
+        <div class="w">walk along</div>
+        <div class="m">沿...走</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="road" data-unit="unit8">
+        <div class="w">road</div>
+        <div class="m">路</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="left" data-unit="unit8">
+        <div class="w">left</div>
+        <div class="m">左</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="right" data-unit="unit8">
+        <div class="w">right</div>
+        <div class="m">右</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="museum" data-unit="unit8">
+        <div class="w">museum</div>
+        <div class="m">博物馆</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 9 · Special days in China</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="special days" data-unit="unit9">
+        <div class="w">special days</div>
+        <div class="m">特别的日子</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="celebrate" data-unit="unit9">
+        <div class="w">celebrate</div>
+        <div class="m">庆祝</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="Chinese New Year" data-unit="unit9">
+        <div class="w">Chinese New Year</div>
+        <div class="m">中国新年</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="holiday" data-unit="unit9">
+        <div class="w">holiday</div>
+        <div class="m">假期</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit-section">
+    <h2>Unit 10 · Foods around the world</h2>
+    <div class="word-grid">
+      <div class="mini-card" data-word="food" data-unit="unit10">
+        <div class="w">food</div>
+        <div class="m">食物</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="noodles" data-unit="unit10">
+        <div class="w">noodles</div>
+        <div class="m">面条</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="pizza" data-unit="unit10">
+        <div class="w">pizza</div>
+        <div class="m">披萨</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="sandwich" data-unit="unit10">
+        <div class="w">sandwich</div>
+        <div class="m">三明治</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="hot dog" data-unit="unit10">
+        <div class="w">hot dog</div>
+        <div class="m">热狗</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="fish and chips" data-unit="unit10">
+        <div class="w">fish and chips</div>
+        <div class="m">炸鱼薯条</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="beef" data-unit="unit10">
+        <div class="w">beef</div>
+        <div class="m">牛肉</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="bread" data-unit="unit10">
+        <div class="w">bread</div>
+        <div class="m">面包</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+      <div class="mini-card" data-word="cake" data-unit="unit10">
+        <div class="w">cake</div>
+        <div class="m">蛋糕</div>
+        <div class="audio-row">
+          <button class="btn-tts-mini" data-action="tts">🔊</button>
+          <button class="btn-orig-mini" data-action="orig">🎵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const UNIT_AUDIO = document.getElementById('unit-audio');
+const WORD_AUDIO = document.getElementById('word-audio');
+let englishVoice = null;
+function loadEnglishVoice() {
+  if (!window.speechSynthesis) return;
+  const voices = window.speechSynthesis.getVoices();
+  englishVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+}
+if (window.speechSynthesis) { loadEnglishVoice(); window.speechSynthesis.onvoiceschanged = loadEnglishVoice; }
+
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  if (englishVoice) u.voice = englishVoice;
+  u.rate = 0.85;
+  window.speechSynthesis.speak(u);
+}
+
+function speakOrig(word, unit) {
+  // 优先用对应 unit 的 Topic words 整段
+  const topic = new Audio(`../assets/audio/${unit}/sections/topic_words.mp3`);
+  topic.play().catch(() => {
+    // 降级用 TTS
+    speak(word);
+  });
+}
+
+const playBtn = document.getElementById('play-unit');
+const progressFill = document.getElementById('unit-progress');
+const curTime = document.getElementById('unit-cur');
+const durTime = document.getElementById('unit-dur');
+if (playBtn && UNIT_AUDIO) {
+  UNIT_AUDIO.addEventListener('loadedmetadata', () => {
+    const d = UNIT_AUDIO.duration;
+    if (d && isFinite(d)) { const m = Math.floor(d/60), s = Math.floor(d%60); durTime.textContent = `${m}:${String(s).padStart(2,'0')}`; }
+  });
+  UNIT_AUDIO.addEventListener('timeupdate', () => {
+    const pct = (UNIT_AUDIO.currentTime / UNIT_AUDIO.duration) * 100;
+    progressFill.style.width = `${pct}%`;
+    const c = UNIT_AUDIO.currentTime;
+    curTime.textContent = `${Math.floor(c/60)}:${String(Math.floor(c%60)).padStart(2,'0')}`;
+  });
+  UNIT_AUDIO.addEventListener('ended', () => { playBtn.classList.remove('playing'); playBtn.textContent = '▶'; });
+  playBtn.addEventListener('click', () => {
+    if (UNIT_AUDIO.paused) { UNIT_AUDIO.play(); playBtn.classList.add('playing'); playBtn.textContent = '⏸'; }
+    else { UNIT_AUDIO.pause(); playBtn.classList.remove('playing'); playBtn.textContent = '▶'; }
+  });
+}
+
+document.querySelectorAll('.mini-card').forEach(card => {
+  const word = card.dataset.word;
+  const unit = card.dataset.unit;
+  card.querySelector('[data-action="tts"]').addEventListener('click', e => { e.stopPropagation(); speak(word); });
+  card.querySelector('[data-action="orig"]').addEventListener('click', e => { e.stopPropagation(); speakOrig(word, unit); });
+  card.addEventListener('click', e => { if (e.target.dataset.action) return; speak(word); });
+});
+
+window.addEventListener('beforeunload', () => {
+  if (UNIT_AUDIO) UNIT_AUDIO.pause();
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+});
+</script>
+</body>
+</html>

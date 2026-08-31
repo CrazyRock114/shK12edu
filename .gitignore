@@ -1,0 +1,14 @@
+# 临时文件
+.DS_Store
+*.swp
+*.swo
+
+# 不上传原始大文件(音频太多,用 git-lfs 或 LFS 替代)
+# 当前 commit 限制: 100MB 文件
+# 音频文件总共约 130 MB,建议用 Git LFS
+# *.mp3 filter=lfs diff=lfs merge=lfs -text
+
+# 临时/调试
+*.log
+.DS_Store
+Thumbs.db
