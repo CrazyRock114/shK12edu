@@ -47,12 +47,26 @@
 .audio-bar .play-btn.playing { background: #dc3545; }
 .audio-bar .audio-info { flex: 1; min-width: 0; }
 .audio-bar .audio-title { font-weight: 600; font-size: 0.9rem; }
-.audio-bar .audio-progress {
-  background: #e6eaf0; height: 4px; border-radius: 2px;
-  margin: 6px 0; overflow: hidden;
+.audio-bar .seek-range {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px; background: #e6eaf0;
+  border-radius: 3px; margin: 8px 0; outline: none;
+  cursor: pointer;
 }
-.audio-bar .audio-progress-fill {
-  background: var(--primary); height: 100%; width: 0%; transition: width 0.2s;
+.audio-bar .seek-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px; background: var(--primary);
+  border-radius: 50%; cursor: pointer; border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.audio-bar .seek-range::-moz-range-thumb {
+  width: 14px; height: 14px; background: var(--primary);
+  border-radius: 50%; cursor: pointer; border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.audio-bar .seek-range::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--primary) 0%, var(--primary) var(--progress, 0%), #e6eaf0 var(--progress, 0%), #e6eaf0 100%);
+  height: 6px; border-radius: 3px;
 }
 .audio-bar .audio-time { font-size: 0.78rem; color: var(--text-soft); }
 
@@ -290,7 +304,7 @@ UNIT.sections.forEach((sec, idx) => {
       <button class="play-btn" data-section-idx="${idx}">▶</button>
       <div class="audio-info">
         <div class="audio-title">${audioLabel}</div>
-        <div class="audio-progress"><div class="audio-progress-fill" data-fill="${idx}"></div></div>
+        <input type="range" class="seek-range" data-seek="${idx}" min="0" max="100" value="0" step="0.1" />
         <div class="audio-time">
           <span data-cur="${idx}">0:00</span> / <span data-dur="${idx}">...</span>
         </div>
@@ -308,18 +322,17 @@ UNIT.sections.forEach((sec, idx) => {
   `).join('');
   const textbookHTML = `<div class="textbook-grid">${pagesHTML}</div>`;
 
-  // 主题词卡（仅 topic_words 段）
+  // 主题词卡（topic_words 段 + starter 4 段细颗粒度）
   let wordsHTML = '';
-  if (sec.id === 'topic_words' && sec.words && sec.words.length > 0) {
+  if (sec.words && sec.words.length > 0) {
     const wordsList = sec.words.map(w => {
       const en = typeof w === 'string' ? w : w.en;
       const zh = typeof w === 'string' ? '' : (w.zh || '');
       const safe = en.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
-      return `<div class="word-chip" data-word="${en}" data-safe="${safe}">
-        <img class="word-img" src="../assets/img/${uid}/${safe}.jpg"
-          alt="${en}" onerror="this.style.display='none'" />
+      return `<div class="word-chip" data-word="${en}" data-safe="${safe}" data-section="${sec.id}">
+        ${zh ? `<span class="word-zh" style="font-size:0.7rem;color:var(--text-soft);">${zh}</span>` : ''}
         <span class="word-en">${en}</span>
-        <span class="word-play" onclick="event.stopPropagation(); playWordAudio('${en}', '${uid}')">🔊</span>
+        <span class="word-play" onclick="event.stopPropagation(); playWordAudio('${en}', '${uid}', '${sec.id}')">🔊 听</span>
       </div>`;
     }).join('');
     wordsHTML = `<div class="word-grid">${wordsList}</div>`;
@@ -331,7 +344,8 @@ UNIT.sections.forEach((sec, idx) => {
   // 初始化此段音频
   const audio = new Audio('../assets/audio/' + audioPath);
   audio.preload = 'metadata';
-  sectionAudios[idx] = { audio, btn: block.querySelector('.play-btn'), fill: block.querySelector(`[data-fill="${idx}"]`), cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`) };
+  const seek = block.querySelector(`[data-seek="${idx}"]`);
+  sectionAudios[idx] = { audio, btn: block.querySelector('.play-btn'), seek, cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`), section: sec };
 });
 
 // ===== 音频播放控制 =====
@@ -357,8 +371,10 @@ Object.entries(sectionAudios).forEach(([idx, a]) => {
     }
   });
   a.audio.addEventListener('timeupdate', () => {
-    if (a.audio.duration) {
-      a.fill.style.width = ((a.audio.currentTime / a.audio.duration) * 100) + '%';
+    if (a.audio.duration && !a.seeking) {
+      const pct = (a.audio.currentTime / a.audio.duration) * 100;
+      a.seek.value = pct;
+      a.seek.style.setProperty('--progress', pct + '%');
       a.cur.textContent = fmt(a.audio.currentTime);
     }
   });
@@ -369,22 +385,45 @@ Object.entries(sectionAudios).forEach(([idx, a]) => {
     a.btn.textContent = '▶';
     a.btn.classList.remove('playing');
   });
+  // 可拖动进度条 → seek audio
+  a.seek.addEventListener('input', () => {
+    a.seeking = true;
+    if (a.audio.duration) {
+      a.audio.currentTime = (a.seek.value / 100) * a.audio.duration;
+      a.cur.textContent = fmt(a.audio.currentTime);
+    }
+  });
+  a.seek.addEventListener('change', () => { a.seeking = false; });
+  a.seek.addEventListener('mouseup', () => { a.seeking = false; });
 });
 
-// 单词 mp3 播放
-function playWordAudio(word, unitId) {
+// 单词 mp3 播放 - 按 section 智能选择 mp3 路径
+function playWordAudio(word, unitId, sectionId) {
+  // 1. G3A starter 4 段特殊路径
+  if (unitId === 'starter' && GRADE === 'G3A') {
+    let path;
+    if (sectionId === 'alphabet') {
+      // letter_a.mp3 / letter_b.mp3 ...
+      const letter = word.charAt(0).toLowerCase();
+      path = `../assets/audio/starter/words/letter_${letter}.mp3`;
+    } else if (sectionId === 'countries') {
+      // country_china.mp3 / country_uk.mp3 / country_new_zealand.mp3 ...
+      const safe = word.toLowerCase().replace(/ /g, '_').replace(/[^a-z_]/g, '');
+      path = `../assets/audio/starter/words/country_${safe}.mp3`;
+    } else {
+      // seasons/numbers 暂用 TTS
+      speak(word); return;
+    }
+    const audio = new Audio(path);
+    audio.play().catch(() => speak(word));
+    return;
+  }
+
+  // 2. G3A unit1-10 单词图 + 单词 mp3
   const safe = word.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
   const path = `../assets/audio/${unitId}/words/${safe}.mp3`;
   const audio = new Audio(path);
-  audio.play().catch(() => {
-    // 降级到 TTS
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(word);
-      u.lang = 'en-US'; u.rate = 0.85;
-      window.speechSynthesis.speak(u);
-    }
-  });
+  audio.play().catch(() => speak(word));
 }
 
 // TTS 单词（点 chip 朗读）

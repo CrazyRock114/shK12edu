@@ -35,7 +35,113 @@ const SECTIONS_DATA = {
         "pages": [
           11
         ],
-        "audio": "starter.mp3"
+        "audio": "starter/sections/the_alphabet.mp3",
+        "words": [
+          {
+            "en": "Aa",
+            "zh": ""
+          },
+          {
+            "en": "Bb",
+            "zh": ""
+          },
+          {
+            "en": "Cc",
+            "zh": ""
+          },
+          {
+            "en": "Dd",
+            "zh": ""
+          },
+          {
+            "en": "Ee",
+            "zh": ""
+          },
+          {
+            "en": "Ff",
+            "zh": ""
+          },
+          {
+            "en": "Gg",
+            "zh": ""
+          },
+          {
+            "en": "Hh",
+            "zh": ""
+          },
+          {
+            "en": "Ii",
+            "zh": ""
+          },
+          {
+            "en": "Jj",
+            "zh": ""
+          },
+          {
+            "en": "Kk",
+            "zh": ""
+          },
+          {
+            "en": "Ll",
+            "zh": ""
+          },
+          {
+            "en": "Mm",
+            "zh": ""
+          },
+          {
+            "en": "Nn",
+            "zh": ""
+          },
+          {
+            "en": "Oo",
+            "zh": ""
+          },
+          {
+            "en": "Pp",
+            "zh": ""
+          },
+          {
+            "en": "Qq",
+            "zh": ""
+          },
+          {
+            "en": "Rr",
+            "zh": ""
+          },
+          {
+            "en": "Ss",
+            "zh": ""
+          },
+          {
+            "en": "Tt",
+            "zh": ""
+          },
+          {
+            "en": "Uu",
+            "zh": ""
+          },
+          {
+            "en": "Vv",
+            "zh": ""
+          },
+          {
+            "en": "Ww",
+            "zh": ""
+          },
+          {
+            "en": "Xx",
+            "zh": ""
+          },
+          {
+            "en": "Yy",
+            "zh": ""
+          },
+          {
+            "en": "Zz",
+            "zh": ""
+          }
+        ]
       },
       {
         "id": "seasons",
@@ -44,7 +150,25 @@ const SECTIONS_DATA = {
         "pages": [
           12
         ],
-        "audio": "starter.mp3"
+        "audio": "starter/sections/seasons.mp3",
+        "words": [
+          {
+            "en": "spring",
+            "zh": "春"
+          },
+          {
+            "en": "summer",
+            "zh": "夏"
+          },
+          {
+            "en": "autumn",
+            "zh": "秋"
+          },
+          {
+            "en": "winter",
+            "zh": "冬"
+          }
+        ]
       },
       {
         "id": "numbers",
@@ -53,7 +177,89 @@ const SECTIONS_DATA = {
         "pages": [
           12
         ],
-        "audio": "starter.mp3"
+        "audio": "starter/sections/numbers.mp3",
+        "words": [
+          {
+            "en": "one",
+            "zh": "一"
+          },
+          {
+            "en": "two",
+            "zh": "二"
+          },
+          {
+            "en": "three",
+            "zh": "三"
+          },
+          {
+            "en": "four",
+            "zh": "四"
+          },
+          {
+            "en": "five",
+            "zh": "五"
+          },
+          {
+            "en": "six",
+            "zh": "六"
+          },
+          {
+            "en": "seven",
+            "zh": "七"
+          },
+          {
+            "en": "eight",
+            "zh": "八"
+          },
+          {
+            "en": "nine",
+            "zh": "九"
+          },
+          {
+            "en": "ten",
+            "zh": "十"
+          },
+          {
+            "en": "eleven",
+            "zh": "十一"
+          },
+          {
+            "en": "twelve",
+            "zh": "十二"
+          },
+          {
+            "en": "thirteen",
+            "zh": "十三"
+          },
+          {
+            "en": "fourteen",
+            "zh": "十四"
+          },
+          {
+            "en": "fifteen",
+            "zh": "十五"
+          },
+          {
+            "en": "sixteen",
+            "zh": "十六"
+          },
+          {
+            "en": "seventeen",
+            "zh": "十七"
+          },
+          {
+            "en": "eighteen",
+            "zh": "十八"
+          },
+          {
+            "en": "nineteen",
+            "zh": "十九"
+          },
+          {
+            "en": "twenty",
+            "zh": "二十"
+          }
+        ]
       },
       {
         "id": "countries",
@@ -62,7 +268,37 @@ const SECTIONS_DATA = {
         "pages": [
           13
         ],
-        "audio": "starter.mp3"
+        "audio": "starter/sections/countries.mp3",
+        "words": [
+          {
+            "en": "China",
+            "zh": "中国"
+          },
+          {
+            "en": "Italy",
+            "zh": "意大利"
+          },
+          {
+            "en": "UK",
+            "zh": "英国"
+          },
+          {
+            "en": "USA",
+            "zh": "美国"
+          },
+          {
+            "en": "France",
+            "zh": "法国"
+          },
+          {
+            "en": "Germany",
+            "zh": "德国"
+          },
+          {
+            "en": "New Zealand",
+            "zh": "新西兰"
+          }
+        ]
       }
     ]
   },
