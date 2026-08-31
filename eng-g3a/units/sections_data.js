@@ -17,7 +17,39 @@ const SECTIONS_DATA = {
         "pages": [
           9
         ],
-        "audio": "starter.mp3"
+        "audio": "starter.mp3",
+        "words": [
+          {
+            "en": "Dad",
+            "zh": "爸爸",
+            "extra": "👨 father"
+          },
+          {
+            "en": "Mum",
+            "zh": "妈妈",
+            "extra": "👩 mother"
+          },
+          {
+            "en": "Grandpa",
+            "zh": "爷爷/外公",
+            "extra": "👴 父亲的父亲"
+          },
+          {
+            "en": "Grandma",
+            "zh": "奶奶/外婆",
+            "extra": "👵 父亲的母亲"
+          },
+          {
+            "en": "family",
+            "zh": "家庭",
+            "extra": "👨‍👩‍👧‍👦 一家人"
+          },
+          {
+            "en": "friend",
+            "zh": "朋友",
+            "extra": "👫 buddy"
+          }
+        ]
       },
       {
         "id": "our_teachers",
@@ -26,7 +58,34 @@ const SECTIONS_DATA = {
         "pages": [
           10
         ],
-        "audio": "starter.mp3"
+        "audio": "starter.mp3",
+        "words": [
+          {
+            "en": "Ms Yu",
+            "zh": "余老师",
+            "extra": "👩‍🏫 女老师 (未婚)"
+          },
+          {
+            "en": "Miss Li",
+            "zh": "李老师",
+            "extra": "👩‍🏫 Miss = 未婚"
+          },
+          {
+            "en": "Mr Zhong",
+            "zh": "钟老师",
+            "extra": "👨‍🏫 男老师"
+          },
+          {
+            "en": "Mr Qian",
+            "zh": "钱老师",
+            "extra": "👨‍🏫 Mr = 男老师"
+          },
+          {
+            "en": "teacher",
+            "zh": "老师",
+            "extra": "👩‍🏫"
+          }
+        ]
       },
       {
         "id": "alphabet",
@@ -39,107 +98,133 @@ const SECTIONS_DATA = {
         "words": [
           {
             "en": "Aa",
-            "zh": ""
+            "zh": "",
+            "extra": "🍎 /eɪ/ · 例: Apple"
           },
           {
             "en": "Bb",
-            "zh": ""
+            "zh": "",
+            "extra": "📚 /biː/ · 例: Book"
           },
           {
             "en": "Cc",
-            "zh": ""
+            "zh": "",
+            "extra": "🐱 /siː/ · 例: Cat"
           },
           {
             "en": "Dd",
-            "zh": ""
+            "zh": "",
+            "extra": "🐶 /diː/ · 例: Dog"
           },
           {
             "en": "Ee",
-            "zh": ""
+            "zh": "",
+            "extra": "🥚 /iː/ · 例: Egg"
           },
           {
             "en": "Ff",
-            "zh": ""
+            "zh": "",
+            "extra": "🐟 /ɛf/ · 例: Fish"
           },
           {
             "en": "Gg",
-            "zh": ""
+            "zh": "",
+            "extra": "🦢 /dʒiː/ · 例: Goose"
           },
           {
             "en": "Hh",
-            "zh": ""
+            "zh": "",
+            "extra": "✋ /eɪtʃ/ · 例: Hand"
           },
           {
             "en": "Ii",
-            "zh": ""
+            "zh": "",
+            "extra": "🍦 /aɪ/ · 例: Ice cream"
           },
           {
             "en": "Jj",
-            "zh": ""
+            "zh": "",
+            "extra": "🍓 /dʒeɪ/ · 例: Jam"
           },
           {
             "en": "Kk",
-            "zh": ""
+            "zh": "",
+            "extra": "🪁 /keɪ/ · 例: Kite"
           },
           {
             "en": "Ll",
-            "zh": ""
+            "zh": "",
+            "extra": "🦁 /ɛl/ · 例: Lion"
           },
           {
             "en": "Mm",
-            "zh": ""
+            "zh": "",
+            "extra": "🥛 /ɛm/ · 例: Milk"
           },
           {
             "en": "Nn",
-            "zh": ""
+            "zh": "",
+            "extra": "👃 /ɛn/ · 例: Nose"
           },
           {
             "en": "Oo",
-            "zh": ""
+            "zh": "",
+            "extra": "🍊 /oʊ/ · 例: Orange"
           },
           {
             "en": "Pp",
-            "zh": ""
+            "zh": "",
+            "extra": "🖊 /piː/ · 例: Pen"
           },
           {
             "en": "Qq",
-            "zh": ""
+            "zh": "",
+            "extra": "👸 /kjuː/ · 例: Queen"
           },
           {
             "en": "Rr",
-            "zh": ""
+            "zh": "",
+            "extra": "🌧 /ɑːr/ · 例: Rain"
           },
           {
             "en": "Ss",
-            "zh": ""
+            "zh": "",
+            "extra": "☀️ /ɛs/ · 例: Sun"
           },
           {
             "en": "Tt",
-            "zh": ""
+            "zh": "",
+            "extra": "🌳 /tiː/ · 例: Tree"
           },
           {
             "en": "Uu",
-            "zh": ""
+            "zh": "",
+            "extra": "☂️ /juː/ · 例: Umbrella"
           },
           {
             "en": "Vv",
-            "zh": ""
+            "zh": "",
+            "extra": "🌋 /viː/ · 例: Volcano"
           },
           {
             "en": "Ww",
-            "zh": ""
+            "zh": "",
+            "extra": "🐋 /dʌbljuː/ · 例: Whale"
           },
           {
             "en": "Xx",
-            "zh": ""
+            "zh": "",
+            "extra": "🩻 /ɛks/ · 例: X-ray"
           },
           {
             "en": "Yy",
-            "zh": ""
+            "zh": "",
+            "extra": "🥛 /waɪ/ · 例: Yogurt"
           },
           {
             "en": "Zz",
-            "zh": ""
+            "zh": "",
+            "extra": "🦓 /ziː/ · 例: Zebra"
           }
         ]
       },
@@ -154,19 +239,23 @@ const SECTIONS_DATA = {
         "words": [
           {
             "en": "spring",
-            "zh": "春"
+            "zh": "春",
+            "extra": "3-5月 · 花开 🌸"
           },
           {
             "en": "summer",
-            "zh": "夏"
+            "zh": "夏",
+            "extra": "6-8月 · 炎热 ☀️"
           },
           {
             "en": "autumn",
-            "zh": "秋"
+            "zh": "秋",
+            "extra": "9-11月 · 落叶 🍂"
           },
           {
             "en": "winter",
-            "zh": "冬"
+            "zh": "冬",
+            "extra": "12-2月 · 下雪 ❄️"
           }
         ]
       },
@@ -181,83 +270,103 @@ const SECTIONS_DATA = {
         "words": [
           {
             "en": "one",
-            "zh": "一"
+            "zh": "一",
+            "extra": "1·一个"
           },
           {
             "en": "two",
-            "zh": "二"
+            "zh": "二",
+            "extra": "2·两个"
           },
           {
             "en": "three",
-            "zh": "三"
+            "zh": "三",
+            "extra": "3·三个"
           },
           {
             "en": "four",
-            "zh": "四"
+            "zh": "四",
+            "extra": "4·四季"
           },
           {
             "en": "five",
-            "zh": "五"
+            "zh": "五",
+            "extra": "5·五指"
           },
           {
             "en": "six",
-            "zh": "六"
+            "zh": "六",
+            "extra": "6·六角"
           },
           {
             "en": "seven",
-            "zh": "七"
+            "zh": "七",
+            "extra": "7·一周"
           },
           {
             "en": "eight",
-            "zh": "八"
+            "zh": "八",
+            "extra": "8·八爪"
           },
           {
             "en": "nine",
-            "zh": "九"
+            "zh": "九",
+            "extra": "9·久"
           },
           {
             "en": "ten",
-            "zh": "十"
+            "zh": "十",
+            "extra": "10·十全"
           },
           {
             "en": "eleven",
-            "zh": "十一"
+            "zh": "十一",
+            "extra": "11·11"
           },
           {
             "en": "twelve",
-            "zh": "十二"
+            "zh": "十二",
+            "extra": "12·月份"
           },
           {
             "en": "thirteen",
-            "zh": "十三"
+            "zh": "十三",
+            "extra": "13·不吉利"
           },
           {
             "en": "fourteen",
-            "zh": "十四"
+            "zh": "十四",
+            "extra": "14·情人节"
           },
           {
             "en": "fifteen",
-            "zh": "十五"
+            "zh": "十五",
+            "extra": "15·15分"
           },
           {
             "en": "sixteen",
-            "zh": "十六"
+            "zh": "十六",
+            "extra": "16·16岁"
           },
           {
             "en": "seventeen",
-            "zh": "十七"
+            "zh": "十七",
+            "extra": "17·青春"
           },
           {
             "en": "eighteen",
-            "zh": "十八"
+            "zh": "十八",
+            "extra": "18·成年"
           },
           {
             "en": "nineteen",
-            "zh": "十九"
+            "zh": "十九",
+            "extra": "19·19"
           },
           {
             "en": "twenty",
-            "zh": "二十"
+            "zh": "二十",
+            "extra": "20·20/20"
           }
         ]
       },
@@ -272,31 +381,45 @@ const SECTIONS_DATA = {
         "words": [
           {
             "en": "China",
-            "zh": "中国"
+            "zh": "中国",
+            "full": "the People's Republic of China",
+            "extra": "🇨🇳 东亚 · 首都北京 · 14亿人口 · 长城/故宫"
           },
           {
             "en": "Italy",
-            "zh": "意大利"
+            "zh": "意大利",
+            "full": "the Italian Republic",
+            "extra": "🇮🇹 南欧 · 形似靴子 · 罗马/披萨/意面"
           },
           {
             "en": "UK",
-            "zh": "英国"
+            "zh": "英国",
+            "full": "the United Kingdom",
+            "extra": "🇬🇧 西欧岛国 · 首都伦敦 · 女王/大本钟"
           },
           {
             "en": "USA",
-            "zh": "美国"
+            "zh": "美国",
+            "full": "the United States of America",
+            "extra": "🇺🇸 北美 · 50州 · 首都华盛顿 · 自由女神"
           },
           {
             "en": "France",
-            "zh": "法国"
+            "zh": "法国",
+            "full": "the French Republic",
+            "extra": "🇫🇷 西欧 · 首都巴黎 · 埃菲尔铁塔/卢浮宫"
           },
           {
             "en": "Germany",
-            "zh": "德国"
+            "zh": "德国",
+            "full": "the Federal Republic of Germany",
+            "extra": "🇩🇪 中欧 · 首都柏林 · 啤酒/香肠/汽车"
           },
           {
             "en": "New Zealand",
-            "zh": "新西兰"
+            "zh": "新西兰",
+            "full": "Aotearoa (毛利语: 长白云之乡)",
+            "extra": "🇳🇿 大洋洲 · 岛国 · 羊比人多 · 几维鸟"
           }
         ]
       }

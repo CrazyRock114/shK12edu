@@ -472,14 +472,21 @@ document.querySelectorAll('.stage-tab').forEach(tab => {
   });
 });
 
-// ===== 闪卡 (汇总所有 topic_words) =====
+// ===== 闪卡 (汇总所有 sec.words, 不限 topic_words) =====
 const FC_WORDS = [];
 UNIT.sections.forEach(sec => {
-  if (sec.id === 'topic_words' && sec.words) {
+  if (sec.words && sec.words.length > 0) {
     sec.words.forEach(w => {
       const en = typeof w === 'string' ? w : w.en;
       const zh = typeof w === 'string' ? '' : (w.zh || '');
-      FC_WORDS.push({ en, zh, safe: en.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() });
+      const full = typeof w === 'string' ? '' : (w.full || '');
+      const extra = typeof w === 'string' ? '' : (w.extra || '');
+      FC_WORDS.push({
+        en, zh, full, extra,
+        section: sec.id,
+        sectionName: sec.name,
+        safe: en.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()
+      });
     });
   }
 });
@@ -491,13 +498,20 @@ function renderFC() {
   }
   const w = FC_WORDS[fcOrder[fcIdx]];
   document.getElementById('fc-en').textContent = w.en;
-  document.getElementById('fc-zh').textContent = w.zh || '—';
+  // 翻面时显示完整信息: 中文 + 全称 + extra 拓展
+  const back = [
+    w.zh && `<b>${w.zh}</b>`,
+    w.full && `<br><span style="font-size:0.85rem;color:var(--text-soft);font-style:italic;">${w.full}</span>`,
+    w.extra && `<br><span style="font-size:0.9rem;">${w.extra}</span>`
+  ].filter(Boolean).join('');
+  document.getElementById('fc-zh').innerHTML = back || '—';
   document.getElementById('fc-zh').style.display = fcFlipped ? 'block' : 'none';
   const img = document.getElementById('fc-img');
   img.src = `../assets/img/${uid}/${w.safe}.jpg`;
   img.onload = () => { img.style.display = fcFlipped ? 'inline-block' : 'none'; };
   img.onerror = () => { img.style.display = 'none'; };
-  document.getElementById('fc-meta').textContent = `${fcIdx+1} / ${FC_WORDS.length}`;
+  document.getElementById('fc-meta').textContent =
+    `${w.sectionName || w.section} · ${fcIdx+1} / ${FC_WORDS.length}`;
 }
 document.getElementById('fc-prev').onclick = () => { fcIdx = (fcIdx-1+fcOrder.length)%fcOrder.length; fcFlipped = false; renderFC(); };
 document.getElementById('fc-next').onclick = () => { fcIdx = (fcIdx+1)%fcOrder.length; fcFlipped = false; renderFC(); };
@@ -521,7 +535,10 @@ function nextRound() {
     if (d.en !== gameCurrent.en && !distractors.find(x => x.en === d.en)) distractors.push(d);
   }
   const options = [gameCurrent, ...distractors].sort(() => Math.random()-0.5);
-  document.getElementById('game-prompt').textContent = `听: 选单词 "${gameCurrent.en}"`;
+  // 提示同时显示 extra (若 extra 太长用 zh 替代)
+  const hint = gameCurrent.zh || gameCurrent.extra || '';
+  document.getElementById('game-prompt').innerHTML =
+    `听: <b>选单词</b>${hint ? ` <span style="color:var(--text-soft);font-size:0.9em;">(${hint})</span>` : ''}`;
   const gameOpts = document.getElementById('game-options');
   gameOpts.innerHTML = options.map(o => `<button class="game-option" data-en="${o.en}">${o.en}</button>`).join('');
   gameAnswered = false;
@@ -534,7 +551,7 @@ function nextRound() {
         btn.classList.add('correct');
         gameCorrect++;
         document.getElementById('game-correct').textContent = gameCorrect;
-        document.getElementById('game-prompt').textContent = '🎉 答对!';
+        document.getElementById('game-prompt').innerHTML = `🎉 答对! <b>${gameCurrent.en}</b> = ${gameCurrent.zh || gameCurrent.extra || ''}`;
       } else {
         btn.classList.add('wrong');
         gameOpts.querySelectorAll('.game-option').forEach(b => {
@@ -542,9 +559,12 @@ function nextRound() {
         });
         gameWrong++;
         document.getElementById('game-wrong').textContent = gameWrong;
-        document.getElementById('game-prompt').textContent = `😅 正确: ${gameCurrent.en}`;
+        document.getElementById('game-prompt').innerHTML =
+          `😅 正确: <b>${gameCurrent.en}</b> = ${gameCurrent.zh || ''}` +
+          (gameCurrent.full ? `<br><span style="font-size:0.8em;color:var(--text-soft);">${gameCurrent.full}</span>` : '') +
+          (gameCurrent.extra ? `<br><span style="font-size:0.85em;">${gameCurrent.extra}</span>` : '');
       }
-      setTimeout(nextRound, 1500);
+      setTimeout(nextRound, 2200);
     });
   });
   setTimeout(() => speak(gameCurrent.en), 400);
