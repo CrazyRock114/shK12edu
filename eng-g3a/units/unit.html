@@ -276,9 +276,15 @@ UNIT.sections.forEach((sec, idx) => {
   // 音频条
   const audioPath = sec.audio;
   const isWholeUnit = (audioPath === UNIT.audio_file);
-  const audioLabel = isWholeUnit
-    ? `📖 教材原声 (整段 ${UNIT.duration || ''})`
-    : `📖 配套音频 (${sec.name})`;
+  const isFallback = sec.is_fallback === true;
+  let audioLabel;
+  if (isWholeUnit && !isFallback) {
+    audioLabel = `📖 教材原声 (整段 ${UNIT.duration || ''})`;
+  } else if (isFallback) {
+    audioLabel = `📖 配套音频 (整段替代 — 教材无分段 mp3)`;
+  } else {
+    audioLabel = `📖 配套音频 (${sec.name})`;
+  }
   const audioBar = `
     <div class="audio-bar">
       <button class="play-btn" data-section-idx="${idx}">▶</button>

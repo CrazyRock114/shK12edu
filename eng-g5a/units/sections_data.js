@@ -122,6 +122,16 @@ const SECTIONS_DATA = {
         "audio": "unit1/sections/talking_time.mp3"
       },
       {
+        "id": "story_time",
+        "name": "故事",
+        "icon": "📖",
+        "pages": [
+          22
+        ],
+        "audio": "unit_1.mp3",
+        "is_fallback": true
+      },
+      {
         "id": "big_task",
         "name": "大任务",
         "icon": "🎯",
@@ -185,6 +195,26 @@ const SECTIONS_DATA = {
           29
         ],
         "audio": "unit2/sections/talking_time.mp3"
+      },
+      {
+        "id": "story_time",
+        "name": "故事",
+        "icon": "📖",
+        "pages": [
+          30
+        ],
+        "audio": "unit_2.mp3",
+        "is_fallback": true
+      },
+      {
+        "id": "big_task",
+        "name": "大任务",
+        "icon": "🎯",
+        "pages": [
+          31
+        ],
+        "audio": "unit_2.mp3",
+        "is_fallback": true
       }
     ]
   },
@@ -215,6 +245,16 @@ const SECTIONS_DATA = {
           "morning glory"
         ],
         "big_task": "Making a plant poster"
+      },
+      {
+        "id": "chant_time",
+        "name": "chant 跟读",
+        "icon": "🗣",
+        "pages": [
+          34
+        ],
+        "audio": "unit_3.mp3",
+        "is_fallback": true
       },
       {
         "id": "sound",
@@ -362,6 +402,16 @@ const SECTIONS_DATA = {
         "big_task": "Giving health tips"
       },
       {
+        "id": "rhyme_time",
+        "name": "韵文",
+        "icon": "🎶",
+        "pages": [
+          50
+        ],
+        "audio": "unit_5.mp3",
+        "is_fallback": true
+      },
+      {
         "id": "sound",
         "name": "发音",
         "icon": "🗣",
@@ -379,6 +429,16 @@ const SECTIONS_DATA = {
           53
         ],
         "audio": "unit5/sections/talking_time.mp3"
+      },
+      {
+        "id": "story_time",
+        "name": "故事",
+        "icon": "📖",
+        "pages": [
+          54
+        ],
+        "audio": "unit_5.mp3",
+        "is_fallback": true
       },
       {
         "id": "big_task",
@@ -426,6 +486,16 @@ const SECTIONS_DATA = {
           58
         ],
         "audio": "unit6/sections/fun_time.mp3"
+      },
+      {
+        "id": "sound",
+        "name": "发音",
+        "icon": "🗣",
+        "pages": [
+          58
+        ],
+        "audio": "unit_6.mp3",
+        "is_fallback": true
       },
       {
         "id": "talking_time",
@@ -485,6 +555,26 @@ const SECTIONS_DATA = {
           "(be) known as"
         ],
         "big_task": "Making a mini-book of great scientists"
+      },
+      {
+        "id": "rhyme_time",
+        "name": "韵文",
+        "icon": "🎶",
+        "pages": [
+          66
+        ],
+        "audio": "unit_7.mp3",
+        "is_fallback": true
+      },
+      {
+        "id": "sound",
+        "name": "发音",
+        "icon": "🗣",
+        "pages": [
+          66
+        ],
+        "audio": "unit_7.mp3",
+        "is_fallback": true
       },
       {
         "id": "talking_time",
@@ -700,6 +790,16 @@ const SECTIONS_DATA = {
         "big_task": "Making a booklet on a greener life"
       },
       {
+        "id": "song_time",
+        "name": "歌曲",
+        "icon": "🎵",
+        "pages": [
+          90
+        ],
+        "audio": "unit_10.mp3",
+        "is_fallback": true
+      },
+      {
         "id": "sound",
         "name": "发音",
         "icon": "🗣",
@@ -717,6 +817,17 @@ const SECTIONS_DATA = {
           92
         ],
         "audio": "unit10/sections/talking_time.mp3"
+      },
+      {
+        "id": "story_time",
+        "name": "故事",
+        "icon": "📖",
+        "pages": [
+          93,
+          94
+        ],
+        "audio": "unit_10.mp3",
+        "is_fallback": true
       },
       {
         "id": "big_task",
