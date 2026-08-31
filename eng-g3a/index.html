@@ -18,87 +18,45 @@
 
 <div class="hero">
   <h1>📚 英语 · 三年级上册</h1>
-  <p class="subtitle">上海教育出版社 · 义务教育教科书（五•四学制） · 选一个 Unit 开始学习</p>
+  <p class="subtitle">上海教育出版社 · 义务教育教科书（五•四学制） · 选一个 Unit 开始预习</p>
 </div>
 
-<main class="unit-grid">
-  <a class="unit-card" href="units/starter.html">
-    <div class="unit-num">Starter</div>
-    <div class="unit-name">预备单元</div>
-    <div class="unit-meta">字母 · 季节 · 数字 · 国家</div>
-    <div class="unit-time">⏱ 5:19</div>
-  </a>
-  <a class="unit-card highlight" href="units/unit1.html">
-    <div class="unit-num">Unit 1</div>
-    <div class="unit-name">A new start</div>
-    <div class="unit-meta">新学期 · 目标 · 同学</div>
-    <div class="unit-time">⏱ 4:31</div>
-  </a>
-  <a class="unit-card" href="units/unit2.html">
-    <div class="unit-num">Unit 2</div>
-    <div class="unit-name">Proud of you</div>
-    <div class="unit-meta">擅长 · 赞美</div>
-    <div class="unit-time">⏱ 4:26</div>
-  </a>
-  <a class="unit-card" href="units/unit3.html">
-    <div class="unit-num">Unit 3</div>
-    <div class="unit-name">Our garden</div>
-    <div class="unit-meta">花园 · 蔬菜</div>
-    <div class="unit-time">⏱ 4:25</div>
-  </a>
-  <a class="unit-card" href="units/unit4.html">
-    <div class="unit-num">Unit 4</div>
-    <div class="unit-name">Water</div>
-    <div class="unit-meta">水 · 循环</div>
-    <div class="unit-time">⏱ 4:34</div>
-  </a>
-  <a class="unit-card" href="units/unit5.html">
-    <div class="unit-num">Unit 5</div>
-    <div class="unit-name">I can help</div>
-    <div class="unit-meta">帮忙 · 家务</div>
-    <div class="unit-time">⏱ 4:42</div>
-  </a>
-  <a class="unit-card" href="units/unit6.html">
-    <div class="unit-num">Unit 6</div>
-    <div class="unit-name">How do you feel?</div>
-    <div class="unit-meta">心情 · 感受</div>
-    <div class="unit-time">⏱ 4:46</div>
-  </a>
-  <a class="unit-card" href="units/unit7.html">
-    <div class="unit-num">Unit 7</div>
-    <div class="unit-name">Jobs</div>
-    <div class="unit-meta">职业 · 梦想</div>
-    <div class="unit-time">⏱ 4:12</div>
-  </a>
-  <a class="unit-card" href="units/unit8.html">
-    <div class="unit-num">Unit 8</div>
-    <div class="unit-name">Finding places</div>
-    <div class="unit-meta">地点 · 方向</div>
-    <div class="unit-time">⏱ 4:24</div>
-  </a>
-  <a class="unit-card" href="units/unit9.html">
-    <div class="unit-num">Unit 9</div>
-    <div class="unit-name">Special days in China</div>
-    <div class="unit-meta">节日 · 庆祝</div>
-    <div class="unit-time">⏱ 4:35</div>
-  </a>
-  <a class="unit-card" href="units/unit10.html">
-    <div class="unit-num">Unit 10</div>
-    <div class="unit-name">Foods around the world</div>
-    <div class="unit-meta">食物 · 国家</div>
-    <div class="unit-time">⏱ 4:56</div>
-  </a>
-  <a class="unit-card words-card" href="units/words_to_use.html">
-    <div class="unit-num">📖</div>
-    <div class="unit-name">Words to use</div>
-    <div class="unit-meta">全册词汇复习</div>
-    <div class="unit-time">⏱ 11:19</div>
-  </a>
-</main>
+<main class="unit-grid" id="unit-grid"></main>
 
-<footer>
+<footer style="text-align: center; padding: 30px 20px; color: var(--text-soft); font-size: 0.85rem;">
   <p><a href="../index.html" style="color: var(--text-soft); text-decoration: none;">← 返回学习中心</a></p>
   <p style="margin-top: 8px; opacity: 0.7;">英语 · 三年级上册 G3A · Built for 石头小朋友</p>
 </footer>
+
+<script>
+const UNITS = [
+  {id:"starter", num:"Starter", name:"预备单元", desc:"家人·老师·字母·季节·数字·国家", page:9, dur:"5:19", color:"#ff6b6b"},
+  {id:"unit1",   num:"Unit 1",  name:"A new start",          desc:"新学期·目标·同学",  page:14, dur:"4:31", color:"#4ecdc4"},
+  {id:"unit2",   num:"Unit 2",  name:"Proud of you, proud of myself", desc:"擅长·赞美",  page:22, dur:"4:26", color:"#ffe66d"},
+  {id:"unit3",   num:"Unit 3",  name:"Our garden",            desc:"花园·蔬菜·植物",  page:30, dur:"4:25", color:"#a8e6cf"},
+  {id:"unit4",   num:"Unit 4",  name:"Water",                 desc:"水·循环·形态",    page:38, dur:"4:34", color:"#ffd3b6"},
+  {id:"unit5",   num:"Unit 5",  name:"I can help",            desc:"帮忙·家务",        page:46, dur:"4:42", color:"#ffaaa5"},
+  {id:"unit6",   num:"Unit 6",  name:"How do you feel?",      desc:"心情·感受",        page:54, dur:"4:46", color:"#ff8b94"},
+  {id:"unit7",   num:"Unit 7",  name:"Jobs",                  desc:"职业·梦想",        page:62, dur:"4:12", color:"#a0c4ff"},
+  {id:"unit8",   num:"Unit 8",  name:"Finding places",        desc:"地点·方向",        page:70, dur:"4:24", color:"#bdb2ff"},
+  {id:"unit9",   num:"Unit 9",  name:"Special days in China", desc:"节日·庆祝",        page:78, dur:"4:35", color:"#ffc6ff"},
+  {id:"unit10",  num:"Unit 10", name:"Foods around the world", desc:"食物·国家",       page:86, dur:"4:56", color:"#caffbf"}
+];
+
+const grid = document.getElementById('unit-grid');
+UNITS.forEach((u, i) => {
+  const a = document.createElement('a');
+  a.className = 'unit-card' + (i === 1 ? ' highlight' : '');
+  a.href = `units/unit.html?u=${u.id}`;
+  a.style.borderTop = `4px solid ${u.color}`;
+  a.innerHTML = `
+    <div class="unit-num">${u.num}</div>
+    <div class="unit-name">${u.name}</div>
+    <div class="unit-meta">${u.desc}</div>
+    <div class="unit-time">⏱ ${u.dur} · 教材 p.${u.page}</div>
+  `;
+  grid.appendChild(a);
+});
+</script>
 </body>
 </html>
