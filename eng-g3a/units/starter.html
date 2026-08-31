@@ -3,72 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Starter · 预备单元 · 互动学习</title>
+<title>Starter · 字母·季节·数字·国家 · 互动学习</title>
 <link rel="stylesheet" href="../style.css">
 <style>
-.word-card .word-img {
-  width: 100%;
-  max-height: 110px;
-  object-fit: contain;
-  margin-bottom: 6px;
-  border-radius: 8px;
-  background: #f8f9fa;
-}
-.word-card .audio-row {
-  display: flex;
-  gap: 4px;
-  margin-top: 6px;
-  justify-content: center;
-}
-.word-card .audio-row button {
-  font-size: 0.7rem;
-  padding: 4px 8px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.btn-tts { background: #ffe66d; color: var(--text); }
-.btn-orig { background: #4ecdc4; color: white; }
-
-/* ===== Section 切换器 - 紧凑标签式 (跟 unit1 一致) ===== */
-.section-tabs {
-  display: flex;
-  gap: 0;
-  margin: 0 0 20px 0;
+/* ===== Section 卡片（每段内容：教材图 + 音频 + 单词） ===== */
+.section-block {
   background: var(--white);
   border-radius: 14px;
-  padding: 4px;
+  padding: 20px;
+  margin-bottom: 24px;
   box-shadow: var(--shadow);
-  overflow: hidden;
 }
-.section-btn {
-  flex: 1;
-  background: transparent;
-  border: none;
-  padding: 10px 8px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-soft);
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.15s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-width: 0;
+.section-block h3 {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  margin-bottom: 6px;
 }
-.section-btn .icon { font-size: 1.1rem; }
-.section-btn:hover { background: var(--bg); color: var(--text); }
-.section-btn.active {
-  background: var(--primary);
-  color: white;
+.section-block h3 .page-tag {
+  font-size: 0.7rem; background: var(--primary); color: white;
+  padding: 3px 10px; border-radius: 8px; font-weight: 700;
 }
-@media (max-width: 600px) {
-  .section-btn { font-size: 0.7rem; padding: 8px 4px; }
-  .section-btn .icon { font-size: 1rem; }
+.section-block .desc {
+  color: var(--text-soft); font-size: 0.9rem;
+  margin-bottom: 12px; line-height: 1.5;
 }
+.audio-bar {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg); border-radius: 10px; padding: 10px 14px;
+  margin-bottom: 14px;
+}
+.audio-bar .play-btn {
+  background: var(--primary); color: white; border: none;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 1rem;
+  cursor: pointer; flex-shrink: 0;
+}
+.audio-bar .audio-info { flex: 1; }
+.audio-bar .audio-title { font-weight: 600; font-size: 0.9rem; }
+.audio-bar .audio-progress {
+  background: #e6eaf0; height: 4px; border-radius: 2px;
+  margin: 6px 0; overflow: hidden;
+}
+.audio-bar .audio-progress-fill {
+  background: var(--primary); height: 100%; width: 0%; transition: width 0.2s;
+}
+.audio-bar .audio-time { font-size: 0.78rem; color: var(--text-soft); }
+.block-body { display: grid; grid-template-columns: 280px 1fr; gap: 16px; align-items: start; }
+@media (max-width: 700px) { .block-body { grid-template-columns: 1fr; } }
+.textbook-img { width: 100%; border-radius: 10px; border: 2px solid var(--bg); cursor: pointer; transition: transform 0.15s; }
+.textbook-img:hover { transform: scale(1.02); }
+.word-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+.word-chip {
+  background: var(--bg); border-radius: 10px; padding: 8px 6px;
+  text-align: center; font-weight: 600; font-size: 0.9rem;
+  cursor: pointer; transition: all 0.15s; border: 2px solid transparent;
+}
+.word-chip:hover { background: white; border-color: var(--primary); transform: translateY(-1px); }
+.word-chip .zh { display: block; font-size: 0.7rem; color: var(--text-soft); margin-top: 2px; font-weight: 400; }
+
+/* 5 阶段 */
+.stage-tabs { display: flex; gap: 8px; margin: 0 0 20px 0; flex-wrap: wrap; }
+.stage-tab {
+  background: var(--white); border: none; padding: 10px 18px;
+  font-size: 0.9rem; font-weight: 700; color: var(--text-soft);
+  cursor: pointer; border-radius: 12px; transition: all 0.15s; box-shadow: var(--shadow);
+}
+.stage-tab:hover { background: var(--bg); }
+.stage-tab.active { background: var(--primary); color: white; }
+.stage { display: none; }
+.stage.active { display: block; }
+
+/* Modal */
+.textbook-modal { display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.85); z-index: 200;
+  align-items: center; justify-content: center; padding: 20px; }
+.textbook-modal.active { display: flex; }
+.textbook-modal img { max-width: 100%; max-height: 100%; border-radius: 8px; }
+
+/* Breadcrumb */
+.breadcrumb { background: var(--white); padding: 10px 20px; font-size: 0.85rem; color: var(--text-soft); border-bottom: 1px solid #e6eaf0; }
+.breadcrumb a { color: var(--primary-dark); text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+.breadcrumb span:last-child { color: var(--text); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -86,377 +106,281 @@
 <header class="unit-header">
   <a class="back" href="../index.html">← 返回选单元</a>
   <h1>Starter · 预备单元</h1>
-  <p class="sub">字母 · 季节 · 数字 · 国家 · ⏱ 5:19</p>
+  <p class="sub">📘 字母 · 🌤 季节 · 🔢 数字 · 🌍 国家 · 教材 p.4-6（PDF p11-13）</p>
 </header>
-<!-- name 字段含 "Unit N" 标签,title 是真实内容,避免重复 -->
 
 <nav class="stage-tabs">
-  <button class="stage-tab active" data-stage="preview"><span class="icon">👀</span>预习</button>
-  <button class="stage-tab" data-stage="review"><span class="icon">🔄</span>复习</button>
-  <button class="stage-tab" data-stage="play"><span class="icon">🎮</span>游戏</button>
+  <button class="stage-tab active" data-stage="preview">👀 预习</button>
+  <button class="stage-tab" data-stage="review">🔄 复习</button>
+  <button class="stage-tab" data-stage="play">🎮 游戏</button>
 </nav>
 
-<audio id="unit-audio" src="../assets/audio/starter.mp3" preload="metadata"></audio>
 <audio id="word-audio" src="" preload="auto"></audio>
 
-<!-- 阶段 1: 预习 -->
+<!-- 阶段 1: 预习 - 4 段内容按教材顺序 -->
 <section class="stage active" id="stage-preview">
-  <h2>👀 预习:看教材原图猜词</h2>
-  <p class="stage-intro">看图猜词,点 🔊 跟读 / 🎵 原声</p>
+  <h2 style="margin-bottom: 16px;">👀 预习：4 段内容（按教材顺序）</h2>
 
-  <div class="audio-bar">
-    <button class="play-btn" id="play-unit">▶</button>
-    <div class="audio-info">
-      <div class="audio-title">📖 教材原声 (整段 5:19)</div>
-      <div class="audio-progress"><div class="audio-progress-fill" id="unit-progress"></div></div>
-      <div class="audio-time">
-        <span id="unit-cur">0:00</span>
-        <span id="unit-dur">5:19</span>
+  <!-- 段 1: The alphabet (PDF p11 / book p4) -->
+  <div class="section-block">
+    <h3>The alphabet 字母 <span class="page-tag">PDF p.11 · book p.4</span></h3>
+    <p class="desc">A-Z 26 个字母的大小写 + 笔顺 · 听字母名和字母歌</p>
+    <div class="audio-bar">
+      <button class="play-btn" data-audio="../assets/audio/starter.mp3" data-fill="alphabet">▶</button>
+      <div class="audio-info">
+        <div class="audio-title">📖 教材原声 · 整段 5:19</div>
+        <div class="audio-progress"><div class="audio-progress-fill" data-fill="alphabet"></div></div>
+        <div class="audio-time"><span data-cur="alphabet">0:00</span> / 5:19</div>
       </div>
+    </div>
+    <div class="block-body">
+      <img class="textbook-img" src="../assets/img/page011.jpg" alt="The alphabet" onclick="openModal(this.src)" />
+      <div class="word-grid" id="alphabet-grid"></div>
     </div>
   </div>
 
-  <div class="section-tabs">
-    <button class="section-btn" data-section="countries" data-audio="sections/countries.mp3"><span class="icon">🔊</span>countries</button><button class="section-btn" data-section="full" data-audio="sections/full.mp3"><span class="icon">🎬</span>完整</button><button class="section-btn" data-section="numbers" data-audio="sections/numbers.mp3"><span class="icon">🔊</span>numbers</button><button class="section-btn" data-section="seasons" data-audio="sections/seasons.mp3"><span class="icon">🔊</span>seasons</button><button class="section-btn" data-section="the_alphabet" data-audio="sections/the_alphabet.mp3"><span class="icon">🔊</span>the_alphabet</button>
+  <!-- 段 2: Seasons (PDF p12 上 / book p5) -->
+  <div class="section-block">
+    <h3>Seasons 季节 <span class="page-tag">PDF p.12 · book p.5</span></h3>
+    <p class="desc">4 个季节 · spring 春 / summer 夏 / autumn 秋 / winter 冬</p>
+    <div class="audio-bar">
+      <button class="play-btn" data-audio="../assets/audio/starter.mp3" data-fill="seasons">▶</button>
+      <div class="audio-info">
+        <div class="audio-title">📖 教材原声 · 整段 5:19</div>
+        <div class="audio-progress"><div class="audio-progress-fill" data-fill="seasons"></div></div>
+        <div class="audio-time"><span data-cur="seasons">0:00</span> / 5:19</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <img class="textbook-img" src="../assets/img/page012.jpg" alt="Seasons + Numbers" onclick="openModal(this.src)" />
+      <div class="word-grid" id="seasons-grid"></div>
+    </div>
   </div>
 
-  <div style="text-align: center; margin-bottom: 20px;">
-    <button class="btn btn-accent" id="view-textbook">📖 查看教材原页</button>
+  <!-- 段 3: Numbers (PDF p12 下 / book p5) -->
+  <div class="section-block">
+    <h3>Numbers 数字 <span class="page-tag">PDF p.12 · book p.5</span></h3>
+    <p class="desc">1-20 基数词 · one (1), two (2), three (3) ... twenty (20)</p>
+    <div class="audio-bar">
+      <button class="play-btn" data-audio="../assets/audio/starter.mp3" data-fill="numbers">▶</button>
+      <div class="audio-info">
+        <div class="audio-title">📖 教材原声 · 整段 5:19</div>
+        <div class="audio-progress"><div class="audio-progress-fill" data-fill="numbers"></div></div>
+        <div class="audio-time"><span data-cur="numbers">0:00</span> / 5:19</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <img class="textbook-img" src="../assets/img/page012.jpg" alt="Numbers" onclick="openModal(this.src)" />
+      <div class="word-grid" id="numbers-grid"></div>
+    </div>
   </div>
 
-  <div id="textbook-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; align-items: center; justify-content: center; padding: 20px;" onclick="this.style.display='none'">
-    <img src="../assets/img/starter/lesson_full.jpg" style="max-width: 100%; max-height: 100%; border-radius: 8px;" onerror="this.src=''" />
-  </div>
-
-  <div class="word-card-grid">
-            <div class="word-card" data-word="alphabet">
-              <img class="word-img" src="../assets/img/starter/alphabet.jpg" alt="alphabet" onerror="this.style.display='none'" />
-              <div class="word">alphabet</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="spring">
-              <img class="word-img" src="../assets/img/starter/spring.jpg" alt="spring" onerror="this.style.display='none'" />
-              <div class="word">spring</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="summer">
-              <img class="word-img" src="../assets/img/starter/summer.jpg" alt="summer" onerror="this.style.display='none'" />
-              <div class="word">summer</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="autumn">
-              <img class="word-img" src="../assets/img/starter/autumn.jpg" alt="autumn" onerror="this.style.display='none'" />
-              <div class="word">autumn</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="winter">
-              <img class="word-img" src="../assets/img/starter/winter.jpg" alt="winter" onerror="this.style.display='none'" />
-              <div class="word">winter</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="one">
-              <img class="word-img" src="../assets/img/starter/one.jpg" alt="one" onerror="this.style.display='none'" />
-              <div class="word">one</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="two">
-              <img class="word-img" src="../assets/img/starter/two.jpg" alt="two" onerror="this.style.display='none'" />
-              <div class="word">two</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
-            <div class="word-card" data-word="three">
-              <img class="word-img" src="../assets/img/starter/three.jpg" alt="three" onerror="this.style.display='none'" />
-              <div class="word">three</div>
-              <div class="meaning"></div>
-              <div class="audio-row">
-                <button class="btn-tts" data-action="tts">🔊 跟读</button>
-                <button class="btn-orig" data-action="orig">🎵 原声</button>
-              </div>
-            </div>
+  <!-- 段 4: Countries (PDF p13 / book p6) -->
+  <div class="section-block">
+    <h3>Countries 国家 <span class="page-tag">PDF p.13 · book p.6</span></h3>
+    <p class="desc">7 个英语国家名 · China 中国 / Italy 意大利 / UK 英国 / USA 美国 / France 法国 / Germany 德国 / New Zealand 新西兰</p>
+    <div class="audio-bar">
+      <button class="play-btn" data-audio="../assets/audio/starter.mp3" data-fill="countries">▶</button>
+      <div class="audio-info">
+        <div class="audio-title">📖 教材原声 · 整段 5:19</div>
+        <div class="audio-progress"><div class="audio-progress-fill" data-fill="countries"></div></div>
+        <div class="audio-time"><span data-cur="countries">0:00</span> / 5:19</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <img class="textbook-img" src="../assets/img/page013.jpg" alt="Countries" onclick="openModal(this.src)" />
+      <div class="word-grid" id="countries-grid"></div>
+    </div>
   </div>
 </section>
 
-<!-- 阶段 2: 复习(闪卡) -->
+<!-- 阶段 2: 复习闪卡 -->
 <section class="stage" id="stage-review">
-  <h2>🔄 复习:闪卡</h2>
-  <p class="stage-intro">看英文,想中文,点翻面</p>
-
-  <div class="flashcard-stage" id="flashcard">
-    <img id="fc-img" style="max-height: 180px; border-radius: 12px; margin-bottom: 16px;" />
-    <div class="flashcard-word" id="fc-word"></div>
-    <div class="flashcard-meaning" id="fc-meaning"></div>
-    <div style="font-size: 0.9rem; color: var(--text-soft);" id="fc-progress">1 / 8</div>
-  </div>
-
-  <div class="flashcard-controls">
-    <button class="btn btn-soft" id="fc-prev">← 上一个</button>
-    <button class="btn btn-primary" id="fc-flip">翻面看意思</button>
-    <button class="btn btn-soft" id="fc-sound">🔊 听发音</button>
-    <button class="btn btn-secondary" id="fc-next">下一个 →</button>
+  <h2 style="margin-bottom: 16px;">🔄 复习：闪卡</h2>
+  <div id="flashcard" style="background: var(--white); border-radius: 14px; padding: 30px; box-shadow: var(--shadow); text-align: center;">
+    <div id="fc-en" style="font-size: 2rem; font-weight: 700; margin-bottom: 8px;">—</div>
+    <div id="fc-zh" style="font-size: 1.1rem; color: var(--text-soft); margin-bottom: 16px; display: none;">—</div>
+    <div id="fc-meta" style="font-size: 0.85rem; color: var(--text-soft);">点击「翻面」看意思</div>
+    <div style="margin-top: 20px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn btn-soft" id="fc-prev">← 上一个</button>
+      <button class="btn btn-primary" id="fc-flip">翻面看意思</button>
+      <button class="btn btn-soft" id="fc-sound">🔊 听</button>
+      <button class="btn btn-soft" id="fc-next">下一个 →</button>
+    </div>
   </div>
 </section>
 
 <!-- 阶段 3: 游戏 -->
 <section class="stage" id="stage-play">
-  <h2>🎮 游戏:听教材原声选词</h2>
-  <p class="game-prompt" id="game-prompt">点击 🔊 开始</p>
-
-  <div class="game-board">
-    <div class="game-listening-icon" id="game-icon">🔊</div>
-    <div class="game-options" id="game-options"></div>
-    <div class="game-score">
-      答对 <span class="num" id="game-correct">0</span> · 答错 <span class="num" id="game-wrong">0</span>
+  <h2 style="margin-bottom: 16px;">🎮 游戏：听原声选单词</h2>
+  <div style="background: var(--white); border-radius: 14px; padding: 24px; box-shadow: var(--shadow); text-align: center;">
+    <div id="game-icon" style="font-size: 3rem; margin: 10px 0; cursor: pointer;">🔊</div>
+    <div id="game-prompt" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;">点击开始</div>
+    <div id="game-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 400px; margin: 0 auto;"></div>
+    <div style="margin-top: 16px; font-size: 0.95rem; color: var(--text-soft);">
+      答对 <span id="game-correct" style="color: #28a745; font-weight: 700;">0</span> · 答错 <span id="game-wrong" style="color: #dc3545; font-weight: 700;">0</span>
     </div>
     <div style="margin-top: 16px;">
-      <button class="btn btn-accent" id="game-restart">↺ 重新开始</button>
+      <button class="btn btn-accent" id="game-start">🎮 开始游戏</button>
     </div>
   </div>
 </section>
 
+<div class="textbook-modal" id="modal" onclick="closeModal()">
+  <img id="modal-img" src="" />
+</div>
+
 <script>
-const WORDS = [{"word": "alphabet", "meaning": "", "img": "../assets/img/starter/alphabet.jpg", "orig": "../assets/audio/starter/words/alphabet.mp3"}, {"word": "spring", "meaning": "", "img": "../assets/img/starter/spring.jpg", "orig": "../assets/audio/starter/words/spring.mp3"}, {"word": "summer", "meaning": "", "img": "../assets/img/starter/summer.jpg", "orig": "../assets/audio/starter/words/summer.mp3"}, {"word": "autumn", "meaning": "", "img": "../assets/img/starter/autumn.jpg", "orig": "../assets/audio/starter/words/autumn.mp3"}, {"word": "winter", "meaning": "", "img": "../assets/img/starter/winter.jpg", "orig": "../assets/audio/starter/words/winter.mp3"}, {"word": "one", "meaning": "", "img": "../assets/img/starter/one.jpg", "orig": "../assets/audio/starter/words/one.mp3"}, {"word": "two", "meaning": "", "img": "../assets/img/starter/two.jpg", "orig": "../assets/audio/starter/words/two.mp3"}, {"word": "three", "meaning": "", "img": "../assets/img/starter/three.jpg", "orig": "../assets/audio/starter/words/three.mp3"}];
+// 4 段内容数据
+const SECTIONS = {
+  alphabet:  { words: 'Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz'.split(' '), zh: {} },
+  seasons:   { words: [{en:'spring',zh:'春'},{en:'summer',zh:'夏'},{en:'autumn',zh:'秋'},{en:'winter',zh:'冬'}], zh: {spring:'春',summer:'夏',autumn:'秋',winter:'冬'} },
+  numbers:   { words: 'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'.split(' ').map(w => ({en:w, zh: ''})), zh: {one:'一',two:'二',three:'三',four:'四',five:'五',six:'六',seven:'七',eight:'八',nine:'九',ten:'十',eleven:'十一',twelve:'十二',thirteen:'十三',fourteen:'十四',fifteen:'十五',sixteen:'十六',seventeen:'十七',eighteen:'十八',nineteen:'十九',twenty:'二十'} },
+  countries: { words: [{en:'China',zh:'中国'},{en:'Italy',zh:'意大利'},{en:'UK',zh:'英国'},{en:'USA',zh:'美国'},{en:'France',zh:'法国'},{en:'Germany',zh:'德国'},{en:'New Zealand',zh:'新西兰'}], zh: {China:'中国',Italy:'意大利','UK':'英国',USA:'美国',France:'法国',Germany:'德国','New Zealand':'新西兰'} },
+};
 
-// 复用 unit1 的逻辑
+// 所有词摊平(用于闪卡+游戏)
+const ALL_WORDS = [];
+Object.entries(SECTIONS).forEach(([sec, data]) => {
+  data.words.forEach(w => {
+    const word = typeof w === 'string' ? w : w.en;
+    const zh = typeof w === 'string' ? (data.zh[w] || '') : w.zh;
+    ALL_WORDS.push({en: word, zh: zh, section: sec});
+  });
+});
 
-const UNIT_AUDIO = document.getElementById('unit-audio');
-const WORD_AUDIO = document.getElementById('word-audio');
+// 渲染每个段的单词网格
+Object.entries(SECTIONS).forEach(([sec, data]) => {
+  const grid = document.getElementById(sec + '-grid');
+  if (!grid) return;
+  data.words.forEach(w => {
+    const word = typeof w === 'string' ? w : w.en;
+    const zh = typeof w === 'string' ? (data.zh[w] || '') : w.zh;
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.dataset.word = word;
+    chip.innerHTML = `${word}${zh ? `<span class="zh">${zh}</span>` : ''}`;
+    chip.addEventListener('click', () => speak(word));
+    grid.appendChild(chip);
+  });
+});
 
+// 音频播放器(每段独立)
+const audios = {};
+document.querySelectorAll('.play-btn[data-audio]').forEach(btn => {
+  const id = btn.dataset.fill;
+  const audio = new Audio(btn.dataset.audio);
+  audio.preload = 'metadata';
+  audios[id] = {audio, btn, fill: btn.parentElement.querySelector(`[data-fill="${id}"]`), cur: btn.parentElement.querySelector(`[data-cur="${id}"]`)};
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      Object.values(audios).forEach(a => { if (a.audio !== audio) { a.audio.pause(); a.btn.textContent = '▶'; } });
+      audio.play();
+      btn.textContent = '⏸';
+    } else {
+      audio.pause();
+      btn.textContent = '▶';
+    }
+  });
+  audio.addEventListener('timeupdate', () => {
+    audios[id].fill.style.width = ((audio.currentTime / audio.duration) * 100 || 0) + '%';
+    audios[id].cur.textContent = fmt(audio.currentTime);
+  });
+  audio.addEventListener('ended', () => { btn.textContent = '▶'; });
+});
+
+function fmt(s) { s = Math.floor(s); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+// TTS
 let englishVoice = null;
-function loadEnglishVoice() {
+function loadVoice() {
   if (!window.speechSynthesis) return;
   const voices = window.speechSynthesis.getVoices();
   englishVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
 }
-if (window.speechSynthesis) {
-  loadEnglishVoice();
-  window.speechSynthesis.onvoiceschanged = loadEnglishVoice;
-}
-
-function speak(text, rate = 0.85) {
+if (window.speechSynthesis) { loadVoice(); window.speechSynthesis.onvoiceschanged = loadVoice; }
+function speak(text) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'en-US';
-  if (englishVoice) utter.voice = englishVoice;
-  utter.rate = rate;
-  utter.pitch = 1.1;
-  window.speechSynthesis.speak(utter);
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  if (englishVoice) u.voice = englishVoice;
+  u.rate = 0.85;
+  window.speechSynthesis.speak(u);
 }
 
-function speakOrig(word) {
-  const w = WORDS.find(x => x.word === word);
-  if (w) {
-    WORD_AUDIO.src = w.orig;
-    WORD_AUDIO.play().catch(() => speak(word));
-  }
-}
+// Modal
+function openModal(src) { document.getElementById('modal-img').src = src; document.getElementById('modal').classList.add('active'); }
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
 
-// Tab
+// 阶段切换
 document.querySelectorAll('.stage-tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    const target = tab.dataset.stage;
-    document.querySelectorAll('.stage-tab').forEach(t => t.classList.toggle('active', t === tab));
-    document.querySelectorAll('.stage').forEach(s => s.classList.toggle('active', s.id === `stage-${target}`));
-    if (UNIT_AUDIO) UNIT_AUDIO.pause();
-    if (WORD_AUDIO) WORD_AUDIO.pause();
+    document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('stage-' + tab.dataset.stage).classList.add('active');
+    Object.values(audios).forEach(a => { a.audio.pause(); a.btn.textContent = '▶'; });
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
-
-// Unit audio
-const playBtn = document.getElementById('play-unit');
-const progressFill = document.getElementById('unit-progress');
-const curTime = document.getElementById('unit-cur');
-const durTime = document.getElementById('unit-dur');
-if (playBtn && UNIT_AUDIO) {
-  UNIT_AUDIO.addEventListener('loadedmetadata', () => {
-    const d = UNIT_AUDIO.duration;
-    if (d && isFinite(d)) {
-      const m = Math.floor(d / 60), s = Math.floor(d % 60);
-      durTime.textContent = `${m}:${String(s).padStart(2, '0')}`;
-    }
-  });
-  UNIT_AUDIO.addEventListener('timeupdate', () => {
-    const pct = (UNIT_AUDIO.currentTime / UNIT_AUDIO.duration) * 100;
-    progressFill.style.width = `${pct}%`;
-    const c = UNIT_AUDIO.currentTime;
-    curTime.textContent = `${Math.floor(c/60)}:${String(Math.floor(c%60)).padStart(2,'0')}`;
-  });
-  UNIT_AUDIO.addEventListener('ended', () => {
-    playBtn.classList.remove('playing');
-    playBtn.textContent = '▶';
-  });
-  playBtn.addEventListener('click', () => {
-    if (UNIT_AUDIO.paused) {
-      UNIT_AUDIO.play();
-      playBtn.classList.add('playing');
-      playBtn.textContent = '⏸';
-    } else {
-      UNIT_AUDIO.pause();
-      playBtn.classList.remove('playing');
-      playBtn.textContent = '▶';
-    }
-  });
-}
-
-// Section 按钮:点击切换音频源
-const SECTION_AUDIO = new Audio();
-SECTION_AUDIO.preload = 'auto';
-let currentSectionBtn = null;
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const audioPath = btn.dataset.audio;
-    if (currentSectionBtn) currentSectionBtn.classList.remove('active');
-    if (currentSectionBtn === btn) {
-      // toggle off
-      SECTION_AUDIO.pause();
-      currentSectionBtn = null;
-      return;
-    }
-    btn.classList.add('active');
-    currentSectionBtn = btn;
-    SECTION_AUDIO.src = '../assets/audio/{unit_id}/' + audioPath;
-    SECTION_AUDIO.play().catch(e => console.error(e));
-  });
-});
-SECTION_AUDIO.addEventListener('ended', () => {
-  if (currentSectionBtn) currentSectionBtn.classList.remove('active');
-  currentSectionBtn = null;
-});
-
-document.getElementById('view-textbook').addEventListener('click', () => {
-  document.getElementById('textbook-modal').style.display = 'flex';
-});
-
-// 词卡交互
-document.querySelectorAll('#stage-preview .word-card').forEach(card => {
-  const word = card.dataset.word;
-  card.querySelector('[data-action="tts"]').addEventListener('click', (e) => { e.stopPropagation(); speak(word); });
-  card.querySelector('[data-action="orig"]').addEventListener('click', (e) => { e.stopPropagation(); speakOrig(word); });
-  card.addEventListener('click', (e) => { if (e.target.dataset.action) return; speak(word); });
 });
 
 // 闪卡
-let fcIndex = 0, fcRevealed = false;
-let fcOrder = WORDS.map((_, i) => i);
-const fcImg = document.getElementById('fc-img');
-const fcWord = document.getElementById('fc-word');
-const fcMeaning = document.getElementById('fc-meaning');
-const fcProgress = document.getElementById('fc-progress');
-const flashcard = document.getElementById('flashcard');
-
+let fcIdx = 0, fcFlipped = false, fcOrder = ALL_WORDS.map((_, i) => i);
 function renderFC() {
-  const w = WORDS[fcOrder[fcIndex]];
-  if (w) {
-    fcImg.src = w.img;
-    fcImg.onerror = () => { fcImg.style.display = 'none'; };
-    fcImg.style.display = 'block';
-    fcWord.textContent = w.word;
-    fcMeaning.textContent = w.meaning;
-    fcProgress.textContent = `${fcIndex + 1} / ${fcOrder.length}`;
-    flashcard.classList.remove('revealed');
-  }
+  const w = ALL_WORDS[fcOrder[fcIdx]];
+  document.getElementById('fc-en').textContent = w.en;
+  document.getElementById('fc-zh').textContent = w.zh || '—';
+  document.getElementById('fc-zh').style.display = fcFlipped ? 'block' : 'none';
+  document.getElementById('fc-meta').textContent = `${w.section} · ${fcIdx+1} / ${ALL_WORDS.length}`;
 }
-if (WORDS.length > 0) renderFC();
-document.getElementById('fc-prev').addEventListener('click', () => { fcIndex = (fcIndex - 1 + fcOrder.length) % fcOrder.length; renderFC(); });
-document.getElementById('fc-next').addEventListener('click', () => { fcIndex = (fcIndex + 1) % fcOrder.length; renderFC(); });
-document.getElementById('fc-flip').addEventListener('click', () => { flashcard.classList.toggle('revealed'); });
-if (flashcard) flashcard.addEventListener('click', () => { flashcard.classList.toggle('revealed'); });
-document.getElementById('fc-sound').addEventListener('click', () => { speakOrig(WORDS[fcOrder[fcIndex]].word); });
+document.getElementById('fc-prev').addEventListener('click', () => { fcIdx = (fcIdx-1+fcOrder.length)%fcOrder.length; fcFlipped = false; renderFC(); });
+document.getElementById('fc-next').addEventListener('click', () => { fcIdx = (fcIdx+1)%fcOrder.length; fcFlipped = false; renderFC(); });
+document.getElementById('fc-flip').addEventListener('click', () => { fcFlipped = !fcFlipped; renderFC(); });
+document.getElementById('fc-sound').addEventListener('click', () => speak(ALL_WORDS[fcOrder[fcIdx]].en));
+renderFC();
 
-// 游戏
-let gameCorrect = 0, gameWrong = 0, gameCurrent = null, gameAnswered = false;
-const gameIcon = document.getElementById('game-icon');
-const gamePrompt = document.getElementById('game-prompt');
-const gameOptions = document.getElementById('game-options');
-const gameCorrectEl = document.getElementById('game-correct');
-const gameWrongEl = document.getElementById('game-wrong');
-
-function startGame() {
-  if (WORDS.length < 2) { gamePrompt.textContent = '需要至少 2 个词'; return; }
-  gameCorrect = 0; gameWrong = 0;
-  gameCorrectEl.textContent = '0'; gameWrongEl.textContent = '0';
-  nextRound();
-}
-
+// 游戏:听原声选单词
+let gameCorrect = 0, gameWrong = 0, gameAnswered = false, gameCurrent = null;
 function nextRound() {
-  const correctIdx = Math.floor(Math.random() * WORDS.length);
-  gameCurrent = WORDS[correctIdx];
+  if (ALL_WORDS.length < 2) return;
+  const correctIdx = Math.floor(Math.random() * ALL_WORDS.length);
+  gameCurrent = ALL_WORDS[correctIdx];
   const distractors = [];
-  while (distractors.length < Math.min(3, WORDS.length - 1)) {
-    const d = WORDS[Math.floor(Math.random() * WORDS.length)];
-    if (d.word !== gameCurrent.word && !distractors.find(x => x.word === d.word)) {
-      distractors.push(d);
-    }
+  while (distractors.length < 3) {
+    const d = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)];
+    if (d.en !== gameCurrent.en && !distractors.find(x => x.en === d.en)) distractors.push(d);
   }
-  const options = [gameCurrent, ...distractors].sort(() => Math.random() - 0.5);
-  gameIcon.textContent = '🔊';
-  gamePrompt.textContent = '点 🔊 听原声,选单词';
-  gameOptions.innerHTML = options.map(o =>
-    `<button class="game-option" data-word="${o.word}">
-      <img src="${o.img}" style="max-height:60px; border-radius:6px; margin-right:8px" onerror="this.style.display='none'" />
-      ${o.word}
-    </button>`).join('');
+  const options = [gameCurrent, ...distractors].sort(() => Math.random()-0.5);
+  document.getElementById('game-prompt').textContent = `听: 选单词 "${gameCurrent.en}"`;
+  const gameOpts = document.getElementById('game-options');
+  gameOpts.innerHTML = options.map(o => `<button class="game-option" data-en="${o.en}" style="background: var(--bg); border: 2px solid transparent; padding: 14px; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: 600;">${o.en}</button>`).join('');
   gameAnswered = false;
-  gameIcon.onclick = () => speakOrig(gameCurrent.word);
-  gameOptions.querySelectorAll('.game-option').forEach(btn => {
+  document.getElementById('game-icon').onclick = () => speak(gameCurrent.en);
+  gameOpts.querySelectorAll('.game-option').forEach(btn => {
     btn.addEventListener('click', () => {
       if (gameAnswered) return;
       gameAnswered = true;
-      const chosen = btn.dataset.word;
-      if (chosen === gameCurrent.word) {
-        btn.classList.add('correct');
+      if (btn.dataset.en === gameCurrent.en) {
+        btn.style.background = '#d4edda'; btn.style.borderColor = '#28a745';
         gameCorrect++;
-        gameCorrectEl.textContent = gameCorrect;
-        gamePrompt.textContent = '🎉 答对了!';
-        speakOrig(gameCurrent.word);
+        document.getElementById('game-correct').textContent = gameCorrect;
+        document.getElementById('game-prompt').textContent = '🎉 答对!';
       } else {
-        btn.classList.add('wrong');
-        gameOptions.querySelectorAll('.game-option').forEach(b => {
-          if (b.dataset.word === gameCurrent.word) b.classList.add('correct');
+        btn.style.background = '#f8d7da'; btn.style.borderColor = '#dc3545';
+        gameOpts.querySelectorAll('.game-option').forEach(b => {
+          if (b.dataset.en === gameCurrent.en) { b.style.background = '#d4edda'; b.style.borderColor = '#28a745'; }
         });
         gameWrong++;
-        gameWrongEl.textContent = gameWrong;
-        gamePrompt.textContent = `😅 正确答案是 ${gameCurrent.word}`;
+        document.getElementById('game-wrong').textContent = gameWrong;
+        document.getElementById('game-prompt').textContent = `😅 正确: ${gameCurrent.en}`;
       }
-      setTimeout(nextRound, 1800);
+      setTimeout(nextRound, 1500);
     });
   });
-  setTimeout(() => speakOrig(gameCurrent.word), 400);
+  setTimeout(() => speak(gameCurrent.en), 400);
 }
-
-document.getElementById('game-restart').addEventListener('click', startGame);
-if (WORDS.length >= 2) startGame();
-
+document.getElementById('game-start').addEventListener('click', () => { gameCorrect = 0; gameWrong = 0; document.getElementById('game-correct').textContent = '0'; document.getElementById('game-wrong').textContent = '0'; nextRound(); });
 </script>
 </body>
 </html>
