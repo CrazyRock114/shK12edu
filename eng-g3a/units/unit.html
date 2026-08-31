@@ -338,7 +338,7 @@ UNIT.sections.forEach((sec, idx) => {
     wordsHTML = `<div class="word-grid">${wordsList}</div>`;
   }
 
-  block.innerHTML = h3 + desc + audioBar + textbookHTML + wordsHTML;
+  block.innerHTML = h3 + desc + audioBar + textbookHTML + renderSectionMeta(sec) + wordsHTML;
   container.appendChild(block);
 
   // 初始化此段音频
@@ -452,6 +452,77 @@ container.addEventListener('click', e => {
   const chip = e.target.closest('.word-chip');
   if (chip) speak(chip.dataset.word);
 });
+
+// ===== 各 section 元数据渲染 (歌词/故事/句型/关键短语) =====
+function renderSectionMeta(sec) {
+  let html = '';
+  // sound: 字母 + 例子
+  if (sec.sound_letter || sec.sound_pattern) {
+    const letter = sec.sound_letter ? `字母 <b>${sec.sound_letter}</b>` : '';
+    const pattern = sec.sound_pattern ? `发音 <b>${sec.sound_pattern}</b>` : '';
+    const example = sec.sound_example ? `例词: <b>${sec.sound_example}</b>` : '';
+    html += `<div class="section-meta" style="background:#f0f7ff;border-left:4px solid #4ecdc4;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      🔤 ${[letter, pattern, example].filter(Boolean).join(' · ')}
+    </div>`;
+  }
+  // song_time: 标题 + 歌词
+  if (sec.song_lyrics && sec.song_lyrics.length) {
+    html += `<details class="section-meta" style="background:#fff8e1;border-left:4px solid #ffe66d;padding:8px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;">
+      <summary style="cursor:pointer;font-weight:600;">🎵 ${sec.song_title || '歌曲歌词'}</summary>
+      <ol style="margin:8px 0 0 18px;line-height:1.7;">${sec.song_lyrics.map(l => `<li>${l}</li>`).join('')}</ol>
+    </details>`;
+  }
+  // chant_time / rhyme_time: 同 song_time 结构
+  if (sec.chant_lyrics && sec.chant_lyrics.length) {
+    html += `<details class="section-meta" style="background:#fff8e1;border-left:4px solid #ffe66d;padding:8px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;">
+      <summary style="cursor:pointer;font-weight:600;">🗣 ${sec.chant_title || 'Chant 跟读'}</summary>
+      <ol style="margin:8px 0 0 18px;line-height:1.7;">${sec.chant_lyrics.map(l => `<li>${l}</li>`).join('')}</ol>
+    </details>`;
+  }
+  if (sec.rhyme_lyrics && sec.rhyme_lyrics.length) {
+    html += `<details class="section-meta" style="background:#fff8e1;border-left:4px solid #ffe66d;padding:8px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;">
+      <summary style="cursor:pointer;font-weight:600;">🎶 ${sec.rhyme_title || '韵文'}</summary>
+      <ol style="margin:8px 0 0 18px;line-height:1.7;">${sec.rhyme_lyrics.map(l => `<li>${l}</li>`).join('')}</ol>
+    </details>`;
+  }
+  // fun_time: 标题 + 内容
+  if (sec.fun_content) {
+    html += `<div class="section-meta" style="background:#fef3e2;border-left:4px solid #ffaaa5;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      🎮 <b>${sec.fun_title || '趣味活动'}</b>: ${sec.fun_content}
+    </div>`;
+  }
+  // talking_time: 句型 + 关键短语 + 场景
+  if (sec.talking_pattern || sec.talking_phrases) {
+    const pattern = sec.talking_pattern ? `<div style="margin-bottom:6px;">💬 句型: <code style="background:#e6eaf0;padding:2px 8px;border-radius:4px;font-size:0.95rem;">${sec.talking_pattern}</code></div>` : '';
+    const phrases = sec.talking_phrases && sec.talking_phrases.length
+      ? `<div style="margin-bottom:6px;">🗝 关键短语: ${sec.talking_phrases.map(p => `<span class="word-chip" style="display:inline-block;padding:2px 8px;margin:2px 3px;background:white;border:1px solid var(--primary);border-radius:6px;font-size:0.82rem;cursor:pointer;" onclick="speak('${p.replace(/'/g, "\\'")}')">${p}</span>`).join('')}</div>` : '';
+    const scenario = sec.talking_scenario ? `<div style="font-size:0.85rem;color:var(--text-soft);">📍 ${sec.talking_scenario}</div>` : '';
+    html += `<div class="section-meta" style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      💬 <b>${sec.talking_title || '对话'}</b>${pattern}${phrases}${scenario}
+    </div>`;
+  }
+  // story_time: 故事梗概 + moral
+  if (sec.story_summary) {
+    html += `<div class="section-meta" style="background:#fef9f0;border-left:4px solid #ffc107;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      📖 <b>${sec.story_title || '故事'}</b><br>
+      ${sec.story_summary}
+      ${sec.story_moral ? `<br><span style="background:#fff3cd;padding:2px 6px;border-radius:4px;">💡 ${sec.story_moral}</span>` : ''}
+    </div>`;
+  }
+  // reading_time: 阅读内容
+  if (sec.reading_content) {
+    html += `<div class="section-meta" style="background:#f3e5f5;border-left:4px solid #9c27b0;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      📚 <b>${sec.reading_title || '阅读'}</b>: ${sec.reading_content}
+    </div>`;
+  }
+  // big_task: 项目
+  if (sec.project_output) {
+    html += `<div class="section-meta" style="background:#e8f5e9;border-left:4px solid #2e7d32;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:0.92rem;line-height:1.6;">
+      🎯 <b>${sec.project_title || '大任务'}</b>: ${sec.project_output}
+    </div>`;
+  }
+  return html;
+}
 
 function fmt(s) { s = Math.floor(s); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
 function openModal(p) {

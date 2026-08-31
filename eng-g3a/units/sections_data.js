@@ -443,14 +443,54 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit1/sections/topic_words.mp3",
         "words": [
-          "school",
-          "classmate",
-          "teacher",
-          "play sports",
-          "read",
-          "book",
-          "study",
-          "friend"
+          {
+            "en": "school",
+            "zh": "学校",
+            "full": "",
+            "extra": "🏫 buildings/classroom"
+          },
+          {
+            "en": "classmate",
+            "zh": "同学",
+            "full": "",
+            "extra": "👫 同班同学"
+          },
+          {
+            "en": "teacher",
+            "zh": "老师",
+            "full": "",
+            "extra": "👩‍🏫 教书的人"
+          },
+          {
+            "en": "play sports",
+            "zh": "做运动",
+            "full": "",
+            "extra": "⚽ 跑跳打球"
+          },
+          {
+            "en": "read",
+            "zh": "读",
+            "full": "",
+            "extra": "📖 看书"
+          },
+          {
+            "en": "book",
+            "zh": "书",
+            "full": "",
+            "extra": "📚 有故事"
+          },
+          {
+            "en": "study",
+            "zh": "学习",
+            "full": "",
+            "extra": "✏️ 用功读书"
+          },
+          {
+            "en": "friend",
+            "zh": "朋友",
+            "full": "",
+            "extra": "👫 buddy"
+          }
         ],
         "big_task": "Making a goal leaf"
       },
@@ -461,7 +501,15 @@ const SECTIONS_DATA = {
         "pages": [
           16
         ],
-        "audio": "unit1/sections/song_time.mp3"
+        "audio": "unit1/sections/song_time.mp3",
+        "song_title": "A new start",
+        "song_lyrics": [
+          "It's time for school.",
+          "We're back at school.",
+          "Meet my classmates. Meet my teachers.",
+          "Play new sports. Read new books.",
+          "Let's study hard. Let's play hard."
+        ]
       },
       {
         "id": "sound",
@@ -470,7 +518,10 @@ const SECTIONS_DATA = {
         "pages": [
           16
         ],
-        "audio": "unit1/sections/sound.mp3"
+        "audio": "unit1/sections/sound.mp3",
+        "sound_letter": "b",
+        "sound_pattern": "",
+        "sound_example": "book"
       },
       {
         "id": "talking_time",
@@ -480,7 +531,16 @@ const SECTIONS_DATA = {
           17,
           18
         ],
-        "audio": "unit1/sections/talking_time.mp3"
+        "audio": "unit1/sections/talking_time.mp3",
+        "talking_title": "What's your goal?",
+        "talking_pattern": "I want to ...",
+        "talking_phrases": [
+          "I want to make new friends.",
+          "I want to speak English well.",
+          "What's your goal?",
+          "I want to study hard."
+        ],
+        "talking_scenario": "James 介绍自己，谈论新学期目标"
       },
       {
         "id": "story_time",
@@ -490,7 +550,10 @@ const SECTIONS_DATA = {
           19,
           20
         ],
-        "audio": "unit1/sections/story_time.mp3"
+        "audio": "unit1/sections/story_time.mp3",
+        "story_title": "Minmin's goal",
+        "story_summary": "Mr Zhong 告诉 Minmin 要实现目标可以 make a plan and follow it。Minmin 想成为 good football player，30 mins 练习，最后成功。",
+        "story_moral": "设定目标 + 制定计划 + 坚持执行"
       },
       {
         "id": "big_task",
@@ -499,7 +562,9 @@ const SECTIONS_DATA = {
         "pages": [
           21
         ],
-        "audio": "unit1/sections/big_task.mp3"
+        "audio": "unit1/sections/big_task.mp3",
+        "project_title": "My goal leaf",
+        "project_output": "制作 goal leaf 写下自己的目标"
       }
     ]
   },
@@ -521,13 +586,48 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit2/sections/topic_words.mp3",
         "words": [
-          "draw",
-          "tell a story",
-          "dance",
-          "sing",
-          "use the computer",
-          "run",
-          "jump"
+          {
+            "en": "draw",
+            "zh": "画",
+            "full": "",
+            "extra": "🎨 用笔"
+          },
+          {
+            "en": "tell a story",
+            "zh": "讲故事",
+            "full": "",
+            "extra": "📖 给别人听"
+          },
+          {
+            "en": "dance",
+            "zh": "跳舞",
+            "full": "",
+            "extra": "💃 音乐"
+          },
+          {
+            "en": "sing",
+            "zh": "唱歌",
+            "full": "",
+            "extra": "🎤 出声"
+          },
+          {
+            "en": "use the computer",
+            "zh": "用电脑",
+            "full": "",
+            "extra": "💻 上网/打字"
+          },
+          {
+            "en": "run",
+            "zh": "跑",
+            "full": "",
+            "extra": "🏃 快速走"
+          },
+          {
+            "en": "jump",
+            "zh": "跳",
+            "full": "",
+            "extra": "🤸 离地"
+          }
         ],
         "big_task": "Talking about yourself and your classmates"
       },
@@ -538,7 +638,9 @@ const SECTIONS_DATA = {
         "pages": [
           24
         ],
-        "audio": "unit2/sections/fun_time.mp3"
+        "audio": "unit2/sections/fun_time.mp3",
+        "fun_title": "Guess who?",
+        "fun_content": ""
       },
       {
         "id": "sound",
@@ -547,7 +649,10 @@ const SECTIONS_DATA = {
         "pages": [
           24
         ],
-        "audio": "unit2/sections/sound.mp3"
+        "audio": "unit2/sections/sound.mp3",
+        "sound_letter": "d",
+        "sound_pattern": "",
+        "sound_example": "dance"
       },
       {
         "id": "talking_time",
@@ -557,7 +662,15 @@ const SECTIONS_DATA = {
           25,
           26
         ],
-        "audio": "unit2/sections/talking_time.mp3"
+        "audio": "unit2/sections/talking_time.mp3",
+        "talking_title": "Proud of you",
+        "talking_pattern": "I'm/You are/She is/He is good at (doing)...",
+        "talking_phrases": [
+          "I'm good at drawing.",
+          "She's good at dancing.",
+          "He's good at singing."
+        ],
+        "talking_scenario": "比赛后安慰输了的队伍，鼓励大家的擅长"
       },
       {
         "id": "story_time",
@@ -567,7 +680,10 @@ const SECTIONS_DATA = {
           27,
           28
         ],
-        "audio": "unit2/sections/story_time.mp3"
+        "audio": "unit2/sections/story_time.mp3",
+        "story_title": "Snail's little house",
+        "story_summary": "Snail 用各种材料做 house，最后发现最好的是 leaves 做的。",
+        "story_moral": "适合自己的才是最好的"
       },
       {
         "id": "big_task",
@@ -576,7 +692,9 @@ const SECTIONS_DATA = {
         "pages": [
           29
         ],
-        "audio": "unit2/sections/big_task.mp3"
+        "audio": "unit2/sections/big_task.mp3",
+        "project_title": "A class meeting",
+        "project_output": "开班会，介绍同学擅长什么"
       }
     ]
   },
@@ -598,13 +716,48 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit3/sections/topic_words.mp3",
         "words": [
-          "garden",
-          "flower",
-          "vegetable",
-          "plant",
-          "orange tree",
-          "tomato",
-          "carrot"
+          {
+            "en": "garden",
+            "zh": "花园",
+            "full": "",
+            "extra": "🌷 植物园地"
+          },
+          {
+            "en": "flower",
+            "zh": "花",
+            "full": "",
+            "extra": "🌸 美丽"
+          },
+          {
+            "en": "vegetable",
+            "zh": "蔬菜",
+            "full": "",
+            "extra": "🥬 吃的植物"
+          },
+          {
+            "en": "plant",
+            "zh": "植物",
+            "full": "",
+            "extra": "🌱 活的"
+          },
+          {
+            "en": "orange tree",
+            "zh": "橙子树",
+            "full": "",
+            "extra": "🍊 柑橘"
+          },
+          {
+            "en": "tomato",
+            "zh": "番茄",
+            "full": "",
+            "extra": "🍅 红色果实"
+          },
+          {
+            "en": "carrot",
+            "zh": "胡萝卜",
+            "full": "",
+            "extra": "🥕 橙色根"
+          }
         ],
         "big_task": "Making a school garden report"
       },
@@ -615,7 +768,9 @@ const SECTIONS_DATA = {
         "pages": [
           32
         ],
-        "audio": "unit3/sections/fun_time.mp3"
+        "audio": "unit3/sections/fun_time.mp3",
+        "fun_title": "",
+        "fun_content": ""
       },
       {
         "id": "sound",
@@ -624,7 +779,10 @@ const SECTIONS_DATA = {
         "pages": [
           32
         ],
-        "audio": "unit3/sections/sound.mp3"
+        "audio": "unit3/sections/sound.mp3",
+        "sound_letter": "g",
+        "sound_pattern": "",
+        "sound_example": "garden"
       },
       {
         "id": "talking_time",
@@ -634,7 +792,15 @@ const SECTIONS_DATA = {
           33,
           34
         ],
-        "audio": "unit3/sections/talking_time.mp3"
+        "audio": "unit3/sections/talking_time.mp3",
+        "talking_title": "A beautiful school garden",
+        "talking_pattern": "What's this/that? It's a/an ...",
+        "talking_phrases": [
+          "What's this?",
+          "It's a flower.",
+          "It's an orange tree."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "story_time",
@@ -644,7 +810,10 @@ const SECTIONS_DATA = {
           35,
           36
         ],
-        "audio": "unit3/sections/story_time.mp3"
+        "audio": "unit3/sections/story_time.mp3",
+        "story_title": "Grandpa's garden",
+        "story_summary": "Grandpa 教孩子认识蔬菜水果：tomato, carrot, vegetable 等",
+        "story_moral": ""
       },
       {
         "id": "big_task",
@@ -653,7 +822,9 @@ const SECTIONS_DATA = {
         "pages": [
           37
         ],
-        "audio": "unit3/sections/big_task.mp3"
+        "audio": "unit3/sections/big_task.mp3",
+        "project_title": "My school garden report",
+        "project_output": "写学校花园报告"
       }
     ]
   },
@@ -675,15 +846,60 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit4/sections/topic_words.mp3",
         "words": [
-          "water",
-          "river",
-          "lake",
-          "sea",
-          "water vapour",
-          "cloud",
-          "rain",
-          "snow",
-          "ice"
+          {
+            "en": "water",
+            "zh": "水",
+            "full": "",
+            "extra": "💧 H2O · 无色无味"
+          },
+          {
+            "en": "river",
+            "zh": "河",
+            "full": "",
+            "extra": "🏞 陆地流动"
+          },
+          {
+            "en": "lake",
+            "zh": "湖",
+            "full": "",
+            "extra": "🌊 内陆静水"
+          },
+          {
+            "en": "sea",
+            "zh": "海",
+            "full": "",
+            "extra": "🌊 咸的"
+          },
+          {
+            "en": "water vapour",
+            "zh": "水蒸气",
+            "full": "",
+            "extra": "☁️ 气体形态"
+          },
+          {
+            "en": "cloud",
+            "zh": "云",
+            "full": "",
+            "extra": "☁️ 空中水滴"
+          },
+          {
+            "en": "rain",
+            "zh": "雨",
+            "full": "",
+            "extra": "🌧 水滴落下"
+          },
+          {
+            "en": "snow",
+            "zh": "雪",
+            "full": "",
+            "extra": "❄️ 冰晶"
+          },
+          {
+            "en": "ice",
+            "zh": "冰",
+            "full": "",
+            "extra": "🧊 固体水"
+          }
         ],
         "big_task": "Making a lab report"
       },
@@ -694,7 +910,9 @@ const SECTIONS_DATA = {
         "pages": [
           40
         ],
-        "audio": "unit4/sections/rhyme_time.mp3"
+        "audio": "unit4/sections/rhyme_time.mp3",
+        "rhyme_title": "",
+        "rhyme_lyrics": []
       },
       {
         "id": "sound",
@@ -703,7 +921,10 @@ const SECTIONS_DATA = {
         "pages": [
           40
         ],
-        "audio": "unit4/sections/sound.mp3"
+        "audio": "unit4/sections/sound.mp3",
+        "sound_letter": "s",
+        "sound_pattern": "",
+        "sound_example": "sea"
       },
       {
         "id": "talking_time",
@@ -713,7 +934,14 @@ const SECTIONS_DATA = {
           41,
           42
         ],
-        "audio": "unit4/sections/talking_time.mp3"
+        "audio": "unit4/sections/talking_time.mp3",
+        "talking_title": "Where does it come from?",
+        "talking_pattern": "Where does/do ... come from? It comes from ...",
+        "talking_phrases": [
+          "Where does water come from?",
+          "It comes from clouds."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "reading_time",
@@ -723,7 +951,9 @@ const SECTIONS_DATA = {
           43,
           44
         ],
-        "audio": "unit4/sections/reading_time.mp3"
+        "audio": "unit4/sections/reading_time.mp3",
+        "reading_title": "",
+        "reading_content": ""
       },
       {
         "id": "big_task",
@@ -732,7 +962,9 @@ const SECTIONS_DATA = {
         "pages": [
           45
         ],
-        "audio": "unit4/sections/big_task.mp3"
+        "audio": "unit4/sections/big_task.mp3",
+        "project_title": "My lab report",
+        "project_output": "水的来源实验报告"
       }
     ]
   },
@@ -754,13 +986,48 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit5/sections/topic_words.mp3",
         "words": [
-          "help",
-          "cook",
-          "do the dishes",
-          "clean the table",
-          "walk the dog",
-          "chore",
-          "give your seat"
+          {
+            "en": "help",
+            "zh": "帮助",
+            "full": "",
+            "extra": "🤝 协助"
+          },
+          {
+            "en": "cook",
+            "zh": "做饭",
+            "full": "",
+            "extra": "🍳 厨房"
+          },
+          {
+            "en": "do the dishes",
+            "zh": "洗碗",
+            "full": "",
+            "extra": "🍽 饭后清洁"
+          },
+          {
+            "en": "clean the table",
+            "zh": "擦桌子",
+            "full": "",
+            "extra": "🧽 餐桌清洁"
+          },
+          {
+            "en": "walk the dog",
+            "zh": "遛狗",
+            "full": "",
+            "extra": "🐕 户外活动"
+          },
+          {
+            "en": "chore",
+            "zh": "家务",
+            "full": "",
+            "extra": "🧹 家务活"
+          },
+          {
+            "en": "give your seat",
+            "zh": "让座",
+            "full": "",
+            "extra": "💺 给需要的人"
+          }
         ],
         "big_task": "Being a good helper"
       },
@@ -771,7 +1038,9 @@ const SECTIONS_DATA = {
         "pages": [
           48
         ],
-        "audio": "unit5/sections/song_time.mp3"
+        "audio": "unit5/sections/song_time.mp3",
+        "song_title": "Help with family chores",
+        "song_lyrics": []
       },
       {
         "id": "sound",
@@ -780,7 +1049,10 @@ const SECTIONS_DATA = {
         "pages": [
           48
         ],
-        "audio": "unit5/sections/sound.mp3"
+        "audio": "unit5/sections/sound.mp3",
+        "sound_letter": "i",
+        "sound_pattern": "",
+        "sound_example": "dish"
       },
       {
         "id": "talking_time",
@@ -790,7 +1062,14 @@ const SECTIONS_DATA = {
           49,
           50
         ],
-        "audio": "unit5/sections/talking_time.mp3"
+        "audio": "unit5/sections/talking_time.mp3",
+        "talking_title": "Helping others",
+        "talking_pattern": "I can ... / Can you ...?",
+        "talking_phrases": [
+          "I can help my mum.",
+          "I can cook."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "story_time",
@@ -800,7 +1079,10 @@ const SECTIONS_DATA = {
           51,
           52
         ],
-        "audio": "unit5/sections/story_time.mp3"
+        "audio": "unit5/sections/story_time.mp3",
+        "story_title": "The ant and the bird",
+        "story_summary": "蚂蚁被困，小鸟帮忙；后来小鸟遇险，蚂蚁相助",
+        "story_moral": "互相帮助"
       },
       {
         "id": "big_task",
@@ -809,7 +1091,9 @@ const SECTIONS_DATA = {
         "pages": [
           53
         ],
-        "audio": "unit5/sections/big_task.mp3"
+        "audio": "unit5/sections/big_task.mp3",
+        "project_title": "Our good helpers",
+        "project_output": "做家务的好帮手展示"
       }
     ]
   },
@@ -831,14 +1115,54 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit6/sections/topic_words.mp3",
         "words": [
-          "happy",
-          "sad",
-          "good",
-          "bad",
-          "excited",
-          "scared",
-          "tired",
-          "unhappy"
+          {
+            "en": "happy",
+            "zh": "开心",
+            "full": "",
+            "extra": "😊 高兴"
+          },
+          {
+            "en": "sad",
+            "zh": "难过",
+            "full": "",
+            "extra": "😢 不开心"
+          },
+          {
+            "en": "good",
+            "zh": "好",
+            "full": "",
+            "extra": "👍 棒"
+          },
+          {
+            "en": "bad",
+            "zh": "坏",
+            "full": "",
+            "extra": "👎 不好"
+          },
+          {
+            "en": "excited",
+            "zh": "兴奋",
+            "full": "",
+            "extra": "🤩 激动"
+          },
+          {
+            "en": "scared",
+            "zh": "害怕",
+            "full": "",
+            "extra": "😨 怕"
+          },
+          {
+            "en": "tired",
+            "zh": "累",
+            "full": "",
+            "extra": "😴 疲倦"
+          },
+          {
+            "en": "unhappy",
+            "zh": "不开心",
+            "full": "",
+            "extra": "🙁 难受"
+          }
         ],
         "big_task": "Writing a letter to Mr Tree"
       },
@@ -849,7 +1173,9 @@ const SECTIONS_DATA = {
         "pages": [
           56
         ],
-        "audio": "unit6/sections/fun_time.mp3"
+        "audio": "unit6/sections/fun_time.mp3",
+        "fun_title": "",
+        "fun_content": ""
       },
       {
         "id": "sound",
@@ -858,7 +1184,10 @@ const SECTIONS_DATA = {
         "pages": [
           56
         ],
-        "audio": "unit6/sections/sound.mp3"
+        "audio": "unit6/sections/sound.mp3",
+        "sound_letter": "a",
+        "sound_pattern": "",
+        "sound_example": "happy"
       },
       {
         "id": "talking_time",
@@ -868,7 +1197,14 @@ const SECTIONS_DATA = {
           57,
           58
         ],
-        "audio": "unit6/sections/talking_time.mp3"
+        "audio": "unit6/sections/talking_time.mp3",
+        "talking_title": "How do you feel?",
+        "talking_pattern": "How do you feel? I'm/We're ...",
+        "talking_phrases": [
+          "How do you feel?",
+          "I'm happy/excited."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "story_time",
@@ -878,7 +1214,10 @@ const SECTIONS_DATA = {
           59,
           60
         ],
-        "audio": "unit6/sections/story_time.mp3"
+        "audio": "unit6/sections/story_time.mp3",
+        "story_title": "Minmin's bad feelings",
+        "story_summary": "Minmin 心情不好，朋友们安慰她",
+        "story_moral": ""
       },
       {
         "id": "big_task",
@@ -887,7 +1226,9 @@ const SECTIONS_DATA = {
         "pages": [
           61
         ],
-        "audio": "unit6/sections/big_task.mp3"
+        "audio": "unit6/sections/big_task.mp3",
+        "project_title": "A letter to Mr Tree",
+        "project_output": "给 Mr Tree 写信倾诉心情"
       }
     ]
   },
@@ -909,13 +1250,48 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit7/sections/topic_words.mp3",
         "words": [
-          "driver",
-          "police officer",
-          "engineer",
-          "writer",
-          "doctor",
-          "chef",
-          "astronaut"
+          {
+            "en": "driver",
+            "zh": "司机",
+            "full": "",
+            "extra": "🚗 开车"
+          },
+          {
+            "en": "police officer",
+            "zh": "警察",
+            "full": "",
+            "extra": "👮 抓坏人"
+          },
+          {
+            "en": "engineer",
+            "zh": "工程师",
+            "full": "",
+            "extra": "👷 造东西"
+          },
+          {
+            "en": "writer",
+            "zh": "作家",
+            "full": "",
+            "extra": "✍️ 写书"
+          },
+          {
+            "en": "doctor",
+            "zh": "医生",
+            "full": "",
+            "extra": "👨‍⚕️ 治病"
+          },
+          {
+            "en": "chef",
+            "zh": "厨师",
+            "full": "",
+            "extra": "👨‍🍳 做饭"
+          },
+          {
+            "en": "astronaut",
+            "zh": "宇航员",
+            "full": "",
+            "extra": "🚀 太空"
+          }
         ],
         "big_task": "Doing a group interview"
       },
@@ -926,7 +1302,9 @@ const SECTIONS_DATA = {
         "pages": [
           64
         ],
-        "audio": "unit7/sections/song_time.mp3"
+        "audio": "unit7/sections/song_time.mp3",
+        "song_title": "What do you want to be?",
+        "song_lyrics": []
       },
       {
         "id": "sound",
@@ -935,7 +1313,10 @@ const SECTIONS_DATA = {
         "pages": [
           64
         ],
-        "audio": "unit7/sections/sound.mp3"
+        "audio": "unit7/sections/sound.mp3",
+        "sound_letter": "t",
+        "sound_pattern": "",
+        "sound_example": "teacher"
       },
       {
         "id": "talking_time",
@@ -945,7 +1326,14 @@ const SECTIONS_DATA = {
           65,
           66
         ],
-        "audio": "unit7/sections/talking_time.mp3"
+        "audio": "unit7/sections/talking_time.mp3",
+        "talking_title": "Dream jobs",
+        "talking_pattern": "What's ...? ... is ...",
+        "talking_phrases": [
+          "What's your job?",
+          "I'm an astronaut."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "reading_time",
@@ -955,7 +1343,9 @@ const SECTIONS_DATA = {
           67,
           68
         ],
-        "audio": "unit7/sections/reading_time.mp3"
+        "audio": "unit7/sections/reading_time.mp3",
+        "reading_title": "",
+        "reading_content": ""
       },
       {
         "id": "big_task",
@@ -964,7 +1354,9 @@ const SECTIONS_DATA = {
         "pages": [
           69
         ],
-        "audio": "unit7/sections/big_task.mp3"
+        "audio": "unit7/sections/big_task.mp3",
+        "project_title": "My group interview",
+        "project_output": "小组采访，介绍职业"
       }
     ]
   },
@@ -986,14 +1378,54 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit8/sections/topic_words.mp3",
         "words": [
-          "library",
-          "find the way",
-          "get to",
-          "walk along",
-          "road",
-          "left",
-          "right",
-          "museum"
+          {
+            "en": "library",
+            "zh": "图书馆",
+            "full": "",
+            "extra": "📚 借书/看书"
+          },
+          {
+            "en": "find the way",
+            "zh": "找路",
+            "full": "",
+            "extra": "🗺 看地图"
+          },
+          {
+            "en": "get to",
+            "zh": "到达",
+            "full": "",
+            "extra": "🎯 去某地"
+          },
+          {
+            "en": "walk along",
+            "zh": "沿着走",
+            "full": "",
+            "extra": "🚶 顺路走"
+          },
+          {
+            "en": "road",
+            "zh": "路",
+            "full": "",
+            "extra": "🛣 道路"
+          },
+          {
+            "en": "left",
+            "zh": "左",
+            "full": "",
+            "extra": "⬅️ 反义 right"
+          },
+          {
+            "en": "right",
+            "zh": "右",
+            "full": "",
+            "extra": "➡️ 也\"对的\""
+          },
+          {
+            "en": "museum",
+            "zh": "博物馆",
+            "full": "",
+            "extra": "🏛 看展品"
+          }
         ],
         "big_task": "Finding the places"
       },
@@ -1004,7 +1436,9 @@ const SECTIONS_DATA = {
         "pages": [
           72
         ],
-        "audio": "unit8/sections/fun_time.mp3"
+        "audio": "unit8/sections/fun_time.mp3",
+        "fun_title": "",
+        "fun_content": ""
       },
       {
         "id": "sound",
@@ -1013,7 +1447,10 @@ const SECTIONS_DATA = {
         "pages": [
           72
         ],
-        "audio": "unit8/sections/sound.mp3"
+        "audio": "unit8/sections/sound.mp3",
+        "sound_letter": "m",
+        "sound_pattern": "",
+        "sound_example": "many"
       },
       {
         "id": "talking_time",
@@ -1023,7 +1460,14 @@ const SECTIONS_DATA = {
           73,
           74
         ],
-        "audio": "unit8/sections/talking_time.mp3"
+        "audio": "unit8/sections/talking_time.mp3",
+        "talking_title": "Where is the library?",
+        "talking_pattern": "Where is the library/museum? It's ... / Walk along ... Turn left/right at ...",
+        "talking_phrases": [
+          "Walk along this road.",
+          "Turn left at the school."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "story_time",
@@ -1033,7 +1477,10 @@ const SECTIONS_DATA = {
           75,
           76
         ],
-        "audio": "unit8/sections/story_time.mp3"
+        "audio": "unit8/sections/story_time.mp3",
+        "story_title": "At the museum",
+        "story_summary": "参观博物馆，问路找地方",
+        "story_moral": ""
       },
       {
         "id": "big_task",
@@ -1042,7 +1489,9 @@ const SECTIONS_DATA = {
         "pages": [
           77
         ],
-        "audio": "unit8/sections/big_task.mp3"
+        "audio": "unit8/sections/big_task.mp3",
+        "project_title": "Finding the places",
+        "project_output": "画地图并标注路线"
       }
     ]
   },
@@ -1064,13 +1513,48 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit9/sections/topic_words.mp3",
         "words": [
-          "special days",
-          "the Double Ninth Festival",
-          "celebrate",
-          "Chinese New Year",
-          "the Spring Festival",
-          "the Lantern Festival",
-          "holiday"
+          {
+            "en": "special days",
+            "zh": "特殊日子",
+            "full": "",
+            "extra": "🎉 节日"
+          },
+          {
+            "en": "the Double Ninth Festival",
+            "zh": "重阳节",
+            "full": "",
+            "extra": "🏔 农历九月初九·敬老"
+          },
+          {
+            "en": "celebrate",
+            "zh": "庆祝",
+            "full": "",
+            "extra": "🎊 过节"
+          },
+          {
+            "en": "Chinese New Year",
+            "zh": "春节",
+            "full": "",
+            "extra": "🧧 农历新年"
+          },
+          {
+            "en": "the Spring Festival",
+            "zh": "春节",
+            "full": "",
+            "extra": "🧧 农历新年·同 Chinese New Year"
+          },
+          {
+            "en": "the Lantern Festival",
+            "zh": "元宵节",
+            "full": "",
+            "extra": "🏮 农历正月十五·吃汤圆"
+          },
+          {
+            "en": "holiday",
+            "zh": "假日",
+            "full": "",
+            "extra": "🏖 放假"
+          }
         ],
         "big_task": "Planning New Year activities"
       },
@@ -1081,7 +1565,9 @@ const SECTIONS_DATA = {
         "pages": [
           80
         ],
-        "audio": "unit9/sections/fun_time.mp3"
+        "audio": "unit9/sections/fun_time.mp3",
+        "fun_title": "",
+        "fun_content": ""
       },
       {
         "id": "sound",
@@ -1090,7 +1576,10 @@ const SECTIONS_DATA = {
         "pages": [
           80
         ],
-        "audio": "unit9/sections/sound.mp3"
+        "audio": "unit9/sections/sound.mp3",
+        "sound_letter": "e",
+        "sound_pattern": "",
+        "sound_example": "festival"
       },
       {
         "id": "talking_time",
@@ -1100,7 +1589,14 @@ const SECTIONS_DATA = {
           81,
           82
         ],
-        "audio": "unit9/sections/talking_time.mp3"
+        "audio": "unit9/sections/talking_time.mp3",
+        "talking_title": "The Double Ninth Festival",
+        "talking_pattern": "Let's ...",
+        "talking_phrases": [
+          "Let's celebrate together.",
+          "Let's visit grandparents."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "reading_time",
@@ -1110,7 +1606,9 @@ const SECTIONS_DATA = {
           83,
           84
         ],
-        "audio": "unit9/sections/reading_time.mp3"
+        "audio": "unit9/sections/reading_time.mp3",
+        "reading_title": "",
+        "reading_content": ""
       },
       {
         "id": "big_task",
@@ -1119,7 +1617,9 @@ const SECTIONS_DATA = {
         "pages": [
           85
         ],
-        "audio": "unit9/sections/big_task.mp3"
+        "audio": "unit9/sections/big_task.mp3",
+        "project_title": "My New Year plan",
+        "project_output": "新年活动计划"
       }
     ]
   },
@@ -1141,15 +1641,60 @@ const SECTIONS_DATA = {
         ],
         "audio": "unit10/sections/topic_words.mp3",
         "words": [
-          "food",
-          "noodles",
-          "pizza",
-          "sandwich",
-          "hot dog",
-          "fish and chips",
-          "beef",
-          "bread",
-          "cake"
+          {
+            "en": "food",
+            "zh": "食物",
+            "full": "",
+            "extra": "🍴 吃的"
+          },
+          {
+            "en": "noodles",
+            "zh": "面条",
+            "full": "",
+            "extra": "🍜 中国·长条"
+          },
+          {
+            "en": "pizza",
+            "zh": "披萨",
+            "full": "",
+            "extra": "🍕 意大利·圆形"
+          },
+          {
+            "en": "sandwich",
+            "zh": "三明治",
+            "full": "",
+            "extra": "🥪 夹心面包"
+          },
+          {
+            "en": "hot dog",
+            "zh": "热狗",
+            "full": "",
+            "extra": "🌭 美国·香肠面包"
+          },
+          {
+            "en": "fish and chips",
+            "zh": "炸鱼薯条",
+            "full": "",
+            "extra": "🐟 英国经典"
+          },
+          {
+            "en": "beef",
+            "zh": "牛肉",
+            "full": "",
+            "extra": "🐄 红色肉类"
+          },
+          {
+            "en": "bread",
+            "zh": "面包",
+            "full": "",
+            "extra": "🍞 西方主食"
+          },
+          {
+            "en": "cake",
+            "zh": "蛋糕",
+            "full": "",
+            "extra": "🎂 生日庆祝"
+          }
         ],
         "big_task": "Making a food card"
       },
@@ -1160,7 +1705,9 @@ const SECTIONS_DATA = {
         "pages": [
           88
         ],
-        "audio": "unit10/sections/chant_time.mp3"
+        "audio": "unit10/sections/chant_time.mp3",
+        "chant_title": "",
+        "chant_lyrics": []
       },
       {
         "id": "sound",
@@ -1169,7 +1716,10 @@ const SECTIONS_DATA = {
         "pages": [
           88
         ],
-        "audio": "unit10/sections/sound.mp3"
+        "audio": "unit10/sections/sound.mp3",
+        "sound_letter": "n",
+        "sound_pattern": "",
+        "sound_example": "noodles"
       },
       {
         "id": "talking_time",
@@ -1179,7 +1729,14 @@ const SECTIONS_DATA = {
           89,
           90
         ],
-        "audio": "unit10/sections/talking_time.mp3"
+        "audio": "unit10/sections/talking_time.mp3",
+        "talking_title": "World Food Festival",
+        "talking_pattern": "There is/are ...",
+        "talking_phrases": [
+          "There is pizza.",
+          "There are noodles."
+        ],
+        "talking_scenario": ""
       },
       {
         "id": "story_time",
@@ -1189,7 +1746,10 @@ const SECTIONS_DATA = {
           91,
           92
         ],
-        "audio": "unit10/sections/story_time.mp3"
+        "audio": "unit10/sections/story_time.mp3",
+        "story_title": "Magic Flour",
+        "story_summary": "魔法面粉做各国食物",
+        "story_moral": ""
       },
       {
         "id": "big_task",
@@ -1198,7 +1758,9 @@ const SECTIONS_DATA = {
         "pages": [
           93
         ],
-        "audio": "unit10/sections/big_task.mp3"
+        "audio": "unit10/sections/big_task.mp3",
+        "project_title": "My food card",
+        "project_output": "做食物卡片"
       }
     ]
   }
