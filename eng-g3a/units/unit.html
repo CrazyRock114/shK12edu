@@ -89,6 +89,34 @@
 }
 .textbook-card { position: relative; }
 
+/* OCR 单词高亮 overlay (按百分比定位, 跟随图片缩放) */
+.ocr-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.ocr-mark {
+  position: absolute;
+  background: rgba(255, 235, 59, 0.35);
+  border: 2px solid #fbc02d;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+  transition: all 0.2s ease;
+  display: none;
+}
+.ocr-mark.active {
+  display: block;
+  background: rgba(255, 152, 0, 0.55);
+  border-color: #e65100;
+  box-shadow: 0 0 12px 4px rgba(255, 152, 0, 0.5);
+  transform: scale(1.05);
+}
+.ocr-mark.pulse {
+  animation: ocrPulse 1.2s ease-in-out infinite;
+}
+@keyframes ocrPulse {
+  0%, 100% { box-shadow: 0 0 12px 4px rgba(255, 152, 0, 0.5); }
+  50% { box-shadow: 0 0 20px 6px rgba(255, 152, 0, 0.7); }
+}
+
 /* 主题词卡（仅 topic_words 段展示） */
 .word-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -311,15 +339,35 @@ UNIT.sections.forEach((sec, idx) => {
       </div>
     </div>`;
 
-  // 教材整页图（按 pages 数组）
-  const pagesHTML = sec.pages.map(p => `
+  // 教材整页图（按 pages 数组） + OCR overlay (按 bbox 百分比定位)
+  const pagesHTML = sec.pages.map(p => {
+    // 当前页的 word_coords: key 是 en (含空格短语), 只取 bbox 在本图范围内的
+    const pageMarks = (sec.word_coords ? Object.entries(sec.word_coords) : [])
+      .filter(([en, c]) => {
+        // bbox cy/img_h 应该在 [0, 1] 内 = 本页
+        const relY = c.cy / c.img_h;
+        return relY > 0 && relY < 1;
+      })
+      .map(([en, c]) => {
+        const bbox = c.bbox; // [[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
+        const xs = bbox.map(p => p[0]), ys = bbox.map(p => p[1]);
+        const left = (Math.min(...xs) / c.img_w) * 100;
+        const top = (Math.min(...ys) / c.img_h) * 100;
+        const width = ((Math.max(...xs) - Math.min(...xs)) / c.img_w) * 100;
+        const height = ((Math.max(...ys) - Math.min(...ys)) / c.img_h) * 100;
+        const safe = en.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+        return `<div class="ocr-mark" data-word="${en}" data-safe="${safe}"
+          style="left:${left.toFixed(2)}%; top:${top.toFixed(2)}%; width:${width.toFixed(2)}%; height:${height.toFixed(2)}%;"></div>`;
+      }).join('');
+    return `
     <div class="textbook-card">
       <img class="textbook-img" src="../assets/img/page${String(p).padStart(3,'0')}.jpg"
         alt="PDF p.${p}" onclick="openModal(${p})"
         onerror="this.parentElement.style.display='none'" />
+      <div class="ocr-overlay">${pageMarks}</div>
       <div class="textbook-page-tag">p.${p}</div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
   const textbookHTML = `<div class="textbook-grid">${pagesHTML}</div>`;
 
   // 主题词卡（topic_words 段 + starter 4 段细颗粒度）
@@ -562,11 +610,30 @@ function speak(text) {
   window.speechSynthesis.speak(u);
 }
 
-// 单词 chip 点击 → TTS
+// 单词 chip 点击 → TTS + 在教材图上高亮
 container.addEventListener('click', e => {
   const chip = e.target.closest('.word-chip');
-  if (chip) speak(chip.dataset.word);
+  if (chip) {
+    speak(chip.dataset.word);
+    highlightWordOnImage(chip.dataset.section, chip.dataset.word);
+  }
 });
+
+// 教材图上高亮单词 (secId 是所在 section id, word 是 en)
+function highlightWordOnImage(secId, word) {
+  // 清除同 section 的高亮
+  const block = document.querySelector(`.section-block[data-section-id="${secId}"]`);
+  if (!block) return;
+  block.querySelectorAll('.ocr-mark').forEach(m => m.classList.remove('active', 'pulse'));
+  // 找匹配 word 的 mark, 加 active + pulse
+  const safe = word.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+  const marks = block.querySelectorAll(`.ocr-mark[data-safe="${safe}"]`);
+  marks.forEach(m => {
+    m.classList.add('active', 'pulse');
+    // 5 秒后自动撤销高亮
+    setTimeout(() => m.classList.remove('active', 'pulse'), 5000);
+  });
+}
 
 // ===== 各 section 元数据渲染 (歌词/故事/句型/关键短语) =====
 function renderSectionMeta(sec) {
