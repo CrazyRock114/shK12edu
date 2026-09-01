@@ -393,11 +393,29 @@ Object.entries(sectionAudios).forEach(([idx, a]) => {
             a.seek.value = pct;
             a.seek.style.setProperty('--progress', pct + '%');
             a.cur.textContent = fmt(a.audio.currentTime);
-            // 跟读高亮: 按 currentTime 比例高亮当前字幕行
+            // 跟读高亮: 优先用 word_starts (whisper 真实时间戳), 否则均匀分布
             const subList = a.block && a.block.querySelector('.subtitle-list');
             if (subList) {
               const lineCount = parseInt(subList.dataset.lineCount);
-              const curIdx = Math.min(Math.floor((a.audio.currentTime / a.audio.duration) * lineCount), lineCount - 1);
+              const wordStartsAttr = subList.dataset.wordStarts;
+              let curIdx;
+              if (wordStartsAttr) {
+                // 真实时间戳模式: 找 starts 中 <= t 的最大索引
+                const starts = wordStartsAttr.split(',').map(s => parseFloat(s));
+                const t = a.audio.currentTime;
+                curIdx = 0;
+                let best = -1;
+                for (let i = 0; i < starts.length; i++) {
+                  if (starts[i] < 0) continue;
+                  if (t >= starts[i]) {
+                    best = i;
+                  }
+                }
+                curIdx = best >= 0 ? best : 0;
+                if (curIdx >= lineCount) curIdx = lineCount - 1;
+              } else {
+                curIdx = Math.min(Math.floor((a.audio.currentTime / a.audio.duration) * lineCount), lineCount - 1);
+              }
               subList.querySelectorAll('.subtitle-line').forEach((el, i) => {
                 if (i === curIdx) {
                   el.style.background = 'var(--primary)';
@@ -496,6 +514,7 @@ function playWordAudio(word, unitId, sectionId) {
 // ===== 跟读字幕渲染 (歌曲/韵文/chant/关键短语/故事/主题词) =====
 function renderSectionSubtitle(sec) {
   let lines = [];
+  let wordStarts = null;
   if (sec.song_lyrics && sec.song_lyrics.length) {
     lines = sec.song_lyrics;
   } else if (sec.rhyme_lyrics && sec.rhyme_lyrics.length) {
@@ -513,9 +532,15 @@ function renderSectionSubtitle(sec) {
       const zh = typeof w === 'string' ? '' : (w.zh || '');
       return zh ? `${en} (${zh})` : en;
     });
+    if (sec.word_starts && sec.word_starts.length) {
+      wordStarts = sec.word_starts.slice(0, 20).join(',');
+    }
   }
   if (!lines.length) return '';
-  return `<div class="subtitle-list" data-line-count="${lines.length}" style="background:linear-gradient(135deg,#fff8e1 0%,#fff3cd 100%);border-left:4px solid #ffc107;border-radius:10px;padding:12px 16px;margin:10px 0;line-height:2;">
+  const dataAttrs = wordStarts
+    ? `data-line-count="${lines.length}" data-word-starts="${wordStarts}"`
+    : `data-line-count="${lines.length}"`;
+  return `<div class="subtitle-list" ${dataAttrs} style="background:linear-gradient(135deg,#fff8e1 0%,#fff3cd 100%);border-left:4px solid #ffc107;border-radius:10px;padding:12px 16px;margin:10px 0;line-height:2;">
     <div style="font-size:0.82rem;color:var(--text-soft);margin-bottom:6px;font-weight:600;">📝 跟读字幕 (播放时自动高亮)</div>
     ${lines.map((l, i) => `<div class="subtitle-line" data-idx="${i}" style="padding:4px 8px;border-radius:6px;transition:all 0.25s;color:#666;">${l}</div>`).join('')}
   </div>`;
