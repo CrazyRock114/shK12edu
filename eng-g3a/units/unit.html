@@ -431,33 +431,55 @@ Object.entries(sectionAudios).forEach(([idx, a]) => {
   a.seek.addEventListener('mouseup', () => { a.seeking = false; });
 });
 
-// 单词 mp3 播放 - 按 section 智能选择 mp3 路径
+// 单词 mp3 播放 - 按 section 智能选择 mp3/m4a 路径
+// TTS 优化: 选高质量 en-US voice, rate 0.8, pitch 1.0
 function playWordAudio(word, unitId, sectionId) {
   // 1. G3A starter 4 段特殊路径
   if (unitId === 'starter' && GRADE === 'G3A') {
     let path;
     if (sectionId === 'alphabet') {
-      // letter_a.mp3 / letter_b.mp3 ...
       const letter = word.charAt(0).toLowerCase();
       path = `../assets/audio/starter/words/letter_${letter}.mp3`;
     } else if (sectionId === 'countries') {
-      // country_china.mp3 / country_uk.mp3 / country_new_zealand.mp3 ...
       const safe = word.toLowerCase().replace(/ /g, '_').replace(/[^a-z_]/g, '');
       path = `../assets/audio/starter/words/country_${safe}.mp3`;
+    } else if (sectionId === 'seasons') {
+      // seasons mp3 不存在, 用 macOS say 生成的 .m4a
+      path = `../assets/audio/starter/words/${word.toLowerCase()}.m4a`;
+    } else if (sectionId === 'numbers') {
+      path = `../assets/audio/starter/words/${word.toLowerCase()}.m4a`;
     } else {
-      // seasons/numbers 暂用 TTS
-      speak(word); return;
+      speakTTS(word); return;
     }
     const audio = new Audio(path);
-    audio.play().catch(() => speak(word));
+    audio.preload = 'auto';
+    audio.play().catch(() => speakTTS(word));
     return;
   }
 
-  // 2. G3A unit1-10 单词图 + 单词 mp3
+  // 2. G3A unit1-10 + G5A unit1-10 单词 mp3
   const safe = word.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
   const path = `../assets/audio/${unitId}/words/${safe}.mp3`;
   const audio = new Audio(path);
-  audio.play().catch(() => speak(word));
+  audio.preload = 'auto';
+  audio.play().catch(() => speakTTS(word));
+}
+
+// 优化 TTS: 选 Google/Microsoft 高级 voice, 避免沙哑默认 voice
+function speakTTS(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.75;   // 慢一点更清楚
+  u.pitch = 1.0;
+  u.volume = 1.0;
+  // 优先选 Google/Microsoft/Samantha 等高级 voice
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v => /google|microsoft|samantha|natural|neural/i.test(v.name));
+  if (preferred) u.voice = preferred;
+  else if (englishVoice) u.voice = englishVoice;
+  window.speechSynthesis.speak(u);
 }
 
 // TTS 单词（点 chip 朗读）
@@ -465,7 +487,10 @@ let englishVoice = null;
 function loadVoice() {
   if (!window.speechSynthesis) return;
   const voices = window.speechSynthesis.getVoices();
-  englishVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+  // 优先选高级 voice
+  englishVoice = voices.find(v => /google|microsoft|samantha|natural|neural/i.test(v.name))
+              || voices.find(v => v.lang.startsWith('en'))
+              || voices[0];
 }
 if (window.speechSynthesis) {
   loadVoice();
