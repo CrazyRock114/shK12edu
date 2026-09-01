@@ -194,15 +194,15 @@
   <button class="stage-tab" data-stage="play">🎮 游戏</button>
 </nav>
 
-<!-- 阶段 1: 预习 - 按 section 段展示 -->
+<!-- 阶段 1: 看一看听一听 -->
 <section class="stage active" id="stage-preview">
-  <h2 style="margin-bottom: 16px;">👀 预习：按 section 段精修（PDF 教材图 + 配套音频 + 主题词）</h2>
+  <h2 style="margin-bottom: 16px;">👀 看一看 · 听一听</h2>
   <div id="sections-container"></div>
 </section>
 
-<!-- 阶段 2: 复习 - 闪卡 -->
+<!-- 阶段 2: 翻一翻记一记 -->
 <section class="stage" id="stage-review">
-  <h2 style="margin-bottom: 16px;">🔄 复习：主题词闪卡</h2>
+  <h2 style="margin-bottom: 16px;">🔄 翻一翻 · 记一记</h2>
   <div class="flashcard" id="flashcard">
     <img id="fc-img" class="fc-img" style="display:none;" />
     <div class="fc-en" id="fc-en">—</div>
@@ -257,7 +257,7 @@ const GRADE_FULL = (GRADE === 'G3A') ? '三年级上册' : '五年级上册';
 document.title = `${UNIT.num || uid} · ${UNIT.name} · 互动学习`;
 document.getElementById('unit-title').textContent = `${UNIT.num || uid} · ${UNIT.name}`;
 document.getElementById('unit-sub').textContent =
-  `${UNIT.description || ''}${UNIT.description ? ' · ' : ''}⏱ 点击 ▶ 加载音频`;
+  `${UNIT.description || ''}`;
 document.getElementById('bc-grade').textContent = GRADE_FULL;
 document.getElementById('bc-unit').textContent = UNIT.num || uid;
 
@@ -276,15 +276,15 @@ UNIT.sections.forEach((sec, idx) => {
     : `p.${sec.pages[0]}-${sec.pages[sec.pages.length-1]}`;
   const h3 = `<h3>
     <span class="section-icon">${sec.icon}</span>
-    ${sec.name} <span style="font-size:0.85rem; color:var(--text-soft);">${sec.id}</span>
-    <span class="page-tag">PDF ${pageRange}</span>
+    ${sec.name}
+    <span class="page-tag">${pageRange}</span>
   </h3>`;
 
   // 描述
   let desc = '';
   if (sec.id === 'topic_words' && UNIT.sections.find(s => s.id === 'big_task')) {
     const bt = UNIT.sections.find(s => s.id === 'big_task');
-    desc = `<p class="desc">本单元主题词 · 大任务: <b>${UNIT.sections.find(s=>s.id==='topic_words').big_task || '—'}</b></p>`;
+    desc = `<p class="desc">本单元主题词 · 单元任务: <b>${UNIT.sections.find(s=>s.id==='topic_words').big_task || '—'}</b></p>`;
   }
 
   // 音频条
@@ -293,11 +293,11 @@ UNIT.sections.forEach((sec, idx) => {
   const isFallback = sec.is_fallback === true;
   let audioLabel;
   if (isWholeUnit && !isFallback) {
-    audioLabel = `📖 教材原声 (整段 — 点 ▶ 加载)`;
+    audioLabel = `📖 听整段朗读`;
   } else if (isFallback) {
-    audioLabel = `📖 配套音频 (整段替代 — 教材无分段 mp3)`;
+    audioLabel = `📖 听朗读`;
   } else {
-    audioLabel = `📖 配套音频 (${sec.name})`;
+    audioLabel = `📖 听朗读`;
   }
   const audioBar = `
     <div class="audio-bar">
@@ -338,7 +338,7 @@ UNIT.sections.forEach((sec, idx) => {
     wordsHTML = `<div class="word-grid">${wordsList}</div>`;
   }
 
-  block.innerHTML = h3 + desc + audioBar + textbookHTML + renderSectionMeta(sec) + wordsHTML;
+  block.innerHTML = h3 + desc + audioBar + textbookHTML + renderSectionMeta(sec) + renderSectionSubtitle(sec) + wordsHTML;
   container.appendChild(block);
 
   // 懒加载 audio: 不立即创建, 点 play 时才创建并 load
@@ -348,7 +348,8 @@ UNIT.sections.forEach((sec, idx) => {
     audioPath: '../assets/audio/' + audioPath,
     audioLoaded: false,
     btn: block.querySelector('.play-btn'),
-    seek, cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`), section: sec
+    seek, cur: block.querySelector(`[data-cur="${idx}"]`), dur: block.querySelector(`[data-dur="${idx}"]`), section: sec,
+    block  // 保存 block 引用用于跟读高亮
   };
 });
 
@@ -392,6 +393,33 @@ Object.entries(sectionAudios).forEach(([idx, a]) => {
             a.seek.value = pct;
             a.seek.style.setProperty('--progress', pct + '%');
             a.cur.textContent = fmt(a.audio.currentTime);
+            // 跟读高亮: 按 currentTime 比例高亮当前字幕行
+            const subList = a.block && a.block.querySelector('.subtitle-list');
+            if (subList) {
+              const lineCount = parseInt(subList.dataset.lineCount);
+              const curIdx = Math.min(Math.floor((a.audio.currentTime / a.audio.duration) * lineCount), lineCount - 1);
+              subList.querySelectorAll('.subtitle-line').forEach((el, i) => {
+                if (i === curIdx) {
+                  el.style.background = 'var(--primary)';
+                  el.style.color = 'white';
+                  el.style.fontWeight = '700';
+                  el.style.padding = '6px 12px';
+                  el.style.transform = 'scale(1.02)';
+                } else if (i < curIdx) {
+                  el.style.background = '#e6f7e6';
+                  el.style.color = '#999';
+                  el.style.fontWeight = 'normal';
+                  el.style.padding = '4px 8px';
+                  el.style.transform = 'scale(1)';
+                } else {
+                  el.style.background = 'transparent';
+                  el.style.color = '#666';
+                  el.style.fontWeight = 'normal';
+                  el.style.padding = '4px 8px';
+                  el.style.transform = 'scale(1)';
+                }
+              });
+            }
           }
         });
         a.audio.addEventListener('ended', () => {
@@ -463,6 +491,34 @@ function playWordAudio(word, unitId, sectionId) {
   const audio = new Audio(path);
   audio.preload = 'auto';
   audio.play().catch(() => speakTTS(word));
+}
+
+// ===== 跟读字幕渲染 (歌曲/韵文/chant/关键短语/故事/主题词) =====
+function renderSectionSubtitle(sec) {
+  let lines = [];
+  if (sec.song_lyrics && sec.song_lyrics.length) {
+    lines = sec.song_lyrics;
+  } else if (sec.rhyme_lyrics && sec.rhyme_lyrics.length) {
+    lines = sec.rhyme_lyrics;
+  } else if (sec.chant_lyrics && sec.chant_lyrics.length) {
+    lines = sec.chant_lyrics;
+  } else if (sec.talking_phrases && sec.talking_phrases.length) {
+    lines = sec.talking_phrases;
+  } else if (sec.story_summary) {
+    lines = [sec.story_summary];
+  } else if (sec.words && sec.words.length) {
+    // 主题词: 拼接为单行 (像歌词一样)
+    lines = sec.words.slice(0, 20).map(w => {
+      const en = typeof w === 'string' ? w : w.en;
+      const zh = typeof w === 'string' ? '' : (w.zh || '');
+      return zh ? `${en} (${zh})` : en;
+    });
+  }
+  if (!lines.length) return '';
+  return `<div class="subtitle-list" data-line-count="${lines.length}" style="background:linear-gradient(135deg,#fff8e1 0%,#fff3cd 100%);border-left:4px solid #ffc107;border-radius:10px;padding:12px 16px;margin:10px 0;line-height:2;">
+    <div style="font-size:0.82rem;color:var(--text-soft);margin-bottom:6px;font-weight:600;">📝 跟读字幕 (播放时自动高亮)</div>
+    ${lines.map((l, i) => `<div class="subtitle-line" data-idx="${i}" style="padding:4px 8px;border-radius:6px;transition:all 0.25s;color:#666;">${l}</div>`).join('')}
+  </div>`;
 }
 
 // 优化 TTS: 选 Google/Microsoft 高级 voice, 避免沙哑默认 voice
