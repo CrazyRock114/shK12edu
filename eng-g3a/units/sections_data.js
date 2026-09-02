@@ -2025,12 +2025,6 @@ const SECTIONS_DATA = {
         "audio": "unit3/sections/topic_words.mp3",
         "words": [
           {
-            "en": "flower",
-            "zh": "花",
-            "full": "",
-            "extra": "🌸 美丽"
-          },
-          {
             "en": "orange tree",
             "zh": "橙子树",
             "full": "",
@@ -2053,6 +2047,12 @@ const SECTIONS_DATA = {
             "zh": "蔬菜",
             "full": "",
             "extra": "🥬 吃的植物"
+          },
+          {
+            "en": "flower",
+            "zh": "花",
+            "full": "",
+            "extra": "🌸 美丽"
           },
           {
             "en": "garden",
@@ -2230,7 +2230,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [-1.00, 6.60, 10.82, 14.56, 18.00, 24.42, 27.18],
+            "word_starts": [6.60, 10.82, 14.56, 18.00, 20.92, 24.42, 27.18],
             
         "big_task": "Making a school garden report"
       },
@@ -2320,22 +2320,16 @@ const SECTIONS_DATA = {
         "audio": "unit4/sections/topic_words.mp3",
         "words": [
           {
-            "en": "water vapour",
-            "zh": "水蒸气",
-            "full": "",
-            "extra": "☁️ 气体形态"
-          },
-          {
             "en": "cloud",
             "zh": "云",
             "full": "",
             "extra": "☁️ 空中水滴"
           },
           {
-            "en": "water",
-            "zh": "水",
+            "en": "water vapour",
+            "zh": "水蒸气",
             "full": "",
-            "extra": "💧 H2O · 无色无味"
+            "extra": "☁️ 气体形态"
           },
           {
             "en": "rain",
@@ -2366,6 +2360,12 @@ const SECTIONS_DATA = {
             "zh": "海",
             "full": "",
             "extra": "🌊 咸的"
+          },
+          {
+            "en": "water",
+            "zh": "水",
+            "full": "",
+            "extra": "💧 H2O · 无色无味"
           },
           {
             "en": "ice",
@@ -2583,7 +2583,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [-1.00, 7.10, 11.66, 15.32, 17.46, 20.86, 24.30, 26.86, 33.64],
+            "word_starts": [7.10, 11.02, 14.74, 17.46, 20.86, 24.30, 26.86, 29.58, 33.17],
             
         "big_task": "Making a lab report"
       },
@@ -2671,12 +2671,6 @@ const SECTIONS_DATA = {
         "audio": "unit5/sections/topic_words.mp3",
         "words": [
           {
-            "en": "chore",
-            "zh": "家务",
-            "full": "",
-            "extra": "🧹 家务活"
-          },
-          {
             "en": "walk the dog",
             "zh": "遛狗",
             "full": "",
@@ -2705,6 +2699,12 @@ const SECTIONS_DATA = {
             "zh": "让座",
             "full": "",
             "extra": "💺 给需要的人"
+          },
+          {
+            "en": "chore",
+            "zh": "家务",
+            "full": "",
+            "extra": "🧹 家务活"
           },
           {
             "en": "help",
@@ -2876,7 +2876,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [-1.00, 7.92, 11.64, 16.32, 19.08, 23.64, 30.62],
+            "word_starts": [7.44, 11.64, 16.32, 19.08, 23.64, 27.62, 30.62],
             
         "big_task": "Being a good helper"
       },
