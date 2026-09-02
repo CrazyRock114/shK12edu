@@ -1684,11 +1684,12 @@ const SECTIONS_DATA = {
         "talking_title": "What's your goal?",
         "talking_pattern": "I want to ...",
         "talking_phrases": [
-          "I want to make new friends.",
-          "I want to speak English well.",
-          "What's your goal?",
-          "I want to study hard."
-        ],
+            "I want to make new friends.",
+            "I want to speak English well.",
+            "I want to study hard.",
+            "What's your goal?"
+          ],
+          "phrase_starts": [31.04, 36.62, 49.92, 49.92],
         "talking_scenario": "James 介绍自己，谈论新学期目标"
       },
       {
@@ -1980,10 +1981,11 @@ const SECTIONS_DATA = {
         "talking_title": "Proud of you",
         "talking_pattern": "I'm/You are/She is/He is good at (doing)...",
         "talking_phrases": [
-          "I'm good at drawing.",
-          "She's good at dancing.",
-          "He's good at singing."
-        ],
+            "I'm good at drawing.",
+            "She's good at dancing.",
+            "He's good at singing."
+          ],
+          "phrase_starts": [6.36, 12.58, 16.46],
         "talking_scenario": "比赛后安慰输了的队伍，鼓励大家的擅长"
       },
       {
@@ -2275,10 +2277,11 @@ const SECTIONS_DATA = {
         "talking_title": "A beautiful school garden",
         "talking_pattern": "What's this/that? It's a/an ...",
         "talking_phrases": [
-          "What's this?",
-          "It's a flower.",
-          "It's an orange tree."
-        ],
+            "What's this?",
+            "It's a flower.",
+            "It's an orange tree."
+          ],
+          "phrase_starts": [33.70, 34.12, 35.60],
         "talking_scenario": ""
       },
       {
@@ -2628,9 +2631,10 @@ const SECTIONS_DATA = {
         "talking_title": "Where does it come from?",
         "talking_pattern": "Where does/do ... come from? It comes from ...",
         "talking_phrases": [
-          "Where does water come from?",
-          "It comes from clouds."
-        ],
+            "Where does water come from?",
+            "It comes from clouds."
+          ],
+          "phrase_starts": [6.58, 8.20],
         "talking_scenario": ""
       },
       {
@@ -2921,9 +2925,10 @@ const SECTIONS_DATA = {
         "talking_title": "Helping others",
         "talking_pattern": "I can ... / Can you ...?",
         "talking_phrases": [
-          "I can help my mum.",
-          "I can cook."
-        ],
+            "I can help my mum.",
+            "I can cook."
+          ],
+          "phrase_starts": [7.74, 50.34],
         "talking_scenario": ""
       },
       {
@@ -3244,9 +3249,10 @@ const SECTIONS_DATA = {
         "talking_title": "How do you feel?",
         "talking_pattern": "How do you feel? I'm/We're ...",
         "talking_phrases": [
-          "How do you feel?",
-          "I'm happy/excited."
-        ],
+            "How do you feel?",
+            "I'm happy/excited."
+          ],
+          "phrase_starts": [5.84, 20.70],
         "talking_scenario": ""
       },
       {
@@ -3538,9 +3544,10 @@ const SECTIONS_DATA = {
         "talking_title": "Dream jobs",
         "talking_pattern": "What's ...? ... is ...",
         "talking_phrases": [
-          "What's your job?",
-          "I'm an astronaut."
-        ],
+            "What's your job?",
+            "I'm an astronaut."
+          ],
+          "phrase_starts": [15.20, 16.08],
         "talking_scenario": ""
       },
       {
@@ -3860,9 +3867,10 @@ const SECTIONS_DATA = {
         "talking_title": "Where is the library?",
         "talking_pattern": "Where is the library/museum? It's ... / Walk along ... Turn left/right at ...",
         "talking_phrases": [
-          "Walk along this road.",
-          "Turn left at the school."
-        ],
+            "Walk along this road.",
+            "Turn left at the school."
+          ],
+          "phrase_starts": [21.72, 24.10],
         "talking_scenario": ""
       },
       {
@@ -4154,9 +4162,10 @@ const SECTIONS_DATA = {
         "talking_title": "The Double Ninth Festival",
         "talking_pattern": "Let's ...",
         "talking_phrases": [
-          "Let's celebrate together.",
-          "Let's visit grandparents."
-        ],
+            "Let's celebrate together.",
+            "Let's visit grandparents."
+          ],
+          "phrase_starts": [41.46, 50.58],
         "talking_scenario": ""
       },
       {
@@ -4505,9 +4514,10 @@ const SECTIONS_DATA = {
         "talking_title": "World Food Festival",
         "talking_pattern": "There is/are ...",
         "talking_phrases": [
-          "There is pizza.",
-          "There are noodles."
-        ],
+            "There is pizza.",
+            "There are noodles."
+          ],
+          "phrase_starts": [20.98, 34.84],
         "talking_scenario": ""
       },
       {

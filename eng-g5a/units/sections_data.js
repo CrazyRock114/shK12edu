@@ -244,10 +244,11 @@ const SECTIONS_DATA = {
         "talking_title": "It's good to join clubs",
         "talking_pattern": "I'm/I'm going to...",
         "talking_phrases": [
-          "I'm glad you like it.",
-          "I'm going to join the Photo Club this year.",
-          "You can meet new friends and have fun!"
-        ],
+            "I'm glad you like it.",
+            "I'm going to join the Photo Club this year.",
+            "You can meet new friends and have fun!"
+          ],
+          "phrase_starts": [148.38, 148.38, 148.38],
         "talking_scenario": "Shenshen 跟 Xiaojiang 聊摄影、加入 Photo Club 的打算"
       },
       {
@@ -481,11 +482,12 @@ const SECTIONS_DATA = {
         "talking_title": "As fast as the wind",
         "talking_pattern": "Look at me. I look/move/stand/sit like a...",
         "talking_phrases": [
-          "Is this Shaolin kung fu?",
-          "This is changquan. It's the mother of many kung fu styles.",
-          "Stand like a pine tree.",
-          "Move as fast as the wind."
-        ],
+            "Is this Shaolin kung fu?",
+            "This is changquan. It's the mother of many kung fu styles.",
+            "Move as fast as the wind.",
+            "Stand like a pine tree."
+          ],
+          "phrase_starts": [13.36, 18.14, 38.68, 38.68],
         "talking_scenario": "James 问 Mr Zhong 关于长拳，描述武术动作"
       },
       {
@@ -779,10 +781,11 @@ const SECTIONS_DATA = {
         "talking_title": "Plants and the weather",
         "talking_pattern": "look(s) like...",
         "talking_phrases": [
-          "What does it look like?",
-          "It looks like a...",
-          "Plants can tell us about the weather."
-        ],
+            "It looks like a...",
+            "Plants can tell us about the weather.",
+            "What does it look like?"
+          ],
+          "phrase_starts": [113.74, 113.74, 113.74],
         "talking_scenario": "描述植物外形 + 植物预兆天气"
       },
       {
@@ -1102,10 +1105,11 @@ const SECTIONS_DATA = {
         "talking_title": "In a safari park",
         "talking_pattern": "feel/look/taste (adj.)...",
         "talking_phrases": [
-          "The tiger looks scary.",
-          "The fish tastes good.",
-          "The fur feels soft."
-        ],
+            "The fish tastes good.",
+            "The fur feels soft.",
+            "The tiger looks scary."
+          ],
+          "phrase_starts": [71.38, 71.38, 71.38],
         "talking_scenario": "在野生动物园描述动物感受"
       },
       {
@@ -1368,11 +1372,12 @@ const SECTIONS_DATA = {
         "talking_title": "At the doctor's",
         "talking_pattern": "Don't (do)...",
         "talking_phrases": [
-          "What's the matter?",
-          "I have a fever.",
-          "Don't eat too much candy.",
-          "Take the medicine."
-        ],
+            "Don't eat too much candy.",
+            "I have a fever.",
+            "Take the medicine.",
+            "What's the matter?"
+          ],
+          "phrase_starts": [174.38, 174.38, 174.38, 174.38],
         "talking_scenario": "看医生时描述病症 + 健康建议"
       },
       {
@@ -1636,12 +1641,13 @@ const SECTIONS_DATA = {
         "talking_title": "Be better",
         "talking_pattern": "was/were...",
         "talking_phrases": [
-          "I was short.",
-          "Now I am tall.",
-          "I was bad at English.",
-          "Now I'm good at it.",
-          "I will try my best."
-        ],
+            "I was bad at English.",
+            "I was short.",
+            "I will try my best.",
+            "Now I am tall.",
+            "Now I'm good at it."
+          ],
+          "phrase_starts": [64.02, 64.02, 64.02, 64.02, 64.02],
         "talking_scenario": "对比过去和现在，展望未来"
       },
       {
@@ -1935,10 +1941,11 @@ const SECTIONS_DATA = {
         "talking_title": "Do you know them?",
         "talking_pattern": "This is ..., a/the ...",
         "talking_phrases": [
-          "This is Yuan Longping.",
-          "He is known as the 'Father of Hybrid Rice'.",
-          "He was creative and hard-working."
-        ],
+            "He is known as the 'Father of Hybrid Rice'.",
+            "He was creative and hard-working.",
+            "This is Yuan Longping."
+          ],
+          "phrase_starts": [93.38, 93.38, 93.38],
         "talking_scenario": "介绍著名科学家"
       },
       {
@@ -2258,11 +2265,12 @@ const SECTIONS_DATA = {
         "talking_title": "New inventions",
         "talking_pattern": "It's important to (do)...",
         "talking_phrases": [
-          "What is it?",
-          "It's a new invention.",
-          "It's important to read more.",
-          "It can help us..."
-        ],
+            "It can help us...",
+            "It's a new invention.",
+            "It's important to read more.",
+            "What is it?"
+          ],
+          "phrase_starts": [68.38, 68.38, 68.38, 68.38],
         "talking_scenario": "介绍新发明 + 表达重要性"
       },
       {
@@ -2553,10 +2561,11 @@ const SECTIONS_DATA = {
         "talking_title": "All about computers",
         "talking_pattern": "as...as...",
         "talking_phrases": [
-          "The computer is as fast as the wind.",
-          "He is as tall as his father.",
-          "The screen is as big as a book."
-        ],
+            "He is as tall as his father.",
+            "The computer is as fast as the wind.",
+            "The screen is as big as a book."
+          ],
+          "phrase_starts": [96.38, 96.38, 96.38],
         "talking_scenario": "用 as...as 比较电脑性能/特征"
       },
       {
@@ -2819,11 +2828,12 @@ const SECTIONS_DATA = {
         "talking_title": "Habits for a greener life",
         "talking_pattern": "It is a good way to (do)...",
         "talking_phrases": [
-          "What can we do for the Earth?",
-          "We can reduce, reuse and recycle.",
-          "It is a good way to save water.",
-          "Don't throw rubbish away."
-        ],
+            "Don't throw rubbish away.",
+            "It is a good way to save water.",
+            "We can reduce, reuse and recycle.",
+            "What can we do for the Earth?"
+          ],
+          "phrase_starts": [153.38, 153.38, 153.38, 153.38],
         "talking_scenario": "讨论环保习惯"
       },
       {
