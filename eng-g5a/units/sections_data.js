@@ -295,28 +295,28 @@ const SECTIONS_DATA = {
         "audio": "unit2/sections/topic_words.mp3",
         "words": [
           {
-            "en": "traditional",
-            "zh": "传统的",
-            "full": "traditional games 传统游戏",
-            "extra": "🏛 古老的"
-          },
-          {
             "en": "Chinese yo-yo",
             "zh": "中国溜溜球",
             "full": "Chinese yo-yo 中国溜溜球",
             "extra": "🪀 空竹"
           },
           {
-            "en": "kite-flying",
-            "zh": "放风筝",
-            "full": "kite-flying 放风筝",
-            "extra": "🪁 春季活动"
-          },
-          {
             "en": "dragon dance",
             "zh": "舞龙",
             "full": "dragon dance 舞龙",
             "extra": "🐉 春节表演"
+          },
+          {
+            "en": "traditional",
+            "zh": "传统的",
+            "full": "traditional games 传统游戏",
+            "extra": "🏛 古老的"
+          },
+          {
+            "en": "kite-flying",
+            "zh": "放风筝",
+            "full": "kite-flying 放风筝",
+            "extra": "🪁 春季活动"
           },
           {
             "en": "tug of war",
@@ -442,7 +442,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [-1.00, -1.00, 6.56, -1.00, 10.88],
+            "word_starts": [-1.00, -1.00, -1.00, 6.56, 10.88],
             
         "big_task": "Talking about my favourite traditional game"
       },
@@ -534,12 +534,6 @@ const SECTIONS_DATA = {
         "audio": "unit3/sections/topic_words.mp3",
         "words": [
           {
-            "en": "root",
-            "zh": "根",
-            "full": "root 根",
-            "extra": "🌱 地下部分"
-          },
-          {
             "en": "stem",
             "zh": "茎",
             "full": "stem 茎",
@@ -552,16 +546,22 @@ const SECTIONS_DATA = {
             "extra": "🍃 光合作用"
           },
           {
+            "en": "root",
+            "zh": "根",
+            "full": "root 根",
+            "extra": "🌱 地下部分"
+          },
+          {
             "en": "soil",
             "zh": "土壤",
             "full": "soil 土壤",
             "extra": "🪨 植物生长"
           },
           {
-            "en": "water lily",
-            "zh": "睡莲",
-            "full": "water lily 睡莲",
-            "extra": "🪷 池塘花"
+            "en": "morning glory",
+            "zh": "牵牛花",
+            "full": "morning glory 牵牛花",
+            "extra": "🌸 喇叭花"
           },
           {
             "en": "pine cone",
@@ -570,10 +570,10 @@ const SECTIONS_DATA = {
             "extra": "🌲 松树果实"
           },
           {
-            "en": "morning glory",
-            "zh": "牵牛花",
-            "full": "morning glory 牵牛花",
-            "extra": "🌸 喇叭花"
+            "en": "water lily",
+            "zh": "睡莲",
+            "full": "water lily 睡莲",
+            "extra": "🪷 池塘花"
           }
         ],
             "word_coords": {
@@ -739,7 +739,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [13.82, -1.00, 5.24, 17.22, 29.52, 26.22, 20.96],
+            "word_starts": [-1.00, 5.24, 13.82, 17.22, 20.96, 26.22, 29.52],
             
         "big_task": "Making a plant poster"
       },
@@ -829,28 +829,10 @@ const SECTIONS_DATA = {
         "audio": "unit4/sections/topic_words.mp3",
         "words": [
           {
-            "en": "safari park",
-            "zh": "野生动物园",
-            "full": "safari park 野生动物园",
-            "extra": "🦁 半野生"
-          },
-          {
-            "en": "tiger",
-            "zh": "老虎",
-            "full": "tiger 老虎",
-            "extra": "🐅 丛林之王"
-          },
-          {
-            "en": "lion",
-            "zh": "狮子",
-            "full": "lion 狮子",
-            "extra": "🦁 万兽之王"
-          },
-          {
-            "en": "whale",
-            "zh": "鲸鱼",
-            "full": "whale 鲸鱼",
-            "extra": "🐋 海洋最大"
+            "en": "hippo",
+            "zh": "河马",
+            "full": "hippo 河马",
+            "extra": "🦛 水中巨兽"
           },
           {
             "en": "panda",
@@ -859,22 +841,40 @@ const SECTIONS_DATA = {
             "extra": "🐼 中国国宝"
           },
           {
+            "en": "tiger",
+            "zh": "老虎",
+            "full": "tiger 老虎",
+            "extra": "🐅 丛林之王"
+          },
+          {
+            "en": "safari park",
+            "zh": "野生动物园",
+            "full": "safari park 野生动物园",
+            "extra": "🦁 半野生"
+          },
+          {
             "en": "giraffe",
             "zh": "长颈鹿",
             "full": "giraffe 长颈鹿",
             "extra": "🦒 最高动物"
           },
           {
-            "en": "hippo",
-            "zh": "河马",
-            "full": "hippo 河马",
-            "extra": "🦛 水中巨兽"
+            "en": "whale",
+            "zh": "鲸鱼",
+            "full": "whale 鲸鱼",
+            "extra": "🐋 海洋最大"
           },
           {
             "en": "elephant",
             "zh": "大象",
             "full": "elephant 大象",
             "extra": "🐘 陆地最大"
+          },
+          {
+            "en": "lion",
+            "zh": "狮子",
+            "full": "lion 狮子",
+            "extra": "🦁 万兽之王"
           }
         ],
             "word_coords": {
@@ -1063,7 +1063,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [5.90, -1.00, 20.76, 13.54, -1.00, 10.34, -1.00, 17.14],
+            "word_starts": [-1.00, -1.00, -1.00, 5.90, 10.34, 13.54, 17.14, 20.76],
             
         "big_task": "Writing a diary"
       },
@@ -1158,18 +1158,6 @@ const SECTIONS_DATA = {
             "extra": "👨‍⚕️ 看病"
           },
           {
-            "en": "cough",
-            "zh": "咳嗽",
-            "full": "cough 咳嗽",
-            "extra": "😷 喉咙"
-          },
-          {
-            "en": "runny nose",
-            "zh": "流鼻涕",
-            "full": "runny nose 流鼻涕",
-            "extra": "🤧 感冒症状"
-          },
-          {
             "en": "nurse",
             "zh": "护士",
             "full": "nurse 护士",
@@ -1186,6 +1174,18 @@ const SECTIONS_DATA = {
             "zh": "药",
             "full": "medicine 药",
             "extra": "💊 治疗"
+          },
+          {
+            "en": "cough",
+            "zh": "咳嗽",
+            "full": "cough 咳嗽",
+            "extra": "😷 喉咙"
+          },
+          {
+            "en": "runny nose",
+            "zh": "流鼻涕",
+            "full": "runny nose 流鼻涕",
+            "extra": "🤧 感冒症状"
           }
         ],
             "word_coords": {
@@ -1328,7 +1328,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [5.82, 24.10, 117.74, 9.36, 17.30, 20.04],
+            "word_starts": [5.82, 9.36, 17.30, 20.04, 24.10, 117.74],
             
         "big_task": "Giving health tips"
       },
@@ -1420,30 +1420,6 @@ const SECTIONS_DATA = {
         "audio": "unit6/sections/topic_words.mp3",
         "words": [
           {
-            "en": "try my best",
-            "zh": "尽我所能",
-            "full": "try my best 尽我所能",
-            "extra": "💪 努力"
-          },
-          {
-            "en": "will",
-            "zh": "将",
-            "full": "will will 将会",
-            "extra": "⏰ 将来时"
-          },
-          {
-            "en": "succeed",
-            "zh": "成功",
-            "full": "succeed 成功",
-            "extra": "🏆 达成"
-          },
-          {
-            "en": "practice",
-            "zh": "练习",
-            "full": "practice 练习",
-            "extra": "🎯 反复"
-          },
-          {
             "en": "better",
             "zh": "更好",
             "full": "better 更好",
@@ -1454,6 +1430,30 @@ const SECTIONS_DATA = {
             "zh": "放弃",
             "full": "give up 放弃",
             "extra": "🚫 停止"
+          },
+          {
+            "en": "practice",
+            "zh": "练习",
+            "full": "practice 练习",
+            "extra": "🎯 反复"
+          },
+          {
+            "en": "succeed",
+            "zh": "成功",
+            "full": "succeed 成功",
+            "extra": "🏆 达成"
+          },
+          {
+            "en": "try my best",
+            "zh": "尽我所能",
+            "full": "try my best 尽我所能",
+            "extra": "💪 努力"
+          },
+          {
+            "en": "will",
+            "zh": "将",
+            "full": "will will 将会",
+            "extra": "⏰ 将来时"
           }
         ],
             "word_coords": {
@@ -1985,34 +1985,16 @@ const SECTIONS_DATA = {
         "audio": "unit8/sections/topic_words.mp3",
         "words": [
           {
-            "en": "useful",
-            "zh": "有用的",
-            "full": "useful 有用的",
-            "extra": "👍 有帮助"
-          },
-          {
-            "en": "invention",
-            "zh": "发明",
-            "full": "invention 发明",
-            "extra": "💡 新创造"
-          },
-          {
             "en": "problem",
             "zh": "问题",
             "full": "problem 问题",
             "extra": "❓ 困难"
           },
           {
-            "en": "wheel",
-            "zh": "轮子",
-            "full": "wheel 轮子",
-            "extra": "☸️ 圆形"
-          },
-          {
-            "en": "printing",
-            "zh": "印刷",
-            "full": "printing 印刷",
-            "extra": "📖 印书"
+            "en": "robot",
+            "zh": "机器人",
+            "full": "robot 机器人",
+            "extra": "🤖 智能"
           },
           {
             "en": "television",
@@ -2021,16 +2003,34 @@ const SECTIONS_DATA = {
             "extra": "📺 看节目"
           },
           {
+            "en": "useful",
+            "zh": "有用的",
+            "full": "useful 有用的",
+            "extra": "👍 有帮助"
+          },
+          {
+            "en": "wheel",
+            "zh": "轮子",
+            "full": "wheel 轮子",
+            "extra": "☸️ 圆形"
+          },
+          {
+            "en": "invention",
+            "zh": "发明",
+            "full": "invention 发明",
+            "extra": "💡 新创造"
+          },
+          {
+            "en": "printing",
+            "zh": "印刷",
+            "full": "printing 印刷",
+            "extra": "📖 印书"
+          },
+          {
             "en": "light",
             "zh": "灯",
             "full": "light 灯/光",
             "extra": "💡 照明"
-          },
-          {
-            "en": "robot",
-            "zh": "机器人",
-            "full": "robot 机器人",
-            "extra": "🤖 智能"
           }
         ],
             "word_coords": {
@@ -2219,7 +2219,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [-1.00, 5.56, -1.00, -1.00, 10.68, -1.00, 14.08, -1.00],
+            "word_starts": [-1.00, -1.00, -1.00, -1.00, -1.00, 5.56, 10.68, 14.08],
             
         "big_task": "Making an ad for a useful invention"
       },
@@ -2309,34 +2309,16 @@ const SECTIONS_DATA = {
         "audio": "unit9/sections/topic_words.mp3",
         "words": [
           {
-            "en": "laptop",
-            "zh": "笔记本电脑",
-            "full": "laptop 笔记本电脑",
-            "extra": "💻 便携"
-          },
-          {
-            "en": "password",
-            "zh": "密码",
-            "full": "password 密码",
-            "extra": "🔒 保密"
-          },
-          {
-            "en": "mouse",
-            "zh": "鼠标",
-            "full": "mouse 鼠标",
-            "extra": "🖱 电脑配件"
-          },
-          {
             "en": "click",
             "zh": "点击",
             "full": "click 点击",
             "extra": "👆 鼠标动作"
           },
           {
-            "en": "keyboard",
-            "zh": "键盘",
-            "full": "keyboard 键盘",
-            "extra": "⌨️ 打字"
+            "en": "delete",
+            "zh": "删除",
+            "full": "delete 删除",
+            "extra": "🗑 移除"
           },
           {
             "en": "email",
@@ -2345,10 +2327,28 @@ const SECTIONS_DATA = {
             "extra": "📧 网络信件"
           },
           {
-            "en": "delete",
-            "zh": "删除",
-            "full": "delete 删除",
-            "extra": "🗑 移除"
+            "en": "keyboard",
+            "zh": "键盘",
+            "full": "keyboard 键盘",
+            "extra": "⌨️ 打字"
+          },
+          {
+            "en": "laptop",
+            "zh": "笔记本电脑",
+            "full": "laptop 笔记本电脑",
+            "extra": "💻 便携"
+          },
+          {
+            "en": "mouse",
+            "zh": "鼠标",
+            "full": "mouse 鼠标",
+            "extra": "🖱 电脑配件"
+          },
+          {
+            "en": "password",
+            "zh": "密码",
+            "full": "password 密码",
+            "extra": "🔒 保密"
           }
         ],
             "word_coords": {
@@ -2603,6 +2603,30 @@ const SECTIONS_DATA = {
         "audio": "unit10/sections/topic_words.mp3",
         "words": [
           {
+            "en": "turn off",
+            "zh": "关掉",
+            "full": "turn off 关掉",
+            "extra": "🔌 关闭电源"
+          },
+          {
+            "en": "throw away",
+            "zh": "扔掉",
+            "full": "throw away 扔掉",
+            "extra": "🗑 丢弃"
+          },
+          {
+            "en": "recycle",
+            "zh": "回收",
+            "full": "recycle 回收",
+            "extra": "♻️ 分类处理"
+          },
+          {
+            "en": "pick up",
+            "zh": "捡起",
+            "full": "pick up 捡起",
+            "extra": "✋ 拾起"
+          },
+          {
             "en": "reduce",
             "zh": "减少",
             "full": "reduce 减少使用",
@@ -2613,30 +2637,6 @@ const SECTIONS_DATA = {
             "zh": "再利用",
             "full": "reuse 再利用",
             "extra": "♻️ 重复用"
-          },
-          {
-            "en": "recycle",
-            "zh": "回收",
-            "full": "recycle 回收",
-            "extra": "♻️ 分类处理"
-          },
-          {
-            "en": "throw away",
-            "zh": "扔掉",
-            "full": "throw away 扔掉",
-            "extra": "🗑 丢弃"
-          },
-          {
-            "en": "turn off",
-            "zh": "关掉",
-            "full": "turn off 关掉",
-            "extra": "🔌 关闭电源"
-          },
-          {
-            "en": "pick up",
-            "zh": "捡起",
-            "full": "pick up 捡起",
-            "extra": "✋ 拾起"
           }
         ],
             "word_coords": {
@@ -2779,7 +2779,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [21.96, 26.56, 13.24, 9.60, 5.48, 18.72],
+            "word_starts": [5.48, 9.60, 13.24, 18.72, 21.96, 26.56],
             
         "big_task": "Making a booklet on a greener life"
       },

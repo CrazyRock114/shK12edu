@@ -1399,10 +1399,10 @@ const SECTIONS_DATA = {
         "audio": "unit1/sections/topic_words.mp3",
         "words": [
           {
-            "en": "school",
-            "zh": "学校",
+            "en": "teacher",
+            "zh": "老师",
             "full": "",
-            "extra": "🏫 buildings/classroom"
+            "extra": "👩‍🏫 教书的人"
           },
           {
             "en": "classmate",
@@ -1411,16 +1411,10 @@ const SECTIONS_DATA = {
             "extra": "👫 同班同学"
           },
           {
-            "en": "teacher",
-            "zh": "老师",
+            "en": "book",
+            "zh": "书",
             "full": "",
-            "extra": "👩‍🏫 教书的人"
-          },
-          {
-            "en": "play sports",
-            "zh": "做运动",
-            "full": "",
-            "extra": "⚽ 跑跳打球"
+            "extra": "📚 有故事"
           },
           {
             "en": "read",
@@ -1429,22 +1423,28 @@ const SECTIONS_DATA = {
             "extra": "📖 看书"
           },
           {
-            "en": "book",
-            "zh": "书",
+            "en": "play sports",
+            "zh": "做运动",
             "full": "",
-            "extra": "📚 有故事"
+            "extra": "⚽ 跑跳打球"
           },
           {
-            "en": "study",
-            "zh": "学习",
+            "en": "school",
+            "zh": "学校",
             "full": "",
-            "extra": "✏️ 用功读书"
+            "extra": "🏫 buildings/classroom"
           },
           {
             "en": "friend",
             "zh": "朋友",
             "full": "",
             "extra": "👫 buddy"
+          },
+          {
+            "en": "study",
+            "zh": "学习",
+            "full": "",
+            "extra": "✏️ 用功读书"
           }
         ],
             "word_coords": {
@@ -1633,7 +1633,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [23.00, 8.70, 6.00, 18.56, 16.00, 13.36, 29.18, 25.78],
+            "word_starts": [6.00, 8.70, 13.36, 16.00, 18.56, 23.00, 25.78, 29.18],
             
         "big_task": "Making a goal leaf"
       },
@@ -1736,10 +1736,10 @@ const SECTIONS_DATA = {
             "extra": "🎨 用笔"
           },
           {
-            "en": "tell a story",
-            "zh": "讲故事",
+            "en": "sing",
+            "zh": "唱歌",
             "full": "",
-            "extra": "📖 给别人听"
+            "extra": "🎤 出声"
           },
           {
             "en": "dance",
@@ -1748,10 +1748,10 @@ const SECTIONS_DATA = {
             "extra": "💃 音乐"
           },
           {
-            "en": "sing",
-            "zh": "唱歌",
+            "en": "tell a story",
+            "zh": "讲故事",
             "full": "",
-            "extra": "🎤 出声"
+            "extra": "📖 给别人听"
           },
           {
             "en": "use the computer",
@@ -1935,7 +1935,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [6.56, 16.48, 12.92, 10.56, 21.56, 26.40, 28.50],
+            "word_starts": [6.56, 10.56, 12.92, 16.48, 21.56, 26.40, 28.50],
             
         "big_task": "Talking about yourself and your classmates"
       },
@@ -2025,28 +2025,10 @@ const SECTIONS_DATA = {
         "audio": "unit3/sections/topic_words.mp3",
         "words": [
           {
-            "en": "garden",
-            "zh": "花园",
-            "full": "",
-            "extra": "🌷 植物园地"
-          },
-          {
             "en": "flower",
             "zh": "花",
             "full": "",
             "extra": "🌸 美丽"
-          },
-          {
-            "en": "vegetable",
-            "zh": "蔬菜",
-            "full": "",
-            "extra": "🥬 吃的植物"
-          },
-          {
-            "en": "plant",
-            "zh": "植物",
-            "full": "",
-            "extra": "🌱 活的"
           },
           {
             "en": "orange tree",
@@ -2065,6 +2047,24 @@ const SECTIONS_DATA = {
             "zh": "胡萝卜",
             "full": "",
             "extra": "🥕 橙色根"
+          },
+          {
+            "en": "vegetable",
+            "zh": "蔬菜",
+            "full": "",
+            "extra": "🥬 吃的植物"
+          },
+          {
+            "en": "garden",
+            "zh": "花园",
+            "full": "",
+            "extra": "🌷 植物园地"
+          },
+          {
+            "en": "plant",
+            "zh": "植物",
+            "full": "",
+            "extra": "🌱 活的"
           }
         ],
             "word_coords": {
@@ -2230,7 +2230,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [24.42, -1.00, 18.00, 27.18, 6.60, 10.82, 14.56],
+            "word_starts": [-1.00, 6.60, 10.82, 14.56, 18.00, 24.42, 27.18],
             
         "big_task": "Making a school garden report"
       },
@@ -2320,30 +2320,6 @@ const SECTIONS_DATA = {
         "audio": "unit4/sections/topic_words.mp3",
         "words": [
           {
-            "en": "water",
-            "zh": "水",
-            "full": "",
-            "extra": "💧 H2O · 无色无味"
-          },
-          {
-            "en": "river",
-            "zh": "河",
-            "full": "",
-            "extra": "🏞 陆地流动"
-          },
-          {
-            "en": "lake",
-            "zh": "湖",
-            "full": "",
-            "extra": "🌊 内陆静水"
-          },
-          {
-            "en": "sea",
-            "zh": "海",
-            "full": "",
-            "extra": "🌊 咸的"
-          },
-          {
             "en": "water vapour",
             "zh": "水蒸气",
             "full": "",
@@ -2356,6 +2332,12 @@ const SECTIONS_DATA = {
             "extra": "☁️ 空中水滴"
           },
           {
+            "en": "water",
+            "zh": "水",
+            "full": "",
+            "extra": "💧 H2O · 无色无味"
+          },
+          {
             "en": "rain",
             "zh": "雨",
             "full": "",
@@ -2366,6 +2348,24 @@ const SECTIONS_DATA = {
             "zh": "雪",
             "full": "",
             "extra": "❄️ 冰晶"
+          },
+          {
+            "en": "lake",
+            "zh": "湖",
+            "full": "",
+            "extra": "🌊 内陆静水"
+          },
+          {
+            "en": "river",
+            "zh": "河",
+            "full": "",
+            "extra": "🏞 陆地流动"
+          },
+          {
+            "en": "sea",
+            "zh": "海",
+            "full": "",
+            "extra": "🌊 咸的"
           },
           {
             "en": "ice",
@@ -2583,7 +2583,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [11.66, 24.30, 20.86, 26.86, -1.00, 7.10, 15.32, 17.46, 33.64],
+            "word_starts": [-1.00, 7.10, 11.66, 15.32, 17.46, 20.86, 24.30, 26.86, 33.64],
             
         "big_task": "Making a lab report"
       },
@@ -2671,10 +2671,22 @@ const SECTIONS_DATA = {
         "audio": "unit5/sections/topic_words.mp3",
         "words": [
           {
-            "en": "help",
-            "zh": "帮助",
+            "en": "chore",
+            "zh": "家务",
             "full": "",
-            "extra": "🤝 协助"
+            "extra": "🧹 家务活"
+          },
+          {
+            "en": "walk the dog",
+            "zh": "遛狗",
+            "full": "",
+            "extra": "🐕 户外活动"
+          },
+          {
+            "en": "clean the table",
+            "zh": "擦桌子",
+            "full": "",
+            "extra": "🧽 餐桌清洁"
           },
           {
             "en": "cook",
@@ -2689,28 +2701,16 @@ const SECTIONS_DATA = {
             "extra": "🍽 饭后清洁"
           },
           {
-            "en": "clean the table",
-            "zh": "擦桌子",
-            "full": "",
-            "extra": "🧽 餐桌清洁"
-          },
-          {
-            "en": "walk the dog",
-            "zh": "遛狗",
-            "full": "",
-            "extra": "🐕 户外活动"
-          },
-          {
-            "en": "chore",
-            "zh": "家务",
-            "full": "",
-            "extra": "🧹 家务活"
-          },
-          {
             "en": "give your seat",
             "zh": "让座",
             "full": "",
             "extra": "💺 给需要的人"
+          },
+          {
+            "en": "help",
+            "zh": "帮助",
+            "full": "",
+            "extra": "🤝 协助"
           }
         ],
             "word_coords": {
@@ -2876,7 +2876,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [30.62, 16.32, 19.08, 11.64, 7.92, -1.00, 23.64],
+            "word_starts": [-1.00, 7.92, 11.64, 16.32, 19.08, 23.64, 30.62],
             
         "big_task": "Being a good helper"
       },
@@ -2971,10 +2971,28 @@ const SECTIONS_DATA = {
             "extra": "😊 高兴"
           },
           {
+            "en": "tired",
+            "zh": "累",
+            "full": "",
+            "extra": "😴 疲倦"
+          },
+          {
             "en": "sad",
             "zh": "难过",
             "full": "",
             "extra": "😢 不开心"
+          },
+          {
+            "en": "scared",
+            "zh": "害怕",
+            "full": "",
+            "extra": "😨 怕"
+          },
+          {
+            "en": "excited",
+            "zh": "兴奋",
+            "full": "",
+            "extra": "🤩 激动"
           },
           {
             "en": "good",
@@ -2987,24 +3005,6 @@ const SECTIONS_DATA = {
             "zh": "坏",
             "full": "",
             "extra": "👎 不好"
-          },
-          {
-            "en": "excited",
-            "zh": "兴奋",
-            "full": "",
-            "extra": "🤩 激动"
-          },
-          {
-            "en": "scared",
-            "zh": "害怕",
-            "full": "",
-            "extra": "😨 怕"
-          },
-          {
-            "en": "tired",
-            "zh": "累",
-            "full": "",
-            "extra": "😴 疲倦"
           },
           {
             "en": "unhappy",
@@ -3199,7 +3199,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [6.58, 13.58, 23.94, 26.86, 20.22, 16.94, 10.34, 29.74],
+            "word_starts": [6.58, 10.34, 13.58, 16.94, 20.22, 23.94, 26.86, 29.74],
             
         "big_task": "Writing a letter to Mr Tree"
       },
@@ -3288,28 +3288,10 @@ const SECTIONS_DATA = {
         "audio": "unit7/sections/topic_words.mp3",
         "words": [
           {
-            "en": "driver",
-            "zh": "司机",
-            "full": "",
-            "extra": "🚗 开车"
-          },
-          {
             "en": "police officer",
             "zh": "警察",
             "full": "",
             "extra": "👮 抓坏人"
-          },
-          {
-            "en": "engineer",
-            "zh": "工程师",
-            "full": "",
-            "extra": "👷 造东西"
-          },
-          {
-            "en": "writer",
-            "zh": "作家",
-            "full": "",
-            "extra": "✍️ 写书"
           },
           {
             "en": "doctor",
@@ -3318,16 +3300,34 @@ const SECTIONS_DATA = {
             "extra": "👨‍⚕️ 治病"
           },
           {
-            "en": "chef",
-            "zh": "厨师",
-            "full": "",
-            "extra": "👨‍🍳 做饭"
-          },
-          {
             "en": "astronaut",
             "zh": "宇航员",
             "full": "",
             "extra": "🚀 太空"
+          },
+          {
+            "en": "driver",
+            "zh": "司机",
+            "full": "",
+            "extra": "🚗 开车"
+          },
+          {
+            "en": "writer",
+            "zh": "作家",
+            "full": "",
+            "extra": "✍️ 写书"
+          },
+          {
+            "en": "engineer",
+            "zh": "工程师",
+            "full": "",
+            "extra": "👷 造东西"
+          },
+          {
+            "en": "chef",
+            "zh": "厨师",
+            "full": "",
+            "extra": "👨‍🍳 做饭"
           }
         ],
             "word_coords": {
@@ -3493,7 +3493,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [18.94, 7.00, 26.00, 23.38, 11.64, 28.74, 15.62],
+            "word_starts": [7.00, 11.64, 15.62, 18.94, 23.38, 26.00, 28.74],
             
         "big_task": "Doing a group interview"
       },
@@ -3581,22 +3581,22 @@ const SECTIONS_DATA = {
         "audio": "unit8/sections/topic_words.mp3",
         "words": [
           {
+            "en": "museum",
+            "zh": "博物馆",
+            "full": "",
+            "extra": "🏛 看展品"
+          },
+          {
+            "en": "road",
+            "zh": "路",
+            "full": "",
+            "extra": "🛣 道路"
+          },
+          {
             "en": "library",
             "zh": "图书馆",
             "full": "",
             "extra": "📚 借书/看书"
-          },
-          {
-            "en": "find the way",
-            "zh": "找路",
-            "full": "",
-            "extra": "🗺 看地图"
-          },
-          {
-            "en": "get to",
-            "zh": "到达",
-            "full": "",
-            "extra": "🎯 去某地"
           },
           {
             "en": "walk along",
@@ -3605,10 +3605,10 @@ const SECTIONS_DATA = {
             "extra": "🚶 顺路走"
           },
           {
-            "en": "road",
-            "zh": "路",
+            "en": "find the way",
+            "zh": "找路",
             "full": "",
-            "extra": "🛣 道路"
+            "extra": "🗺 看地图"
           },
           {
             "en": "left",
@@ -3623,10 +3623,10 @@ const SECTIONS_DATA = {
             "extra": "➡️ 也\"对的\""
           },
           {
-            "en": "museum",
-            "zh": "博物馆",
+            "en": "get to",
+            "zh": "到达",
             "full": "",
-            "extra": "🏛 看展品"
+            "extra": "🎯 去某地"
           }
         ],
             "word_coords": {
@@ -3815,7 +3815,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [15.34, 23.14, 33.64, 19.08, 11.30, 27.82, 30.64, 7.46],
+            "word_starts": [7.46, 11.30, 15.34, 19.08, 23.14, 27.82, 30.64, 33.64],
             
         "big_task": "Finding the places"
       },
@@ -3904,24 +3904,6 @@ const SECTIONS_DATA = {
         "audio": "unit9/sections/topic_words.mp3",
         "words": [
           {
-            "en": "special days",
-            "zh": "特殊日子",
-            "full": "",
-            "extra": "🎉 节日"
-          },
-          {
-            "en": "the Double Ninth Festival",
-            "zh": "重阳节",
-            "full": "",
-            "extra": "🏔 农历九月初九·敬老"
-          },
-          {
-            "en": "celebrate",
-            "zh": "庆祝",
-            "full": "",
-            "extra": "🎊 过节"
-          },
-          {
             "en": "Chinese New Year",
             "zh": "春节",
             "full": "",
@@ -3934,16 +3916,34 @@ const SECTIONS_DATA = {
             "extra": "🧧 农历新年·同 Chinese New Year"
           },
           {
+            "en": "the Double Ninth Festival",
+            "zh": "重阳节",
+            "full": "",
+            "extra": "🏔 农历九月初九·敬老"
+          },
+          {
             "en": "the Lantern Festival",
             "zh": "元宵节",
             "full": "",
             "extra": "🏮 农历正月十五·吃汤圆"
           },
           {
+            "en": "special days",
+            "zh": "特殊日子",
+            "full": "",
+            "extra": "🎉 节日"
+          },
+          {
             "en": "holiday",
             "zh": "假日",
             "full": "",
             "extra": "🏖 放假"
+          },
+          {
+            "en": "celebrate",
+            "zh": "庆祝",
+            "full": "",
+            "extra": "🎊 过节"
           }
         ],
             "word_coords": {
@@ -4109,7 +4109,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [27.72, 17.00, 37.22, 7.94, 11.84, 22.56, 33.72],
+            "word_starts": [7.94, 11.84, 17.00, 22.56, 27.72, 33.72, 37.22],
             
         "big_task": "Planning New Year activities"
       },
@@ -4197,10 +4197,10 @@ const SECTIONS_DATA = {
         "audio": "unit10/sections/topic_words.mp3",
         "words": [
           {
-            "en": "food",
-            "zh": "食物",
+            "en": "sandwich",
+            "zh": "三明治",
             "full": "",
-            "extra": "🍴 吃的"
+            "extra": "🥪 夹心面包"
           },
           {
             "en": "noodles",
@@ -4209,22 +4209,28 @@ const SECTIONS_DATA = {
             "extra": "🍜 中国·长条"
           },
           {
+            "en": "hot dog",
+            "zh": "热狗",
+            "full": "",
+            "extra": "🌭 美国·香肠面包"
+          },
+          {
             "en": "pizza",
             "zh": "披萨",
             "full": "",
             "extra": "🍕 意大利·圆形"
           },
           {
-            "en": "sandwich",
-            "zh": "三明治",
+            "en": "bread",
+            "zh": "面包",
             "full": "",
-            "extra": "🥪 夹心面包"
+            "extra": "🍞 西方主食"
           },
           {
-            "en": "hot dog",
-            "zh": "热狗",
+            "en": "food",
+            "zh": "食物",
             "full": "",
-            "extra": "🌭 美国·香肠面包"
+            "extra": "🍴 吃的"
           },
           {
             "en": "fish and chips",
@@ -4237,12 +4243,6 @@ const SECTIONS_DATA = {
             "zh": "牛肉",
             "full": "",
             "extra": "🐄 红色肉类"
-          },
-          {
-            "en": "bread",
-            "zh": "面包",
-            "full": "",
-            "extra": "🍞 西方主食"
           },
           {
             "en": "cake",
@@ -4460,7 +4460,7 @@ const SECTIONS_DATA = {
                                     "img_h": 2168
                         }
             },
-            "word_starts": [23.88, 9.52, 18.00, 5.92, 14.00, 26.80, 31.38, 22.00, 34.34],
+            "word_starts": [5.92, 9.52, 14.00, 18.00, 22.00, 23.88, 26.80, 31.38, 34.34],
             
         "big_task": "Making a food card"
       },
