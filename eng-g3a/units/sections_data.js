@@ -18,6 +18,7 @@ const SECTIONS_DATA = {
           9
         ],
         "audio": "starter/sections/families_chain.m4a",
+        "word_starts": [0.00, 0.60, 1.26, 2.06, 2.44, 2.98],
         "words": [
           {
             "en": "Dad",
@@ -176,6 +177,7 @@ const SECTIONS_DATA = {
           10
         ],
         "audio": "starter/sections/teachers_chain.m4a",
+        "word_starts": [0.00, 0.74, 1.50, 2.54, 3.00],
         "words": [
           {
             "en": "Ms Yu",
@@ -306,6 +308,7 @@ const SECTIONS_DATA = {
           11
         ],
         "audio": "starter/sections/the_alphabet.mp3",
+        "word_starts": [42.02, 50.52, 53.14, 57.02, 60.76, 63.46, 66.46, 69.28, 73.30, 76.32, 79.46, 82.16, 85.44, 88.88, 92.80, 95.88, 98.38, 102.42, 105.64, 108.72, 111.88, 114.46, 117.64, 122.14, 125.14, 128.02],
         "words": [
           {
             "en": "Aa",
@@ -472,6 +475,7 @@ const SECTIONS_DATA = {
           12
         ],
         "audio": "starter/sections/seasons.mp3",
+        "word_starts": [4.00, 6.82, 10.82, 13.56],
         "words": [
           {
             "en": "spring",
@@ -597,6 +601,7 @@ const SECTIONS_DATA = {
           12
         ],
         "audio": "starter/sections/numbers.mp3",
+        "word_starts": [4.00, 7.46, 10.58, 14.38, 18.16, 22.06, 25.24, 29.32, 33.12, 36.64, 40.42, 44.12, 49.04, 52.52, 56.24, 60.32, 64.60, 68.80, 72.40, 76.36],
         "words": [
           {
             "en": "one",
@@ -1170,6 +1175,7 @@ const SECTIONS_DATA = {
           13
         ],
         "audio": "starter/sections/countries.mp3",
+        "word_starts": [3.00, 5.62, 8.78, 12.36, 16.10, 20.00, 23.00],
         "words": [
           {
             "en": "China",

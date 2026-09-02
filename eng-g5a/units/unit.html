@@ -517,12 +517,24 @@ function renderSectionSubtitle(sec) {
   let wordStarts = null;
   if (sec.song_lyrics && sec.song_lyrics.length) {
     lines = sec.song_lyrics;
+    if (sec.song_starts && sec.song_starts.length) {
+      wordStarts = sec.song_starts.join(',');
+    }
   } else if (sec.rhyme_lyrics && sec.rhyme_lyrics.length) {
     lines = sec.rhyme_lyrics;
+    if (sec.rhyme_starts && sec.rhyme_starts.length) {
+      wordStarts = sec.rhyme_starts.join(',');
+    }
   } else if (sec.chant_lyrics && sec.chant_lyrics.length) {
     lines = sec.chant_lyrics;
+    if (sec.chant_starts && sec.chant_starts.length) {
+      wordStarts = sec.chant_starts.join(',');
+    }
   } else if (sec.talking_phrases && sec.talking_phrases.length) {
     lines = sec.talking_phrases;
+    if (sec.phrase_starts && sec.phrase_starts.length) {
+      wordStarts = sec.phrase_starts.join(',');
+    }
   } else if (sec.story_summary) {
     lines = [sec.story_summary];
   } else if (sec.words && sec.words.length) {
